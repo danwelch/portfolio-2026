@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ArrowUpRight, MapPin } from "lucide-react";
+import { Download, MapPin } from "lucide-react";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
 import { nav, site } from "@/lib/content";
 import { cn } from "@/lib/utils";
@@ -117,10 +117,10 @@ export function SidePane() {
               href={site.resume}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-1 text-sm font-medium text-white"
+              className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-3.5 py-2 text-sm font-medium text-white transition-colors hover:border-white/40 hover:bg-white/5"
             >
+              <Download className="size-4" />
               Resume
-              <ArrowUpRight className="size-4 text-slate-400 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand" />
             </a>
           </div>
           <p className="mt-5 flex items-center gap-1.5 text-xs font-medium uppercase tracking-[0.14em] text-slate-500">

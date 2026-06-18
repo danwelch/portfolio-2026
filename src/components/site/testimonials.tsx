@@ -29,7 +29,7 @@ export function Testimonials() {
             >
               <span
                 aria-hidden="true"
-                className="absolute -top-4 left-6 flex size-10 items-center justify-center rounded-md bg-foreground text-background"
+                className="absolute left-0 top-0 flex size-10 items-center justify-center rounded-br-lg rounded-tl-2xl bg-foreground text-background"
               >
                 <Quote className="size-4 fill-current" />
               </span>
