@@ -54,8 +54,8 @@ export function SidePane() {
             Design Systems Architect
           </h2>
           <p className="mt-4 max-w-xs text-pretty leading-relaxed text-slate-400">
-            Front-of-the-front-end engineer crafting the components, tokens, and
-            tooling teams build on.
+            17+ years building scalable front-end platforms, design systems, and
+            developer experiences.
           </p>
 
           <nav className="mt-16 hidden lg:block" aria-label="In-page">
