@@ -2,7 +2,6 @@ import { SiteHeader } from "@/components/site/header";
 import { Hero } from "@/components/site/hero";
 import { About } from "@/components/site/about";
 import { Experience } from "@/components/site/experience";
-import { Skills } from "@/components/site/skills";
 import { Work } from "@/components/site/work";
 import { Testimonials } from "@/components/site/testimonials";
 import { Contact } from "@/components/site/contact";
@@ -16,8 +15,7 @@ export default function Home() {
         <Hero />
         <About />
         <Experience />
-        <Skills />
-        <Work />
+<Work />
         <Testimonials />
         <Contact />
       </main>

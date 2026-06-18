@@ -14,7 +14,8 @@ export const site = {
 
 export const bio = [
   "I'm a senior software engineer with 17+ years building scalable front-end platforms, design systems, and the developer experiences around them.",
-  "Most recently I was the primary architect of enterprise design systems at Bankrate (Red Ventures) — React/Next.js component platforms, design-token pipelines, and the testing and release tooling that lets product teams actually adopt them. I care about consistency, accessibility, and the kind of architecture that makes teams faster.",
+  "Most recently I was the primary architect of enterprise design systems at Bankrate (Red Ventures) — React/Next.js component platforms built in TypeScript and Tailwind, design-token pipelines, and the CI tooling that lets product teams actually adopt and trust a shared system. I care deeply about accessibility, Core Web Vitals, and the kind of architecture that makes teams measurably faster.",
+  "I work primarily in React, Next.js, and TypeScript, with a strong Figma-to-code handoff practice and a growing AI-assisted workflow using tools like Claude Code, Cursor, and custom MCP integrations.",
 ];
 
 export type Experience = {
@@ -167,7 +168,6 @@ export const testimonials: Testimonial[] = [
 export const nav = [
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
-  { label: "Skills", href: "#skills" },
   { label: "Work", href: "#work" },
   { label: "Contact", href: "#contact" },
 ];
