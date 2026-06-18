@@ -25,11 +25,11 @@ export function Testimonials() {
           {testimonials.map((t) => (
             <figure
               key={t.name}
-              className="relative flex flex-col rounded-xl border border-border bg-surface px-7 pb-7 pt-10 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_10px_30px_-20px_rgba(0,0,0,0.25)]"
+              className="relative flex flex-col overflow-hidden rounded-xl border border-border bg-surface px-7 pb-7 pt-10 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_10px_30px_-20px_rgba(0,0,0,0.25)]"
             >
               <span
                 aria-hidden="true"
-                className="absolute left-0 top-0 flex size-10 items-center justify-center rounded-br-lg rounded-tl-2xl bg-foreground text-background"
+                className="absolute left-0 top-0 flex size-10 items-center justify-center rounded-br-lg bg-foreground text-background"
               >
                 <Quote className="size-4 fill-current" />
               </span>
