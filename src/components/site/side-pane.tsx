@@ -46,11 +46,11 @@ export function SidePane() {
       <div className="flex flex-col justify-between gap-12 px-6 py-12 sm:px-10 lg:sticky lg:top-0 lg:h-screen lg:max-h-screen lg:gap-0 lg:px-12 lg:py-20">
         <div>
           <h1 className="font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-            <a href="#top" className="transition-colors hover:text-brand">
+            <a href="#top" className="transition-colors hover:text-brand-on-dark">
               Dan Welch
             </a>
           </h1>
-          <h2 className="mt-3 text-lg font-sans uppercase font-semibold tracking-wide leading-none text-brand">
+          <h2 className="mt-3 text-lg font-sans uppercase font-semibold tracking-wide leading-none text-brand-on-dark">
             Design Systems Architect
           </h2>
           <p className="mt-4 max-w-xs text-balance leading-relaxed text-slate-300">
@@ -70,7 +70,7 @@ export function SidePane() {
                         className={cn(
                           "mr-4 h-px transition-all duration-200",
                           isActive
-                            ? "w-14 bg-brand"
+                            ? "w-14 bg-brand-on-dark"
                             : "w-7 bg-slate-600 group-hover:w-14 group-hover:bg-slate-300",
                         )}
                       />
@@ -79,7 +79,7 @@ export function SidePane() {
                           "text-xs font-semibold uppercase tracking-[0.16em] transition-colors",
                           isActive
                             ? "text-white"
-                            : "text-slate-500 group-hover:text-slate-200",
+                            : "text-slate-300 group-hover:text-slate-200",
                         )}
                       >
                         {item.label}
