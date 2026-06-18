@@ -117,10 +117,10 @@ export function SidePane() {
               href={site.resume}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-3.5 py-2 text-sm font-medium text-white transition-colors hover:border-white/40 hover:bg-white/5"
+              className="inline-flex items-center gap-1.5 rounded-lg bg-white/10 px-3 py-1.5 text-sm font-medium text-slate-200 transition-colors hover:bg-white/[0.15] hover:text-white"
             >
-              <Download className="size-4" />
               Resume
+              <Download className="size-4" />
             </a>
           </div>
           <p className="mt-5 flex items-center gap-1.5 text-xs font-medium uppercase tracking-[0.14em] text-slate-500">
