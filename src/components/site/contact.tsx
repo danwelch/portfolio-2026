@@ -18,8 +18,8 @@ export function Contact() {
         <span className="text-brand">.</span>
       </h2>
       <p className="mt-5 max-w-xl text-pretty text-lg leading-relaxed text-slate-300">
-        I&apos;m currently exploring new senior and staff front-end and
-        design-systems roles. The fastest way to reach me is email — I read
+        I&apos;m currently exploring new Design Systems Architect and senior
+        front-end roles. The fastest way to reach me is email — I read
         everything.
       </p>
 

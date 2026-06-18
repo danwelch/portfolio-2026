@@ -19,36 +19,38 @@ const siteUrl = "https://danwelch.net";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Dan Welch — Design Systems & Front-End Architecture",
+    default: "Dan Welch — Design Systems Architect",
     template: "%s — Dan Welch",
   },
   description:
-    "Senior Software Engineer with 17+ years building scalable front-end platforms and enterprise design systems in React, Next.js, and TypeScript. New portfolio coming soon.",
+    "Design Systems Architect and front-of-the-front-end engineer with 17+ years building component platforms, design tokens, and the tooling product teams rely on. New portfolio coming soon.",
   keywords: [
     "Dan Welch",
+    "Design Systems Architect",
     "Design Systems",
     "Front-End Architecture",
-    "Senior Software Engineer",
+    "Accessibility",
+    "Core Web Vitals",
     "React",
     "Next.js",
+    "Astro",
     "TypeScript",
-    "Tailwind CSS",
   ],
   authors: [{ name: "Dan Welch", url: siteUrl }],
   creator: "Dan Welch",
   openGraph: {
     type: "website",
     url: siteUrl,
-    title: "Dan Welch — Design Systems & Front-End Architecture",
+    title: "Dan Welch — Design Systems Architect",
     description:
-      "Senior Software Engineer building scalable front-end platforms and enterprise design systems. New portfolio coming soon.",
+      "Design Systems Architect building component platforms, design tokens, and the tooling product teams rely on. New portfolio coming soon.",
     siteName: "Dan Welch",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dan Welch — Design Systems & Front-End Architecture",
+    title: "Dan Welch — Design Systems Architect",
     description:
-      "Senior Software Engineer building scalable front-end platforms and enterprise design systems.",
+      "Design Systems Architect building component platforms, design tokens, and the tooling product teams rely on.",
   },
 };
 

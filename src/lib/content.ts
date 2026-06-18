@@ -1,7 +1,7 @@
 export const site = {
   name: "Dan Welch",
-  role: "Senior Software Engineer",
-  tagline: "Design Systems & Front-End Architecture",
+  role: "Design Systems Architect",
+  tagline: "Design Systems Architecture & Front-End Engineering",
   location: "Remote · Open to relocation",
   email: "contact@danwelch.net",
   resume: "/Dan-Welch-Resume.pdf",
@@ -13,7 +13,7 @@ export const site = {
 } as const;
 
 export const bio = [
-  "I'm a front-of-the-front-end engineer with 17+ years of experience, most at home in the space where design and engineering meet. My forte is design systems, accessibility, and Core Web Vitals performance — building the components, patterns, and tooling that help teams ship interfaces that are consistent, fast, and accessible by default.",
+  "I'm a Design Systems Architect with 17+ years as a front-of-the-front-end engineer — most at home in the space where design and engineering meet. I build the component libraries, design tokens, and tooling that help product teams ship interfaces that are consistent, fast, and accessible by default, with a deep focus on accessibility and Core Web Vitals performance.",
   "I'm also comfortable across the full stack: headless CMS integrations, end-to-end testing, and CI/CD pipelines with GitHub Actions. I stay framework-agnostic and reach for the right tool for the job, whether that's Astro, Next.js, or plain React — paired with a strong Figma-to-code handoff practice and an AI-assisted workflow I'm always refining.",
 ];
 
@@ -29,7 +29,7 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
-    role: "Senior Software Engineer · Design Systems Architect",
+    role: "Design Systems Architect · Senior Software Engineer",
     company: "Red Ventures / Bankrate",
     period: "2021 — 2026",
     location: "Remote",

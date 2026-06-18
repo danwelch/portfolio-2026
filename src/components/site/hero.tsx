@@ -21,14 +21,14 @@ export function Hero() {
         </h1>
 
         <p className="mt-6 max-w-2xl text-balance text-2xl font-light leading-snug text-foreground sm:text-3xl">
-          Senior Software Engineer building{" "}
-          <span className="font-normal text-brand">design systems</span> and the
-          front-end architecture teams rely on.
+          <span className="font-normal text-brand">Design Systems Architect</span>{" "}
+          crafting the components, tokens, and tooling that product teams build
+          on.
         </p>
 
         <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground">
-          17+ years shipping scalable platforms in React, Next.js, and
-          TypeScript. The full portfolio — with case studies and project
+          17+ years architecting design systems and the front-end platforms
+          teams build on. The full portfolio — with case studies and project
           deep-dives — is on its way. In the meantime, here&apos;s the short
           version.
         </p>
