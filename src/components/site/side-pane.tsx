@@ -45,15 +45,15 @@ export function SidePane() {
     <header className="bg-dark text-slate-300 lg:w-2/5 lg:max-w-[27rem] lg:shrink-0">
       <div className="flex flex-col justify-between gap-12 px-6 py-12 sm:px-10 lg:sticky lg:top-0 lg:h-screen lg:max-h-screen lg:gap-0 lg:px-12 lg:py-20">
         <div>
-          <h1 className="font-display text-5xl font-semibold tracking-tight text-white sm:text-6xl">
+          <h1 className="font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">
             <a href="#top" className="transition-colors hover:text-brand">
               Dan Welch
             </a>
           </h1>
-          <h2 className="mt-3 text-lg font-medium tracking-tight text-slate-100">
+          <h2 className="mt-3 text-lg font-sans uppercase font-semibold tracking-wide leading-none text-brand">
             Design Systems Architect
           </h2>
-          <p className="mt-4 max-w-xs text-pretty leading-relaxed text-slate-400">
+          <p className="mt-4 max-w-xs text-balance leading-relaxed text-slate-300">
             17+ years building scalable front-end platforms, design systems, and
             developer experiences.
           </p>

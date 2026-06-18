@@ -25,7 +25,7 @@ export function Section({
   children: ReactNode;
 }) {
   return (
-    <section id={id} className={cn("scroll-mt-24 py-14 sm:py-16", className)}>
+    <section id={id} className={cn("py-14 sm:py-16", className)}>
       {children}
     </section>
   );

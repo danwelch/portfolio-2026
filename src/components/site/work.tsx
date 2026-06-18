@@ -1,25 +1,15 @@
-import { ArrowUpRight } from "lucide-react";
 import { Section, SectionHeading } from "@/components/site/section";
-import { Badge } from "@/components/ui/badge";
 
-const upcoming = [
+const caseStudies = [
   {
     name: "The Ledger",
     blurb:
       "Architecting Bankrate's React/Next.js design system — 65+ components, token-based white-label theming, and the release tooling behind it.",
-    tags: ["Design System", "React", "Design Tokens"],
   },
   {
     name: "The Treasury",
     blurb:
       "Bankrate's first formal design system — adopted across a dozen-plus projects with zero production incidents, replacing a legacy CSS framework.",
-    tags: ["Design System", "Adoption", "Migration"],
-  },
-  {
-    name: "Storyblok Component Audit",
-    blurb:
-      "Eliminating ~30% of components (289) with a custom stakeholder dashboard — simplifying content workflows across product teams.",
-    tags: ["Audit", "Tooling", "DX"],
   },
 ];
 
@@ -29,42 +19,35 @@ export function Work() {
       <SectionHeading
         index="04"
         eyebrow="Case Studies"
-        title="Selected work, written up soon"
-        description="I'm putting together detailed write-ups of my recent design-systems work at Bankrate. Here's what's coming."
+        title="Selected work"
+        description="Detailed write-ups of my recent design-systems work at Bankrate."
       />
 
-      <div className="mt-10 grid gap-4">
-        {upcoming.map((item) => (
+      <p className="mt-6 flex items-center gap-2.5 text-sm text-muted-foreground">
+        <span className="relative flex size-2 shrink-0">
+          <span className="absolute inline-flex size-full animate-ping rounded-full bg-brand opacity-75" />
+          <span className="relative inline-flex size-2 rounded-full bg-brand" />
+        </span>
+        This site is a work in progress — updates coming soon.
+      </p>
+
+      <div className="mt-8 grid gap-4">
+        {caseStudies.map((item) => (
           <article
             key={item.name}
-            className="group relative flex flex-col rounded-2xl border border-border bg-surface p-6 transition-all hover:-translate-y-0.5 hover:border-brand/40 hover:shadow-[0_8px_30px_-12px_rgba(13,27,46,0.15)]"
+            className="group relative overflow-hidden rounded-2xl border border-border bg-surface p-6"
           >
-            <div className="flex items-center justify-between">
-              <Badge
-                variant="outline"
-                className="rounded-full border-accent-light bg-accent-subtle text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-brand"
-              >
-                Coming soon
-              </Badge>
-              <ArrowUpRight className="size-4 text-muted-foreground/50 transition-colors group-hover:text-brand" />
-            </div>
-
-            <h3 className="mt-5 font-heading text-xl font-medium tracking-tight">
+            <h3 className="font-heading text-xl font-medium tracking-tight">
               {item.name}
             </h3>
-            <p className="mt-3 flex-1 text-pretty text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-3 text-pretty text-sm leading-relaxed text-muted-foreground">
               {item.blurb}
             </p>
 
-            <div className="mt-5 flex flex-wrap gap-1.5">
-              {item.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-md bg-secondary px-2 py-0.5 text-xs text-secondary-foreground"
-                >
-                  {tag}
-                </span>
-              ))}
+            <div className="absolute inset-0 flex items-center justify-center bg-dark/45 opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
+              <span className="text-sm font-semibold uppercase tracking-[0.18em] text-white">
+                Coming soon
+              </span>
             </div>
           </article>
         ))}
