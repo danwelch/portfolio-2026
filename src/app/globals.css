@@ -63,9 +63,9 @@
   /* palette — neutral grays with a single blue accent */
   --surface: #ffffff;
   --subtle: #a1a1aa;
-  --dark: #18181b;
-  --dark-2: #111113;
-  --border-dark: #2e2e33;
+  --dark: #0a1628;
+  --dark-2: #060f1c;
+  --border-dark: #1e3149;
   --accent-hover: #1558e8;
   --accent-light: #dbe8ff;
   --accent-subtle: #eff4ff;
