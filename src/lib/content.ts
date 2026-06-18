@@ -147,7 +147,7 @@ export const skills: SkillGroup[] = [
 
 export type Testimonial = {
   quote: string;
-  full: string;
+  full?: string;
   name: string;
   title: string;
   initials: string;
@@ -161,6 +161,13 @@ export const testimonials: Testimonial[] = [
     name: "Saleena Beharry",
     title: "Designer · Launch That & Red Ventures",
     initials: "SB",
+  },
+  {
+    quote:
+      "If anyone is looking for a senior front-end engineer, specifically with expertise around design systems, I would highly recommend Daniel Welch. I've worked with him at my last 2 companies, Red Ventures and Launch That, and he has been a crucial piece to success in multiple product orgs — whoever picks him up will be very lucky!",
+    name: "Eric Rodgers",
+    title: "Former colleague · Red Ventures & Launch That",
+    initials: "ER",
   },
 ];
 

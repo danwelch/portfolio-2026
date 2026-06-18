@@ -32,17 +32,19 @@ export function Testimonials() {
                 {t.quote}
               </blockquote>
 
-              <Tooltip>
-                <TooltipTrigger className="mt-4 w-fit cursor-help text-xs font-semibold uppercase tracking-[0.14em] text-brand underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none">
-                  Full testimonial
-                </TooltipTrigger>
-                <TooltipContent
-                  side="top"
-                  className="max-w-sm items-start whitespace-normal p-4 text-left text-sm leading-relaxed"
-                >
-                  {t.full}
-                </TooltipContent>
-              </Tooltip>
+              {t.full ? (
+                <Tooltip>
+                  <TooltipTrigger className="mt-4 w-fit cursor-help text-xs font-semibold uppercase tracking-[0.14em] text-brand underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none">
+                    Full testimonial
+                  </TooltipTrigger>
+                  <TooltipContent
+                    side="top"
+                    className="max-w-sm items-start whitespace-normal p-4 text-left text-sm leading-relaxed"
+                  >
+                    {t.full}
+                  </TooltipContent>
+                </Tooltip>
+              ) : null}
 
               <figcaption className="mt-6 flex items-center gap-3 border-t border-border/60 pt-5">
                 <span
@@ -60,15 +62,6 @@ export function Testimonials() {
               </figcaption>
             </figure>
           ))}
-
-          {/* Placeholder while more testimonials come in */}
-          <figure className="flex flex-col items-start justify-center rounded-2xl border border-dashed border-border bg-surface/50 p-7">
-            <Quote className="size-7 text-muted-foreground/30" aria-hidden="true" />
-            <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
-              More kind words are on their way — I&apos;m gathering notes from
-              former teammates and collaborators.
-            </p>
-          </figure>
         </div>
       </TooltipProvider>
     </Section>
