@@ -159,15 +159,21 @@ export const testimonials: Testimonial[] = [
       "You've been the most influential coworker in my development from LT to RV. Every piece of critical feedback and every single resource you sent me sent me down a rabbit hole to learn more — I wanted to be as good as you. You were the only one who could give me actual valuable design feedback in ways that other designers just couldn't.",
     full: "I do wish to give my gratitude to Dan, and I will echo this to the world a thousand times over. You've been the most influential coworker in my development from LT to RV. Observing your brilliance and high standards from a distance inspired me to replicate that in my own work. Back at LT, the first time you reviewed my work, you asked me if I knew what semantic HTML is… hell no! But now I see how often that foundational building block is overlooked. At RV, you mentioned container queries and by the end of the day I knew everything about them just to understand what you were talking about. Every piece of critical feedback and every single resource you sent in Slack sent me down a rabbit hole to learn more because I wanted to be as good as you. Also, you were the only one who could give me actual valuable design feedback in ways that other designers just couldn't. I am incredibly lucky and grateful to have had you as my engineer.",
     name: "Saleena Beharry",
-    title: "Designer · Launch That & Red Ventures",
+    title: "Staff Product Designer | Design Systems",
     initials: "SB",
   },
   {
     quote:
-      "If anyone is looking for a senior front-end engineer, specifically with expertise around design systems, I would highly recommend Daniel Welch. I've worked with him at my last 2 companies, Red Ventures and Launch That, and he has been a crucial piece to success in multiple product orgs — whoever picks him up will be very lucky!",
+      "If anyone is looking for a senior front-end engineer, specifically with expertise around design systems, I would highly recommend Daniel Welch. I've worked with him at my last 2 companies, Red Ventures and Launch That, and he has been a crucial piece to success in multiple product orgs.",
     name: "Eric Rodgers",
-    title: "Former colleague · Red Ventures & Launch That",
+    title: "Principal Product Designer @ CNET",
     initials: "ER",
+  },
+  {
+    quote: "Snatch this guy up while you can. He is top shelf.",
+    name: "Chris Arter",
+    title: "Engineering Manager & Laravel Core Contributor",
+    initials: "CA",
   },
 ];
 
@@ -175,5 +181,6 @@ export const nav = [
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
   { label: "Work", href: "#work" },
+  { label: "Testimonials", href: "#testimonials" },
   { label: "Contact", href: "#contact" },
 ];

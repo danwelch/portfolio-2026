@@ -21,41 +21,47 @@ export function Testimonials() {
       />
 
       <TooltipProvider delayDuration={150}>
-        <div className="mt-14 grid gap-5 sm:grid-cols-2">
+        <div className="mt-12 grid gap-6">
           {testimonials.map((t) => (
             <figure
               key={t.name}
-              className="flex flex-col rounded-2xl border border-border bg-surface p-7 shadow-[0_8px_30px_-18px_rgba(13,27,46,0.18)]"
+              className="relative flex flex-col rounded-xl border border-border bg-surface px-7 pb-7 pt-10 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_10px_30px_-20px_rgba(0,0,0,0.25)]"
             >
-              <Quote className="size-7 text-brand/40" aria-hidden="true" />
-              <blockquote className="mt-4 flex-1 text-pretty leading-relaxed text-foreground/90">
-                {t.quote}
+              <span
+                aria-hidden="true"
+                className="absolute -top-4 left-6 flex size-10 items-center justify-center rounded-md bg-foreground text-background"
+              >
+                <Quote className="size-4 fill-current" />
+              </span>
+
+              <blockquote className="flex-1 text-pretty leading-relaxed text-foreground/90">
+                &ldquo;{t.full ? t.quote.replace(/\s*\.?\s*$/, "") + "…" : t.quote}
+                &rdquo;
+                {t.full ? (
+                  <Tooltip>
+                    <TooltipTrigger className="ml-1.5 cursor-help whitespace-nowrap font-medium text-brand underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none">
+                      read more
+                    </TooltipTrigger>
+                    <TooltipContent
+                      side="top"
+                      className="max-w-sm items-start whitespace-normal p-4 text-left text-sm leading-relaxed"
+                    >
+                      {t.full}
+                    </TooltipContent>
+                  </Tooltip>
+                ) : null}
               </blockquote>
 
-              {t.full ? (
-                <Tooltip>
-                  <TooltipTrigger className="mt-4 w-fit cursor-help text-xs font-semibold uppercase tracking-[0.14em] text-brand underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none">
-                    Full testimonial
-                  </TooltipTrigger>
-                  <TooltipContent
-                    side="top"
-                    className="max-w-sm items-start whitespace-normal p-4 text-left text-sm leading-relaxed"
-                  >
-                    {t.full}
-                  </TooltipContent>
-                </Tooltip>
-              ) : null}
-
-              <figcaption className="mt-6 flex items-center gap-3 border-t border-border/60 pt-5">
+              <figcaption className="mt-7 flex items-center gap-3.5">
                 <span
                   aria-hidden="true"
-                  className="flex size-10 items-center justify-center rounded-full bg-brand/10 font-medium text-brand"
+                  className="flex size-11 shrink-0 items-center justify-center rounded-full bg-secondary text-sm font-semibold text-foreground ring-1 ring-border"
                 >
                   {t.initials}
                 </span>
                 <span className="flex flex-col">
-                  <span className="text-sm font-medium">{t.name}</span>
-                  <span className="text-xs text-muted-foreground">
+                  <span className="font-medium text-foreground">{t.name}</span>
+                  <span className="text-sm text-muted-foreground">
                     {t.title}
                   </span>
                 </span>

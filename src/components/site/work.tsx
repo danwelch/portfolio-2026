@@ -33,7 +33,7 @@ export function Work() {
         description="I'm putting together detailed write-ups of my recent design-systems work at Bankrate. Here's what's coming."
       />
 
-      <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-10 grid gap-4">
         {upcoming.map((item) => (
           <article
             key={item.name}
