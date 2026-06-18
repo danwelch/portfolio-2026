@@ -1,5 +1,14 @@
+"use client";
+
 import { Quote } from "lucide-react";
 import { Section, SectionHeading } from "@/components/site/section";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { testimonials } from "@/lib/content";
 
 export function Testimonials() {
   return (
@@ -7,33 +16,61 @@ export function Testimonials() {
       <SectionHeading
         index="05"
         eyebrow="Testimonials"
-        title="Kind words, on the way"
-        description="I'm gathering a few notes from engineers, designers, and product partners I've worked with. They'll land here shortly."
+        title="Kind words from people I've worked with"
+        description="A few notes from engineers, designers, and product partners. More on the way."
       />
 
-      <div className="mt-14 grid gap-5 sm:grid-cols-2">
-        {[0, 1].map((i) => (
-          <figure
-            key={i}
-            className="relative flex flex-col rounded-xl border border-dashed border-border bg-card/30 p-7"
-          >
-            <Quote className="size-7 text-brand/30" aria-hidden="true" />
-            <blockquote className="mt-4 space-y-2" aria-hidden="true">
-              <span className="block h-3 w-full rounded bg-muted" />
-              <span className="block h-3 w-11/12 rounded bg-muted" />
-              <span className="block h-3 w-3/4 rounded bg-muted" />
-            </blockquote>
-            <figcaption className="mt-6 flex items-center gap-3">
-              <span className="size-9 rounded-full bg-muted" aria-hidden="true" />
-              <span className="flex flex-col gap-1.5">
-                <span className="block h-2.5 w-24 rounded bg-muted" aria-hidden="true" />
-                <span className="block h-2.5 w-32 rounded bg-muted/70" aria-hidden="true" />
-              </span>
-            </figcaption>
-            <span className="sr-only">Testimonial coming soon</span>
+      <TooltipProvider delayDuration={150}>
+        <div className="mt-14 grid gap-5 sm:grid-cols-2">
+          {testimonials.map((t) => (
+            <figure
+              key={t.name}
+              className="flex flex-col rounded-xl border border-border/70 bg-card/40 p-7"
+            >
+              <Quote className="size-7 text-brand/40" aria-hidden="true" />
+              <blockquote className="mt-4 flex-1 text-pretty leading-relaxed text-foreground/90">
+                {t.quote}
+              </blockquote>
+
+              <Tooltip>
+                <TooltipTrigger className="mt-4 w-fit cursor-help font-mono text-xs uppercase tracking-[0.15em] text-brand underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none">
+                  Full testimonial
+                </TooltipTrigger>
+                <TooltipContent
+                  side="top"
+                  className="max-w-sm items-start whitespace-normal p-4 text-left text-sm leading-relaxed"
+                >
+                  {t.full}
+                </TooltipContent>
+              </Tooltip>
+
+              <figcaption className="mt-6 flex items-center gap-3 border-t border-border/60 pt-5">
+                <span
+                  aria-hidden="true"
+                  className="flex size-10 items-center justify-center rounded-full bg-brand/10 font-medium text-brand"
+                >
+                  {t.initials}
+                </span>
+                <span className="flex flex-col">
+                  <span className="text-sm font-medium">{t.name}</span>
+                  <span className="text-xs text-muted-foreground">
+                    {t.title}
+                  </span>
+                </span>
+              </figcaption>
+            </figure>
+          ))}
+
+          {/* Placeholder while more testimonials come in */}
+          <figure className="flex flex-col items-start justify-center rounded-xl border border-dashed border-border bg-card/20 p-7">
+            <Quote className="size-7 text-muted-foreground/30" aria-hidden="true" />
+            <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
+              More kind words are on their way — I&apos;m gathering notes from
+              former teammates and collaborators.
+            </p>
           </figure>
-        ))}
-      </div>
+        </div>
+      </TooltipProvider>
     </Section>
   );
 }

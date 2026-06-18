@@ -145,6 +145,25 @@ export const skills: SkillGroup[] = [
   },
 ];
 
+export type Testimonial = {
+  quote: string;
+  full: string;
+  name: string;
+  title: string;
+  initials: string;
+};
+
+export const testimonials: Testimonial[] = [
+  {
+    quote:
+      "You've been the most influential coworker in my development from LT to RV. Every piece of critical feedback and every single resource you sent me sent me down a rabbit hole to learn more — I wanted to be as good as you. You were the only one who could give me actual valuable design feedback in ways that other designers just couldn't.",
+    full: "I do wish to give my gratitude to Dan, and I will echo this to the world a thousand times over. You've been the most influential coworker in my development from LT to RV. Observing your brilliance and high standards from a distance inspired me to replicate that in my own work. Back at LT, the first time you reviewed my work, you asked me if I knew what semantic HTML is… hell no! But now I see how often that foundational building block is overlooked. At RV, you mentioned container queries and by the end of the day I knew everything about them just to understand what you were talking about. Every piece of critical feedback and every single resource you sent in Slack sent me down a rabbit hole to learn more because I wanted to be as good as you. Also, you were the only one who could give me actual valuable design feedback in ways that other designers just couldn't. I am incredibly lucky and grateful to have had you as my engineer.",
+    name: "Saleena Beharry",
+    title: "Designer · Launch That & Red Ventures",
+    initials: "SB",
+  },
+];
+
 export const nav = [
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
