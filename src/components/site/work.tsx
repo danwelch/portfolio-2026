@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react";
 import { Section, SectionHeading } from "@/components/site/section";
 
 const caseStudies = [
@@ -37,12 +38,17 @@ export function Work() {
             key={item.name}
             className="group relative overflow-hidden rounded-2xl border border-border bg-surface p-6"
           >
-            <h3 className="font-heading text-xl font-medium tracking-tight">
+            <h3 className="font-heading text-2xl font-medium tracking-tight">
               {item.name}
             </h3>
             <p className="mt-3 text-pretty text-sm leading-relaxed text-muted-foreground">
               {item.blurb}
             </p>
+
+            <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-brand">
+              Learn more
+              <ArrowRight className="size-3.5" />
+            </span>
 
             <div className="absolute inset-0 flex items-center justify-center bg-dark/45 opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
               <span className="text-sm font-semibold uppercase tracking-[0.18em] text-white">

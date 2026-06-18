@@ -1,5 +1,6 @@
-import { ArrowUpRight, Mail } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Section, SectionHeading } from "@/components/site/section";
+import { Button } from "@/components/ui/button";
 import { site } from "@/lib/content";
 
 export function Contact() {
@@ -12,14 +13,16 @@ export function Contact() {
         description="I'm currently exploring new Design Systems Architect and senior front-end roles. The fastest way to reach me is email — I read everything."
       />
 
-      <a
-        href={`mailto:${site.email}`}
-        className="group mt-8 inline-flex items-center gap-3 text-xl font-medium tracking-tight underline-offset-8 hover:underline sm:text-2xl"
+      <Button
+        variant="ghost"
+        asChild
+        className="mt-8 h-auto -translate-x-5 px-5 py-3 uppercase tracking-wide text-sm transition-transform hover:bg-brand/15 hover:text-brand sm:text-base"
       >
-        <Mail className="size-5 text-brand" />
-        {site.email}
-        <ArrowUpRight className="size-5 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand" />
-      </a>
+        <a href={`mailto:${site.email}`}>
+          Let's Connect
+          <ArrowRight />
+        </a>
+      </Button>
     </Section>
   );
 }

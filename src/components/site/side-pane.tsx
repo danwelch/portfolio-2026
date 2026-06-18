@@ -119,7 +119,7 @@ export function SidePane() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 rounded-xs bg-slate-400 px-1.5 py-0.5 text-xs font-semibold text-dark transition-colors hover:bg-white h-5 uppercase tracking-wide"
             >
-              Resume
+              Résumé
               <Download className="size-3" />
             </a>
           </div>

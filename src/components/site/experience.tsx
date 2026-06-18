@@ -1,6 +1,76 @@
 import { Section, SectionHeading } from "@/components/site/section";
 import { cn } from "@/lib/utils";
-import { experience } from "@/lib/content";
+import { experience, type TimelineEntry } from "@/lib/content";
+
+const dateCol = "sm:col-start-1";
+const railCol = "sm:col-start-2";
+const contentCol = "sm:col-start-3";
+const railCenter = "calc(6.5rem + 1.5rem + 0.625rem)";
+const titleRowCenter = "0.875rem";
+
+function TimelineMarker() {
+  return (
+    <span
+      aria-hidden="true"
+      className="relative z-10 block size-2.5 shrink-0 rounded-full border-2 border-border bg-background"
+    />
+  );
+}
+
+function TimelineRow({ job }: { job: TimelineEntry }) {
+  return (
+    <li className="relative border-l border-border pb-12 pl-6 last:pb-0 sm:grid sm:gap-x-6 sm:border-l-0 sm:pl-0 sm:grid-cols-[6.5rem_1.25rem_1fr]">
+      <div
+        className={cn(
+          "relative hidden items-center justify-center sm:flex sm:self-center",
+          railCol,
+          "sm:row-start-1",
+        )}
+      >
+        <TimelineMarker />
+      </div>
+
+      <div className="absolute top-[calc(0.875rem-0.3125rem)] -left-[5px] sm:hidden">
+        <TimelineMarker />
+      </div>
+
+      <div className="flex items-center gap-3 sm:contents">
+        <div
+          className={cn(
+            "shrink-0 text-sm tabular-nums text-muted-foreground sm:mb-0 sm:flex sm:items-center sm:justify-end sm:self-center sm:text-right",
+            dateCol,
+            "sm:row-start-1",
+          )}
+        >
+          {job.period}
+        </div>
+
+        <h3
+          className={cn(
+            "min-w-0 text-lg font-semibold leading-7 tracking-tight sm:col-start-3 sm:row-start-1 sm:self-center",
+            contentCol,
+          )}
+        >
+          {job.role}
+        </h3>
+      </div>
+
+      <div
+        className={cn(
+          "mt-1 min-w-0 sm:col-start-3 sm:row-start-2 sm:mt-0",
+          contentCol,
+        )}
+      >
+        <p className="font-body text-sm font-semibold uppercase tracking-wide text-brand">
+          {job.company}
+        </p>
+        <p className="mt-2 text-pretty text-sm leading-relaxed text-muted-foreground">
+          {job.description}
+        </p>
+      </div>
+    </li>
+  );
+}
 
 export function Experience() {
   return (
@@ -12,39 +82,14 @@ export function Experience() {
         description="From university marketing sites to enterprise design systems — a steady move toward the architecture that makes teams faster."
       />
 
-      <ol className="mt-14 space-y-0">
-        {experience.map((job, i) => (
-          <li
-            key={`${job.company}-${i}`}
-            className="group relative grid gap-x-8 gap-y-3 border-t border-border/60 py-8 sm:grid-cols-[8.5rem_1fr]"
-          >
-            {/* timeline rail dot */}
-            <span
-              aria-hidden="true"
-              className={cn(
-                "absolute -top-px left-0 size-2 -translate-x-1/2 rounded-full ring-4 ring-background sm:left-[8.5rem]",
-                job.current ? "bg-brand" : "bg-border",
-              )}
-            />
-
-            <div className="sm:pr-8 sm:text-right">
-              <div className="text-sm font-medium tabular-nums text-muted-foreground">
-                {job.period}
-              </div>
-              {job.current ? (
-                <div className="mt-1 inline-flex items-center gap-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-brand">
-                  Most recent
-                </div>
-              ) : null}
-            </div>
-
-            <div className="sm:border-l sm:border-border/60 sm:pl-8">
-              <h3 className="text-lg font-semibold tracking-tight">{job.role}</h3>
-              <div className="mt-1 text-sm text-muted-foreground">
-                {job.company} · {job.location}
-              </div>
-            </div>
-          </li>
+      <ol className="relative mt-14">
+        <div
+          aria-hidden="true"
+          className="absolute bottom-0 hidden w-px -translate-x-1/2 bg-border sm:block"
+          style={{ left: railCenter, top: titleRowCenter }}
+        />
+        {experience.map((job) => (
+          <TimelineRow key={`${job.company}-${job.period}`} job={job} />
         ))}
       </ol>
     </Section>

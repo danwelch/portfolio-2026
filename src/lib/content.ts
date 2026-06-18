@@ -17,78 +17,57 @@ export const bio = [
   "I'm also comfortable across the full stack: headless CMS integrations, end-to-end testing, and CI/CD pipelines with GitHub Actions. I stay framework-agnostic and reach for the right tool for the job, whether that's Astro, Next.js, or plain React — paired with a strong Figma-to-code handoff practice and an AI-assisted workflow I'm always refining.",
 ];
 
-export type Experience = {
+export type TimelineSubRole = { period: string; title: string };
+
+export type TimelineEntry = {
+  period: string;
   role: string;
   company: string;
-  period: string;
-  location: string;
-  summary: string;
-  highlights: string[];
+  description: string;
+  bottomLine?: string;
+  subRoles?: TimelineSubRole[];
   current?: boolean;
+  earlyCareer?: boolean;
 };
 
-export const experience: Experience[] = [
+export const experience: TimelineEntry[] = [
   {
-    role: "Design Systems Architect · Senior Software Engineer",
+    period: "2021–2026",
+    role: "Senior Software Engineer | Design Systems Architect",
     company: "Red Ventures / Bankrate",
-    period: "2021 — 2026",
-    location: "Remote",
     current: true,
-    summary:
-      "Primary architect of Bankrate's design systems, building React/Next.js component platforms adopted across product teams.",
-    highlights: [
-      "Architected and led The Ledger, Bankrate's React/Next.js design system — 65+ reusable TypeScript + Tailwind components with token-based white-label theming.",
-      "Launched The Treasury, Bankrate's first formal design system, adopted across a dozen-plus projects with zero production incidents, replacing a legacy CSS framework.",
-      "Led a Storyblok component audit that eliminated ~30% of components (289), with a custom dashboard to track progress for stakeholders.",
-      "Authored Playwright E2E suites in GitHub Actions that cut CI execution time ~76% and caught pre-release regressions.",
-      "Served on Bankrate's Accessibility and Performance task forces, consulting on WCAG compliance and Core Web Vitals.",
-    ],
+    description:
+      "Primary architect of Bankrate's design systems — React/Next.js component platforms, design-token pipelines, and the CI tooling that lets product teams actually adopt them."
   },
   {
-    role: "Engineering Manager (Interim)",
-    company: "Red Ventures / Bankrate",
     period: "2025",
-    location: "Remote",
-    summary:
-      "Managed a team of 7 (4 FTEs + 3 contractors) for 6 months alongside design-systems work.",
-    highlights: [
-      "Drove a ~10% increase in sprint velocity through process improvements and ran mid-cycle performance reviews.",
-      "Co-led an AI-assisted hackathon to accelerate migrating legacy JavaScript calculators to React and the new design system.",
-    ],
+    role: "Engineering Manager | Interim",
+    company: "Red Ventures / Bankrate",
+    description:
+      "Led a team of 7 for six months.",
   },
   {
+    period: "2016–2021",
     role: "Senior Front-End Developer",
     company: "Launch That",
-    period: "2016 — 2021",
-    location: "Orlando, FL",
-    summary:
-      "Architected the shared front-end foundation powering all company properties.",
-    highlights: [
-      "Built the Ares Framework — a custom component library and WordPress parent theme — and used it to ship 6 multi-page sites in a single month.",
-      "Trained directly with Brad Frost (creator of Atomic Design) in a hands-on design-systems workshop.",
-      "Built ReportaRoo and DisavOwl, two in-house Vue.js tools automating marketing reporting and the SEO link-disavow process.",
-    ],
+    description:
+      "Architected the Ares Framework — the component library and WordPress parent theme powering every Launch That property."
   },
   {
+    period: "2014–2016",
     role: "Lead Front-End / Senior Web Developer",
     company: "Studio Birdsall",
-    period: "2014 — 2016",
-    location: "Winter Park, FL",
-    summary: "Led front-end across 10+ client projects.",
-    highlights: [
-      "Delivered Magento and Shopify e-commerce builds and custom WordPress sites on schedule.",
-    ],
+    earlyCareer: true,
+    description:
+      "Led front-end across 10+ client projects — Magento and Shopify e-commerce and custom WordPress builds.",
   },
   {
+    period: "2008–2014",
     role: "Senior Web Developer",
     company: "Full Sail University",
-    period: "2008 — 2014",
-    location: "Winter Park, FL",
-    summary:
-      "Led front-end for the university's marketing sites, blog, and first online store and online school.",
-    highlights: [
-      "Built hundreds of landing pages and email campaigns; advanced from Web Developer to Senior within three years.",
-    ],
+    earlyCareer: true,
+    description:
+      "Led front-end for the university's marketing sites, blog, and its first online store and online school.",
   },
 ];
 
@@ -156,15 +135,16 @@ export type Testimonial = {
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "You've been the most influential coworker in my development from LT to RV. Every piece of critical feedback and every single resource you sent me sent me down a rabbit hole to learn more — I wanted to be as good as you. You were the only one who could give me actual valuable design feedback in ways that other designers just couldn't.",
-    full: "I do wish to give my gratitude to Dan, and I will echo this to the world a thousand times over. You've been the most influential coworker in my development from LT to RV. Observing your brilliance and high standards from a distance inspired me to replicate that in my own work. Back at LT, the first time you reviewed my work, you asked me if I knew what semantic HTML is… hell no! But now I see how often that foundational building block is overlooked. At RV, you mentioned container queries and by the end of the day I knew everything about them just to understand what you were talking about. Every piece of critical feedback and every single resource you sent in Slack sent me down a rabbit hole to learn more because I wanted to be as good as you. Also, you were the only one who could give me actual valuable design feedback in ways that other designers just couldn't. I am incredibly lucky and grateful to have had you as my engineer.",
+      "You've been the most influential coworker in my development from LT to RV. Observing your brilliance and high standards from a distance inspired me to replicate that in my own work.",
+    full: "You've been the most influential coworker in my development from LT to RV. Observing your brilliance and high standards from a distance inspired me to replicate that in my own work. Back at LT, the first time you reviewed my work, you asked me if I knew what semantic HTML is… hell no! But now I see how often that foundational building block is overlooked. At RV, you mentioned container queries and by the end of the day I knew everything about them just to understand what you were talking about. Every piece of critical feedback and every single resource you sent in Slack sent me down a rabbit hole to learn more because I wanted to be as good as you. Also, you were the only one who could give me actual valuable design feedback in ways that other designers just couldn't. I am incredibly lucky and grateful to have had you as my engineer.",
     name: "Saleena Beharry",
     title: "Staff Product Designer | Design Systems",
     initials: "SB",
   },
   {
     quote:
-      "If anyone is looking for a senior front-end engineer, specifically with expertise around design systems, I would highly recommend Daniel Welch. I've worked with him at my last 2 companies, Red Ventures and Launch That, and he has been a crucial piece to success in multiple product orgs.",
+      "If anyone is looking for a senior front-end engineer, specifically with expertise around design systems, I would highly recommend Daniel Welch.",
+    full: "If anyone is looking for a senior front-end engineer, specifically with expertise around design systems, I would highly recommend Daniel Welch.I've worked with him at my last 2 companies, Red Ventures and Launch That, and he has been a crucial piece to success in multiple product orgs.",
     name: "Eric Rodgers",
     title: "Principal Product Designer @ CNET",
     initials: "ER",

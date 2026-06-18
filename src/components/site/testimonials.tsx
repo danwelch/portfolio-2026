@@ -1,16 +1,83 @@
 "use client";
 
-import { Quote } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { ArrowLeft, ArrowRight, Quote } from "lucide-react";
 import { Section, SectionHeading } from "@/components/site/section";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 import { testimonials } from "@/lib/content";
+import { cn } from "@/lib/utils";
 
 export function Testimonials() {
+  const count = testimonials.length;
+  const [rendered, setRendered] = useState(0);
+  const [visible, setVisible] = useState(true);
+  const [expanded, setExpanded] = useState(false);
+  const [height, setHeight] = useState<number>();
+  const contentRef = useRef<HTMLDivElement>(null);
+  const animating = useRef(false);
+  const reduced = useRef(false);
+
+  useEffect(() => {
+    reduced.current = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+  }, []);
+
+  // Keep the card sized to the active testimonial (and on resize/reflow).
+  useEffect(() => {
+    const measure = () => {
+      const el = contentRef.current;
+      if (!el) return;
+      const fig = el.parentElement;
+      const cs = fig ? getComputedStyle(fig) : null;
+      const borders = cs
+        ? parseFloat(cs.borderTopWidth) + parseFloat(cs.borderBottomWidth)
+        : 0;
+      setHeight(el.offsetHeight + borders);
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, [rendered, expanded]);
+
+  useEffect(() => {
+    setExpanded(false);
+  }, [rendered]);
+
+  const transition = (update: () => void) => {
+    if (animating.current) return;
+    if (reduced.current) {
+      update();
+      return;
+    }
+    animating.current = true;
+    setVisible(false); // 1. fade the quote out
+    window.setTimeout(() => {
+      update(); // 2. swap content + resize the card
+      window.setTimeout(() => {
+        setVisible(true); // 3. fade the new quote in
+        window.setTimeout(() => {
+          animating.current = false;
+        }, 220);
+      }, 340);
+    }, 200);
+  };
+
+  const go = (dir: number) => {
+    transition(() => {
+      setExpanded(false);
+      setRendered((rendered + dir + count) % count);
+    });
+  };
+
+  const expandQuote = () => {
+    transition(() => setExpanded(true));
+  };
+
+  const t = testimonials[rendered];
+  const shortQuote = t.full
+    ? t.quote.replace(/\s*\.?\s*$/, "") + "…"
+    : t.quote;
+
   return (
     <Section id="testimonials" className="border-t border-border/60">
       <SectionHeading
@@ -20,56 +87,79 @@ export function Testimonials() {
         description="A few notes from engineers, designers, and product partners. More on the way."
       />
 
-      <TooltipProvider delayDuration={150}>
-        <div className="mt-12 grid gap-6">
-          {testimonials.map((t) => (
-            <figure
-              key={t.name}
-              className="relative flex flex-col overflow-hidden rounded-xl border border-border bg-surface px-7 pb-7 pt-10 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_10px_30px_-20px_rgba(0,0,0,0.25)]"
+      <figure
+        style={height ? { height: `${height}px` } : undefined}
+        className="relative mt-12 overflow-hidden rounded-xl border border-border bg-surface transition-[height] duration-300 ease-out motion-reduce:transition-none"
+      >
+
+        <div
+          ref={contentRef}
+          className={cn(
+            "px-7 pb-7 pt-10 transition-opacity duration-200 ease-out motion-reduce:transition-none",
+            visible ? "opacity-100" : "opacity-0",
+          )}
+        >
+          <blockquote
+            className={cn(
+              "justify-start font-display text-dark text-pretty leading-relaxed text-pretty italic font-medium",
+              expanded ? "text-lg" : "text-xl",
+            )}
+          >
+            &ldquo;{expanded && t.full ? t.full : shortQuote}&rdquo;
+          </blockquote>
+
+            <div className="flex gap-4 justify-between align-start mt-7 ">
+          <figcaption className="flex items-center gap-3.5">
+            <span
+              aria-hidden="true"
+              className="flex size-11 shrink-0 items-center justify-center rounded-full bg-secondary text-sm font-semibold text-foreground ring-1 ring-border"
             >
-              <span
-                aria-hidden="true"
-                className="absolute left-0 top-0 flex size-10 items-center justify-center rounded-br-lg bg-gray-100 text-dark"
+              {t.initials}
+            </span>
+            <span className="flex flex-col">
+              <span className="font-medium text-foreground">{t.name}</span>
+              <span className="text-sm text-muted-foreground">{t.title}</span>
+            </span>
+          </figcaption>
+            {t.full && !expanded ? (
+              <div className="flex justify-end" >
+              <button
+                type="button"
+                onClick={expandQuote}
+                className="cursor-pointer whitespace-nowrap font-medium text-xs font-body text-brand uppercase tracking-wide underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none"
               >
-                <Quote className="size-4 fill-current" />
-              </span>
-
-              <blockquote className="flex-1 text-pretty leading-relaxed text-foreground/90">
-                &ldquo;{t.full ? t.quote.replace(/\s*\.?\s*$/, "") + "…" : t.quote}
-                &rdquo;
-                {t.full ? (
-                  <Tooltip>
-                    <TooltipTrigger className="ml-1.5 cursor-help whitespace-nowrap font-medium text-brand underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none">
-                      read more
-                    </TooltipTrigger>
-                    <TooltipContent
-                      side="top"
-                      className="max-w-sm items-start whitespace-normal p-4 text-left text-sm leading-relaxed"
-                    >
-                      {t.full}
-                    </TooltipContent>
-                  </Tooltip>
-                ) : null}
-              </blockquote>
-
-              <figcaption className="mt-7 flex items-center gap-3.5">
-                <span
-                  aria-hidden="true"
-                  className="flex size-11 shrink-0 items-center justify-center rounded-full bg-secondary text-sm font-semibold text-foreground ring-1 ring-border"
-                >
-                  {t.initials}
-                </span>
-                <span className="flex flex-col">
-                  <span className="font-medium text-foreground">{t.name}</span>
-                  <span className="text-sm text-muted-foreground">
-                    {t.title}
-                  </span>
-                </span>
-              </figcaption>
-            </figure>
-          ))}
+                Full Quote
+              </button>
+              </div>
+            ) : null}
+          </div>
         </div>
-      </TooltipProvider>
+      </figure>
+
+      <div className="mt-6 flex items-center justify-between">
+        <span className="text-xs font-medium uppercase tracking-[0.16em] tabular-nums text-muted-foreground">
+          {String(rendered + 1).padStart(2, "0")} /{" "}
+          {String(count).padStart(2, "0")}
+        </span>
+        <div className="flex gap-2">
+          <button
+            type="button"
+            onClick={() => go(-1)}
+            aria-label="Previous testimonial"
+            className="flex size-9 items-center justify-center rounded-md border border-border bg-surface text-muted-foreground transition-colors hover:border-foreground/40 hover:text-foreground"
+          >
+            <ArrowLeft className="size-4" />
+          </button>
+          <button
+            type="button"
+            onClick={() => go(1)}
+            aria-label="Next testimonial"
+            className="flex size-9 items-center justify-center rounded-md border border-border bg-surface text-muted-foreground transition-colors hover:border-foreground/40 hover:text-foreground"
+          >
+            <ArrowRight className="size-4" />
+          </button>
+        </div>
+      </div>
     </Section>
   );
 }
