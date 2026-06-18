@@ -13,9 +13,8 @@ export const site = {
 } as const;
 
 export const bio = [
-  "I'm a senior software engineer with 17+ years building scalable front-end platforms, design systems, and the developer experiences around them.",
-  "Most recently I was the primary architect of enterprise design systems at Bankrate (Red Ventures) — React/Next.js component platforms built in TypeScript and Tailwind, design-token pipelines, and the CI tooling that lets product teams actually adopt and trust a shared system. I care deeply about accessibility, Core Web Vitals, and the kind of architecture that makes teams measurably faster.",
-  "I work primarily in React, Next.js, and TypeScript, with a strong Figma-to-code handoff practice and a growing AI-assisted workflow using tools like Claude Code, Cursor, and custom MCP integrations.",
+  "I'm a front-of-the-front-end engineer with 17+ years of experience, most at home in the space where design and engineering meet. My forte is design systems, accessibility, and Core Web Vitals performance — building the components, patterns, and tooling that help teams ship interfaces that are consistent, fast, and accessible by default.",
+  "I'm also comfortable across the full stack: headless CMS integrations, end-to-end testing, and CI/CD pipelines with GitHub Actions. I stay framework-agnostic and reach for the right tool for the job, whether that's Astro, Next.js, or plain React — paired with a strong Figma-to-code handoff practice and an AI-assisted workflow I'm always refining.",
 ];
 
 export type Experience = {
