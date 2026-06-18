@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Download, MapPin } from "lucide-react";
+import { Download } from "lucide-react";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
 import { nav, site } from "@/lib/content";
 import { cn } from "@/lib/utils";
