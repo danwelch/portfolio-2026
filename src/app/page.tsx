@@ -11,7 +11,7 @@ export default function Home() {
     <div id="top" className="lg:flex">
       <SidePane />
       <main className="min-w-0 lg:flex-1">
-        <div className="max-w-2xl px-6 py-16 sm:px-10 lg:px-16 lg:py-24">
+        <div className="max-w-4xl px-6 py-16 sm:px-10 lg:px-16 lg:py-24">
           <About />
           <Experience />
           <Work />

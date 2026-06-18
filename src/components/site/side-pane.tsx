@@ -117,16 +117,12 @@ export function SidePane() {
               href={site.resume}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-lg bg-white/10 px-3 py-1.5 text-sm font-medium text-slate-200 transition-colors hover:bg-white/[0.15] hover:text-white"
+              className="inline-flex items-center gap-1.5 rounded-xs bg-slate-400 px-1.5 py-0.5 text-xs font-semibold text-dark transition-colors hover:bg-white h-5 uppercase tracking-wide"
             >
               Resume
-              <Download className="size-4" />
+              <Download className="size-3" />
             </a>
           </div>
-          <p className="mt-5 flex items-center gap-1.5 text-xs font-medium uppercase tracking-[0.14em] text-slate-500">
-            <MapPin className="size-3.5" />
-            {site.location}
-          </p>
         </div>
       </div>
     </header>
