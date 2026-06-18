@@ -39,23 +39,10 @@ export function Experience() {
             </div>
 
             <div className="sm:border-l sm:border-border/60 sm:pl-8">
-              <h3 className="text-lg font-medium tracking-tight">{job.role}</h3>
-              <div className="mt-0.5 text-sm text-muted-foreground">
+              <h3 className="text-lg font-semibold tracking-tight">{job.role}</h3>
+              <div className="mt-1 text-sm text-muted-foreground">
                 {job.company} · {job.location}
               </div>
-              <p className="mt-3 text-pretty leading-relaxed text-foreground/85">
-                {job.summary}
-              </p>
-              <ul className="mt-4 space-y-2">
-                {job.highlights.map((point, j) => (
-                  <li
-                    key={j}
-                    className="relative pl-5 text-sm leading-relaxed text-muted-foreground before:absolute before:left-0 before:top-2.5 before:size-1.5 before:-translate-y-1/2 before:rounded-full before:bg-brand/50"
-                  >
-                    {point}
-                  </li>
-                ))}
-              </ul>
             </div>
           </li>
         ))}
