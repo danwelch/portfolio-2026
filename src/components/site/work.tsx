@@ -37,12 +37,12 @@ export function Work() {
         {upcoming.map((item) => (
           <article
             key={item.name}
-            className="group relative flex flex-col rounded-xl border border-border/70 bg-card/40 p-6 transition-colors hover:border-brand/40 hover:bg-card"
+            className="group relative flex flex-col rounded-2xl border border-border bg-surface p-6 transition-all hover:-translate-y-0.5 hover:border-brand/40 hover:shadow-[0_8px_30px_-12px_rgba(13,27,46,0.15)]"
           >
             <div className="flex items-center justify-between">
               <Badge
                 variant="outline"
-                className="rounded-full font-mono text-[0.65rem] uppercase tracking-[0.15em] text-muted-foreground"
+                className="rounded-full border-accent-light bg-accent-subtle text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-brand"
               >
                 Coming soon
               </Badge>

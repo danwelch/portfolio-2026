@@ -6,15 +6,9 @@ import { site } from "@/lib/content";
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden">
-      {/* faint grid + glow backdrop */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.4] [background-image:linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] [background-size:64px_64px] [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]"
-      />
-
-      <Container className="flex min-h-[calc(100svh-4rem)] flex-col justify-center py-20">
-        <span className="inline-flex w-fit items-center gap-2 rounded-full border border-border bg-card/60 px-3.5 py-1.5 font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
+    <section id="top" className="relative">
+      <Container className="flex min-h-[calc(100svh-4rem)] flex-col justify-center py-24">
+        <span className="inline-flex w-fit items-center gap-2.5 rounded-full border border-border bg-surface px-3.5 py-1.5 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground shadow-sm">
           <span className="relative flex size-2">
             <span className="absolute inline-flex size-full animate-ping rounded-full bg-brand opacity-75" />
             <span className="relative inline-flex size-2 rounded-full bg-brand" />
@@ -22,31 +16,31 @@ export function Hero() {
           New portfolio — under construction
         </span>
 
-        <h1 className="mt-8 text-balance font-heading text-5xl font-medium leading-[0.95] tracking-tight sm:text-7xl lg:text-8xl">
+        <h1 className="mt-8 text-balance text-6xl font-semibold leading-[0.98] tracking-tight sm:text-7xl lg:text-8xl">
           Dan Welch
         </h1>
 
-        <p className="mt-6 max-w-2xl text-balance text-xl leading-snug text-foreground/90 sm:text-2xl">
+        <p className="mt-6 max-w-2xl text-balance text-2xl font-light leading-snug text-foreground sm:text-3xl">
           Senior Software Engineer building{" "}
-          <span className="font-heading italic text-brand">design systems</span>{" "}
-          and the front-end architecture teams rely on.
+          <span className="font-normal text-brand">design systems</span> and the
+          front-end architecture teams rely on.
         </p>
 
-        <p className="mt-5 max-w-xl text-pretty leading-relaxed text-muted-foreground">
+        <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground">
           17+ years shipping scalable platforms in React, Next.js, and
           TypeScript. The full portfolio — with case studies and project
           deep-dives — is on its way. In the meantime, here&apos;s the short
           version.
         </p>
 
-        <div className="mt-9 flex flex-wrap items-center gap-3">
+        <div className="mt-10 flex flex-wrap items-center gap-3">
           <Button asChild size="lg">
             <a href="#work">
               View work
               <ArrowDown className="size-4" />
             </a>
           </Button>
-          <Button asChild size="lg" variant="ghost">
+          <Button asChild size="lg" variant="outline">
             <a href="#contact">Get in touch</a>
           </Button>
 
@@ -66,7 +60,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="mt-12 flex items-center gap-2 font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
+        <div className="mt-14 flex items-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-subtle">
           <MapPin className="size-3.5" />
           {site.location}
         </div>

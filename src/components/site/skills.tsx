@@ -18,15 +18,15 @@ export function Skills() {
             key={group.label}
             className="grid gap-3 border-t border-border/60 pt-5"
           >
-            <dt className="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
+            <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-foreground">
               {group.label}
             </dt>
             <dd className="flex flex-wrap gap-2">
               {group.items.map((item) => (
                 <Badge
                   key={item}
-                  variant="secondary"
-                  className="rounded-full px-3 py-1 text-sm font-normal"
+                  variant="outline"
+                  className="rounded-full border-border bg-surface px-3 py-1 text-sm font-normal text-foreground"
                 >
                   {item}
                 </Badge>

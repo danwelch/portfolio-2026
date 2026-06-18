@@ -25,7 +25,7 @@ export function Testimonials() {
           {testimonials.map((t) => (
             <figure
               key={t.name}
-              className="flex flex-col rounded-xl border border-border/70 bg-card/40 p-7"
+              className="flex flex-col rounded-2xl border border-border bg-surface p-7 shadow-[0_8px_30px_-18px_rgba(13,27,46,0.18)]"
             >
               <Quote className="size-7 text-brand/40" aria-hidden="true" />
               <blockquote className="mt-4 flex-1 text-pretty leading-relaxed text-foreground/90">
@@ -33,7 +33,7 @@ export function Testimonials() {
               </blockquote>
 
               <Tooltip>
-                <TooltipTrigger className="mt-4 w-fit cursor-help font-mono text-xs uppercase tracking-[0.15em] text-brand underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none">
+                <TooltipTrigger className="mt-4 w-fit cursor-help text-xs font-semibold uppercase tracking-[0.14em] text-brand underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none">
                   Full testimonial
                 </TooltipTrigger>
                 <TooltipContent
@@ -62,7 +62,7 @@ export function Testimonials() {
           ))}
 
           {/* Placeholder while more testimonials come in */}
-          <figure className="flex flex-col items-start justify-center rounded-xl border border-dashed border-border bg-card/20 p-7">
+          <figure className="flex flex-col items-start justify-center rounded-2xl border border-dashed border-border bg-surface/50 p-7">
             <Quote className="size-7 text-muted-foreground/30" aria-hidden="true" />
             <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
               More kind words are on their way — I&apos;m gathering notes from

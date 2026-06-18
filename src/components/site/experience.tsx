@@ -28,11 +28,11 @@ export function Experience() {
             />
 
             <div className="sm:pr-8 sm:text-right">
-              <div className="font-mono text-sm text-muted-foreground">
+              <div className="text-sm font-medium tabular-nums text-muted-foreground">
                 {job.period}
               </div>
               {job.current ? (
-                <div className="mt-1 inline-flex items-center gap-1.5 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-brand">
+                <div className="mt-1 inline-flex items-center gap-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-brand">
                   Most recent
                 </div>
               ) : null}
