@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Noto_Sans, Bitter } from "next/font/google";
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/next"
+
 
 const outfit = Noto_Sans({
   variable: "--font-body",
@@ -67,6 +69,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">{children}</body>
       <SpeedInsights/>
+      <Analytics/>
     </html>
   );
 }
