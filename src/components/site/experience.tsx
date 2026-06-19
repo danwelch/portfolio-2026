@@ -34,7 +34,7 @@ function TimelineRow({ job }: { job: TimelineEntry }) {
         <TimelineMarker />
       </div>
 
-      <div className="flex items-center gap-3 sm:contents">
+      <div className="flex flex-col gap-0.5 sm:contents">
         <div
           className={cn(
             "shrink-0 text-sm tabular-nums text-muted-foreground sm:mb-0 sm:flex sm:items-center sm:justify-end sm:self-center sm:text-right",
