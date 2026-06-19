@@ -47,7 +47,7 @@ export function SidePane() {
           <div className="flex items-start justify-between gap-8">
             <div className="max-w-94">
               <h1 className="font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-                <a href="#top" className="transition-colors hover:text-brand-on-dark">
+                <a href="#top" className="">
                   Dan Welch
                 </a>
               </h1>
