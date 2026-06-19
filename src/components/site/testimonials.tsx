@@ -84,7 +84,7 @@ export function Testimonials() {
         index="05"
         eyebrow="Testimonials"
         title="Kind words from people I've worked with"
-        description="A few notes from engineers, designers, and product partners. More on the way."
+        description="From the talented engineers, designers, and managers I've had the pleasure of working alongside."
       />
 
       <figure

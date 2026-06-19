@@ -10,13 +10,12 @@ export function Contact() {
         index="06"
         eyebrow="Contact"
         title="Let's build something"
-        description="I'm currently exploring new Design Systems Architect and senior front-end roles. The fastest way to reach me is email — I read everything."
+        description="I'm currently exploring full-time Design Systems Architect and senior front-end roles, remote preferred but open to relocation for the right opportunity. Also available for freelance and contract work."
       />
 
       <Button
-        variant="ghost"
         asChild
-        className="mt-8 h-auto -translate-x-5 px-5 py-3 uppercase tracking-wide text-sm transition-transform hover:bg-brand/15 hover:text-brand sm:text-base"
+        className="mt-8 bg-dark text-white hover:bg-dark/90 uppercase tracking-wide text-sm px-5 py-3 h-auto sm:text-base"
       >
         <a href={`mailto:${site.email}`}>
           Let's Connect

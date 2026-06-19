@@ -78,8 +78,8 @@ export function Experience() {
       <SectionHeading
         index="02"
         eyebrow="Experience"
-        title="Seventeen years, one through-line"
-        description="From university marketing sites to enterprise design systems — a steady move toward the architecture that makes teams faster."
+        title="From sites to systems"
+        description="From hand-coding university landing pages to architecting the design systems that ship across dozens of products. The throughline is always the same: make the next thing easier to build right."
       />
 
       <ol className="relative mt-14">

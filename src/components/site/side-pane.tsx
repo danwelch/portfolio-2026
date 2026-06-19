@@ -117,7 +117,7 @@ export function SidePane() {
               href={site.resume}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-xs bg-slate-400 px-1.5 py-0.5 text-xs font-semibold text-dark transition-colors hover:bg-white h-5 uppercase tracking-wide"
+              className="inline-flex items-center gap-1.5 rounded-xs bg-slate-400 px-2 py-1 text-xs font-semibold text-dark transition-colors hover:bg-white h-6 uppercase tracking-wide"
             >
               Résumé
               <Download className="size-3" />

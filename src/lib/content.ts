@@ -14,7 +14,7 @@ export const site = {
 
 export const bio = [
   "I'm a Design Systems Architect with 17+ years as a front-of-the-front-end engineer — most at home in the space where design and engineering meet. I build the component libraries, design tokens, and tooling that help product teams ship interfaces that are consistent, fast, and accessible by default, with a deep focus on accessibility and Core Web Vitals performance.",
-  "I'm also comfortable across the full stack: headless CMS integrations, end-to-end testing, and CI/CD pipelines with GitHub Actions. I stay framework-agnostic and reach for the right tool for the job, whether that's Astro, Next.js, or plain React — paired with a strong Figma-to-code handoff practice and an AI-assisted workflow I'm always refining.",
+  "I'm also comfortable across the full stack: headless CMS integrations, end-to-end testing, and CI/CD pipelines with GitHub Actions. I like to stay framework-agnostic and reach for the right tool for the job, whether that's Next.js, Astro, or plain HTML and CSS — paired with a strong Figma-to-code handoff practice and an AI-assisted workflow I'm always refining.",
 ];
 
 export type TimelineSubRole = { period: string; title: string };
@@ -133,6 +133,14 @@ export type Testimonial = {
 };
 
 export const testimonials: Testimonial[] = [
+  {
+    quote:
+      "Dan is looked to as a thought leader... and has gotten feedback like, 'Dan completely changed the way I think about the frontend.'",
+    full: "Dan is looked to as a thought leader, owning large projects like successfully migrating all pages on Bankrate to the Treasury Design System with no major issues... He has taken on mentoring several engineers... and has gotten feedback like, 'Dan completely changed the way I think about the frontend.'",
+    name: "Justin Cook",
+    title: "fmr. Director of Engineering @ Bankrate",
+    initials: "JC",
+  },
   {
     quote:
       "You've been the most influential coworker in my development from LT to RV. Observing your brilliance and high standards from a distance inspired me to replicate that in my own work.",
