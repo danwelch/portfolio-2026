@@ -145,7 +145,7 @@ export const testimonials: Testimonial[] = [
   {
     quote: "Dan is the best front-end engineer I know... What makes Dan exceptional is how completely he bridges both sides of the design-engineering equation. He brings a designer's eye and genuine attention to detail, paired with the structural rigor and systems thinking of a strong engineer...",
     full: "Dan is the best front-end engineer I know, and I've been lucky enough to work with him for over a decade across two companies. What makes Dan exceptional is how completely he bridges both sides of the design-engineering equation. He brings a designer's eye and genuine attention to detail, paired with the structural rigor and systems thinking of a strong engineer. The result: the most sustainable, approachable, and extensible design systems I've encountered in my career. My design teams have benefitted directly from his expertise — not just from what he builds, but from how he works. He shares technical context generously, brings people into decisions rather than making them in isolation, and treats design as a real partner, not a handoff. He's the kind of engineer design teams fight to keep close.",
-    name: "Rickey Carlton",
+    name: "Ricky Carlton",
     title: "Senior Director of Creative @ Bankrate",
     initials: "RC",
   },
