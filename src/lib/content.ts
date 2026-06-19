@@ -13,8 +13,8 @@ export const site = {
 } as const;
 
 export const bio = [
-  "I'm a Design Systems Architect with 17+ years as a front-of-the-front-end engineer — most at home in the space where design and engineering meet. I build the component libraries, design tokens, and tooling that help product teams ship interfaces that are consistent, fast, and accessible by default, with a deep focus on accessibility and Core Web Vitals performance.",
-  "I'm also comfortable across the full stack: headless CMS integrations, end-to-end testing, and CI/CD pipelines with GitHub Actions. I like to stay framework-agnostic and reach for the right tool for the job, whether that's Next.js, Astro, or plain HTML and CSS — paired with a strong Figma-to-code handoff practice and an AI-assisted workflow I'm always refining.",
+  "I'm a Design Systems Architect with 17+ years as a front-of-the-front-end engineer, most at home in the space where design and engineering meet. I build the component libraries, design tokens, and tooling that help product teams ship interfaces that are consistent, fast, and accessible by default, with a deep focus on accessibility and Core Web Vitals performance.",
+  "I'm also comfortable across the full stack: headless CMS integrations, end-to-end testing, and CI/CD pipelines with GitHub Actions. I like to stay framework-agnostic and reach for the right tool for the job, whether that's Next.js, Astro, or plain HTML and CSS, paired with a strong Figma-to-code handoff practice and an AI-assisted workflow I'm always refining.",
 ];
 
 export type TimelineSubRole = { period: string; title: string };
@@ -37,21 +37,21 @@ export const experience: TimelineEntry[] = [
     company: "Red Ventures / Bankrate",
     current: true,
     description:
-      "Primary architect of Bankrate's design systems — React/Next.js component platforms, design-token pipelines, and the CI tooling that lets product teams actually adopt them."
+      "Shipped two successive design systems that became the foundation for product delivery across Bankrate, moving teams off a legacy CSS framework onto a consistent, maintainable platform with zero production incidents."
   },
   {
     period: "2025",
     role: "Engineering Manager | Interim",
     company: "Red Ventures / Bankrate",
     description:
-      "Led a team of 7 for six months.",
+      "Stepped into a management role for 6 months, improving team velocity and co-leading an AI hackathon whose results directly shaped the team's migration strategy.",
   },
   {
     period: "2016–2021",
     role: "Senior Front-End Developer",
     company: "Launch That",
     description:
-      "Architected the Ares Framework — the component library and WordPress parent theme powering every Launch That property."
+      "Built the design system that unified front-end development across every Launch That property. Trained directly with Brad Frost on Atomic Design methodology, the systems-thinking approach I've carried forward ever since."
   },
   {
     period: "2014–2016",
@@ -59,7 +59,7 @@ export const experience: TimelineEntry[] = [
     company: "Studio Birdsall",
     earlyCareer: true,
     description:
-      "Led front-end across 10+ client projects — Magento and Shopify e-commerce and custom WordPress builds.",
+      "Led front-end across 10+ client projects: Magento and Shopify e-commerce and custom WordPress builds.",
   },
   {
     period: "2008–2014",
@@ -157,12 +157,12 @@ export const testimonials: Testimonial[] = [
     title: "Principal Product Designer @ CNET",
     initials: "ER",
   },
-  {
-    quote: "Snatch this guy up while you can. He is top shelf.",
-    name: "Chris Arter",
-    title: "Engineering Manager & Laravel Core Contributor",
-    initials: "CA",
-  },
+  // {
+  //   quote: "Snatch this guy up while you can. He is top shelf.",
+  //   name: "Chris Arter",
+  //   title: "Engineering Manager & Laravel Core Contributor",
+  //   initials: "CA",
+  // },
 ];
 
 export const nav = [

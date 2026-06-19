@@ -5,12 +5,12 @@ const caseStudies = [
   {
     name: "The Ledger",
     blurb:
-      "Architecting Bankrate's React/Next.js design system — 65+ components, token-based white-label theming, and the release tooling behind it.",
+      "Architecting Bankrate's React/Next.js design system: 65+ components, token-based white-label theming, and the release tooling behind it.",
   },
   {
     name: "The Treasury",
     blurb:
-      "Bankrate's first formal design system — adopted across a dozen-plus projects with zero production incidents, replacing a legacy CSS framework.",
+      "Bankrate's first formal design system, adopted across a dozen-plus projects with zero production incidents, replacing a legacy CSS framework.",
   },
 ];
 
@@ -21,7 +21,7 @@ export function Work() {
         index="04"
         eyebrow="Case Studies"
         title="Selected work"
-        description="Detailed write-ups of my recent design-systems work at Bankrate."
+        description="Deep dives into the systems, decisions, and tradeoffs behind the work."
       />
 
       <p className="mt-6 flex items-center gap-2.5 text-sm text-muted-foreground">
@@ -29,7 +29,7 @@ export function Work() {
           <span className="absolute inline-flex size-full animate-ping rounded-full bg-brand opacity-75" />
           <span className="relative inline-flex size-2 rounded-full bg-brand" />
         </span>
-        This site is a work in progress — updates coming soon.
+        This site is a work in progress. Updates coming soon.
       </p>
 
       <div className="mt-8 grid gap-4">

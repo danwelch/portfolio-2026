@@ -13,8 +13,6 @@ export function SidePane() {
     const ids = nav.map((n) => n.href.slice(1));
 
     const onScroll = () => {
-      // At the bottom of the page, the last (often short) section can't reach
-      // the detection line — pin it active explicitly.
       const atBottom =
         window.innerHeight + window.scrollY >=
         document.documentElement.scrollHeight - 4;
@@ -42,22 +40,44 @@ export function SidePane() {
   }, []);
 
   return (
-    <header className="bg-dark text-slate-300 lg:w-2/5 lg:max-w-[27rem] lg:shrink-0">
+    <header className="@container/header bg-dark text-slate-300 lg:w-2/5 lg:max-w-[27rem] lg:shrink-0">
       <div className="flex flex-col justify-between gap-12 px-6 py-12 sm:px-10 lg:sticky lg:top-0 lg:h-screen lg:max-h-screen lg:gap-0 lg:px-12 lg:py-20">
         <div>
-          <h1 className="font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-            <a href="#top" className="transition-colors hover:text-brand-on-dark">
-              Dan Welch
-            </a>
-          </h1>
-          <h2 className="mt-3 text-lg font-sans uppercase font-semibold tracking-wide leading-none text-brand-on-dark">
-            Design Systems Architect
-          </h2>
-          <p className="mt-4 max-w-xs text-balance leading-relaxed text-slate-300">
-            17+ years building scalable front-end platforms, design systems, and
-            developer experiences.
-          </p>
+          {/* Name / role / bio + right-side tablet nav */}
+          <div className="flex items-start justify-between gap-8">
+            <div>
+              <h1 className="font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+                <a href="#top" className="transition-colors hover:text-brand-on-dark">
+                  Dan Welch
+                </a>
+              </h1>
+              <h2 className="mt-3 text-lg font-sans uppercase font-semibold tracking-wide leading-none text-brand-on-dark">
+                Design Systems Architect
+              </h2>
+              <p className="mt-4 max-w-xs text-balance leading-relaxed text-slate-300">
+                17+ years building scalable front-end platforms, design systems, and
+                developer experiences.
+              </p>
+            </div>
 
+            {/* Wide full-width header only — right-aligned, lines on right, no active state */}
+            <nav className="hidden shrink-0 @[520px]:block lg:hidden" aria-label="In-page">
+              <ul className="space-y-1">
+                {nav.map((item) => (
+                  <li key={item.href}>
+                    <a href={item.href} className="group flex items-center justify-end py-2">
+                      <span className="text-xs font-semibold uppercase tracking-[0.16em] transition-colors text-slate-300 group-hover:text-slate-200">
+                        {item.label}
+                      </span>
+                      <span className="ml-4 h-px w-7 bg-slate-600 transition-all duration-200 group-hover:w-14 group-hover:bg-slate-300" />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+
+          {/* Sidebar nav — below bio, lines on left, active state */}
           <nav className="mt-16 hidden lg:block" aria-label="In-page">
             <ul className="space-y-1">
               {nav.map((item) => {
