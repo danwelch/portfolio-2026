@@ -11,7 +11,7 @@ export function SiteFooter() {
         <a href="https://ui.shadcn.com" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">shadcn/ui</a>
         {"  ·  "}Typeset in{" "}
         <a href="https://fonts.google.com/specimen/Bitter" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Bitter</a> &amp;{" "}
-        <a href="https://fonts.google.com/specimen/Outfit" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Outfit</a>
+        <a href="https://fonts.google.com/specimen/Noto+Sans" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Noto Sans</a>
         {"  ·  "}Deployed on{" "}
         <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Vercel</a>.
       </p>
