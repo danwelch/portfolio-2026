@@ -41,11 +41,11 @@ export function SidePane() {
 
   return (
     <header className="@container/header bg-dark text-slate-300 lg:w-2/5 lg:max-w-[27rem] lg:shrink-0">
-      <div className="flex flex-col justify-between gap-12 px-6 py-12 sm:px-10 lg:sticky lg:top-0 lg:h-screen lg:max-h-screen lg:gap-0 lg:px-12 lg:py-20">
+      <div className="flex flex-col justify-between gap-12 px-6 py-8 sm:px-10 lg:sticky lg:top-0 lg:h-screen lg:max-h-screen lg:gap-0 lg:px-8 lg:py-14">
         <div>
           {/* Name / role / bio + right-side tablet nav */}
           <div className="flex items-start justify-between gap-8">
-            <div>
+            <div className="max-w-94">
               <h1 className="font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">
                 <a href="#top" className="transition-colors hover:text-brand-on-dark">
                   Dan Welch
@@ -54,7 +54,7 @@ export function SidePane() {
               <h2 className="mt-3 text-lg font-sans uppercase font-semibold tracking-wide leading-none text-brand-on-dark">
                 Design Systems Architect
               </h2>
-              <p className="mt-4 max-w-xs text-balance leading-relaxed text-slate-300">
+              <p className="mt-4 text-balance leading-relaxed text-slate-300">
                 17+ years building scalable front-end platforms, design systems, and
                 developer experiences.
               </p>

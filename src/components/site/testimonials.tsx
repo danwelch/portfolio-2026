@@ -35,7 +35,7 @@ export function Testimonials() {
 
       <figure className="relative mt-12 rounded-xl border border-border bg-surface">
         <div className="px-7 pb-7 pt-10">
-          <blockquote className="justify-start font-display text-dark text-pretty leading-relaxed italic font-medium">
+          <blockquote className="justify-start font-display text-muted-foreground text-pretty leading-relaxed italic font-medium text-lg">
             &ldquo;{expanded && t.full ? t.full : shortQuote}&rdquo;
           </blockquote>
 

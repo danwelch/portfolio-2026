@@ -17,6 +17,14 @@ export const bio = [
   "I'm also comfortable across the full stack: headless CMS integrations, end-to-end testing, and CI/CD pipelines with GitHub Actions. I like to stay framework-agnostic and reach for the right tool for the job, whether that's Next.js, Astro, or plain HTML and CSS, paired with a strong Figma-to-code handoff practice and an AI-assisted workflow I'm always refining.",
 ];
 
+export const personalBio = [
+  "When I'm not working, I'm a husband to an amazing mom and a dad to two young girls.",
+  "I grew up in Central Maine, then moved to Florida for school. I stayed there for work and the sunshine, met my wife, and we started our family. When COVID made remote work possible, we decided to move back to Maine to be closer to my family.",
+  "I've always loved Lego, a passion that I’ve passed on to my daughters. The structured, modular creativity probably explains why I enjoy design systems. We lived in Orlando for years and went to Disney so many times we lost count. Now, we enjoy visiting Disney as a family. I've surfed in Florida, hiked trails all over Maine, and I still find time for video games after the girls are asleep.",
+  "I like to think I'm pretty handy around the house, even if my projects sometimes put that to the test. I usually take on more than I should, but I've managed to fix every major appliance, including the AC. Maybe that's why I feel confident tackling new challenges head-on.",
+  "Family always comes first for me. Work-life balance isn't just a goal; it's my top priority.",
+];
+
 export type TimelineSubRole = { period: string; title: string };
 
 export type TimelineEntry = {

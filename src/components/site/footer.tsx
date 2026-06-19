@@ -2,7 +2,7 @@ import { site } from "@/lib/content";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border/60 py-10 text-sm text-muted-foreground flex flex-col gap-2">
+    <footer className="border-t border-border/60 pt-10 pb-0 text-sm text-muted-foreground flex flex-col gap-2">
       <p>© {new Date().getFullYear()} · {site.name}</p>
       <p className="mt-1 leading-relaxed">
         Built with{" "}
