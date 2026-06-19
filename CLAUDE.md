@@ -43,7 +43,7 @@ Both are `"use client"` components:
 ## Fonts
 
 - Display / headings: Bitter (`font-display`)
-- Body: Outfit (`font-body` / `font-sans`)
+- Body: Noto Sans (`font-body` / `font-sans`)
 
 ## Content guidelines
 
