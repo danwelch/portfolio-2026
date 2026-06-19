@@ -1,15 +1,13 @@
-# Dan Welch — Portfolio (temporary)
+# Dan Welch — Portfolio
 
-A minimal one-page holding site while the full portfolio is in progress.
-Light/editorial design with a short bio, experience timeline, skills,
-teased case studies, testimonials placeholder, and contact links.
+A one-page portfolio site for a Design Systems Architect with 17+ years of front-end engineering experience. Clean two-column layout with sticky sidebar, interactive sections, and a focus on legibility over flash.
 
 ## Stack
 
-- [Next.js 16](https://nextjs.org) (App Router, Turbopack)
+- [Next.js 15](https://nextjs.org) (App Router, Turbopack)
 - [Tailwind CSS v4](https://tailwindcss.com)
-- [shadcn/ui](https://ui.shadcn.com) (radix primitives)
-- [Fraunces](https://fonts.google.com/specimen/Fraunces) + Geist Sans/Mono
+- [shadcn/ui](https://ui.shadcn.com) (Radix primitives)
+- [Bitter](https://fonts.google.com/specimen/Bitter) (display) + [Outfit](https://fonts.google.com/specimen/Outfit) (body)
 
 ## Develop
 
@@ -22,14 +20,24 @@ pnpm lint
 
 ## Editing content
 
-All copy lives in [`src/lib/content.ts`](src/lib/content.ts) — bio,
-experience, skills, and links. Sections are composed in
-[`src/app/page.tsx`](src/app/page.tsx) from `src/components/site/`.
+All copy lives in [`src/lib/content.ts`](src/lib/content.ts): bio, personal bio, experience, skills, testimonials, and nav. Sections are composed in [`src/app/page.tsx`](src/app/page.tsx) from components in `src/components/site/`.
 
 The resume PDF is served from `public/Dan-Welch-Resume.pdf`.
 
+## Layout
+
+- **Left column** (`SidePane`) — sticky on desktop, stacked on mobile. Dark navy (`bg-dark`), lime-green accents (`brand-on-dark`).
+- **Right column** — scrollable content: About, Experience, Work, Testimonials, Contact.
+- Baseline-aligned at `lg` breakpoint: `01 · ABOUT` eyebrow aligns with the `DESIGN SYSTEMS ARCHITECT` h2 baseline via `lg:pt-[7.375rem]`.
+
+## Interactive features
+
+- **About toggle** — "professionally / personally" button in the heading swaps bio content between `bio` and `personalBio` arrays in `content.ts`.
+- **Testimonials carousel** — per-slide expanded state via `Set<number>`; "Full Quote" button persists per slide across navigation.
+- **Active nav** — scroll spy highlights the current section in the sidebar nav.
+
 ## To do
 
-- [ ] Write up case studies (The Ledger, The Treasury, Storyblok audit)
-- [ ] Add testimonials from former colleagues
-- [ ] Wire up a real contact form when ready (Resend / Formspree)
+- [ ] Write up case studies (The Ledger, The Treasury)
+- [ ] Wire up a real contact form (Resend / Formspree)
+- [ ] Add OG image / meta tags
