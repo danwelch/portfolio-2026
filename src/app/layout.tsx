@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s — Dan Welch",
   },
   description:
-    "Design Systems Architect and front-of-the-front-end engineer with 17+ years building component platforms, design tokens, and the tooling product teams rely on. New portfolio coming soon.",
+    "Design systems architect and front-end engineer specializing in component libraries, design tokens, and the tooling that bridges design and engineering at scale.",
   keywords: [
     "Dan Welch",
     "Design Systems Architect",
@@ -44,14 +44,14 @@ export const metadata: Metadata = {
     url: siteUrl,
     title: "Dan Welch — Design Systems Architect",
     description:
-      "Design Systems Architect building component platforms, design tokens, and the tooling product teams rely on. New portfolio coming soon.",
+      "Design systems architect and front-end engineer specializing in component libraries, design tokens, and the tooling that bridges design and engineering at scale..",
     siteName: "Dan Welch",
   },
   twitter: {
     card: "summary_large_image",
     title: "Dan Welch — Design Systems Architect",
     description:
-      "Design Systems Architect building component platforms, design tokens, and the tooling product teams rely on.",
+      "Design systems architect and front-end engineer specializing in component libraries, design tokens, and the tooling that bridges design and engineering at scale.",
   },
 };
 
