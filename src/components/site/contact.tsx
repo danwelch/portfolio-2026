@@ -10,7 +10,7 @@ export function Contact() {
         index="06"
         eyebrow="Contact"
         title="Let's build something"
-        description="I'm currently exploring full-time Design Systems Architect and senior front-end roles, remote preferred but open to relocation for the right opportunity. Also available for freelance and contract work."
+        description="I'm currently exploring full-time design systems architect and senior front-end roles, remote preferred but open to relocation for the right opportunity. Also available for freelance and contract work."
       />
 
       <Button
