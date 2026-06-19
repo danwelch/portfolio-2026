@@ -159,16 +159,17 @@
     background: var(--brand);
     color: var(--brand-foreground);
   }
-  .bg-dark ::selection {
-    background: var(--brand-on-dark);
-    color: var(--dark);
-  }
   h1,
   h2,
   h3 {
     @apply font-heading;
     font-optical-sizing: auto;
   }
+}
+
+.bg-dark ::selection {
+  background-color: var(--brand-on-dark);
+  color: var(--dark);
 }
 
 @media (prefers-reduced-motion: reduce) {
