@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Outfit, Bitter } from "next/font/google";
+import { Noto_Sans, Bitter } from "next/font/google";
 import "./globals.css";
 
-const outfit = Outfit({
+const outfit = Noto_Sans({
   variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
