@@ -155,7 +155,7 @@ function ExperienceEntry({ entry }: { entry: ResumeEntry }) {
       <ul className="list-disc col-span-2" style={{ paddingLeft: "0.25in", marginBottom: 0, fontSize: "9.5pt" }}>
         {entry.bullets.map((bullet) => (
           <li key={bullet.bold} className="mb-1 text-pretty marker:text-foreground">
-            <em className="text-foreground not-italic">{bullet.bold}</em>
+            <strong className="text-foreground font-semibold">{bullet.bold}</strong>
             {bullet.rest}
           </li>
         ))} 
