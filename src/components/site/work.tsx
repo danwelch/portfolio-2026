@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { Section, SectionHeading } from "@/components/site/section";
 
@@ -15,6 +18,8 @@ const caseStudies = [
 ];
 
 export function Work() {
+  const [openCard, setOpenCard] = useState<string | null>(null);
+
   return (
     <Section id="work" className="border-t border-border/60">
       <SectionHeading
@@ -45,16 +50,22 @@ export function Work() {
               {item.blurb}
             </p>
 
-            <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-brand">
+            <button
+              onClick={() => setOpenCard(item.name)}
+              className="mt-4 inline-flex cursor-pointer items-center gap-1.5 text-sm font-medium text-brand"
+            >
               Learn more
               <ArrowRight className="size-3.5" />
-            </span>
+            </button>
 
-            <div className="absolute inset-0 flex items-center justify-center bg-dark/45 opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
+            <button
+              onClick={() => setOpenCard(openCard === item.name ? null : item.name)}
+              className={`absolute inset-0 flex w-full cursor-pointer items-center justify-center bg-dark/60 backdrop-blur-xs transition-opacity duration-300 group-hover:opacity-100 ${openCard === item.name ? "opacity-100" : "opacity-0"}`}
+            >
               <span className="text-sm font-semibold uppercase tracking-[0.18em] text-white">
                 Coming soon
               </span>
-            </div>
+            </button>
           </article>
         ))}
       </div>
