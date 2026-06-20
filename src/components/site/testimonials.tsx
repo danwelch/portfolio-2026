@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import Image from "next/image";
 import { ArrowLeft, ArrowRight, Mail, X } from "lucide-react";
 import { Section, SectionHeading } from "@/components/site/section";
 import { testimonials } from "@/lib/content";
@@ -38,12 +39,12 @@ function ReferenceModal({
         <div className="flex items-start justify-between gap-4 px-7 pt-7 pb-5 border-b border-border/60">
           <div className="flex items-center gap-3.5">
             {t.avatar ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
+              <Image
                 src={t.avatar}
                 alt={t.name}
+                width={80}
+                height={80}
                 className="size-10 shrink-0 rounded-full object-cover ring-1 ring-border"
-                loading="lazy"
               />
             ) : (
               <span
@@ -113,12 +114,12 @@ export function Testimonials() {
         <div className="p-5 @[30rem]/card:p-7">
           <figcaption className="flex items-center gap-3.5 mb-4">
             {t.avatar ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
+              <Image
                 src={t.avatar}
                 alt={t.name}
+                width={80}
+                height={80}
                 className="size-10 shrink-0 rounded-full object-cover ring-1 ring-border"
-                loading="lazy"
               />
             ) : (
               <span
