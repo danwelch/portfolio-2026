@@ -62,8 +62,8 @@
 
 :root {
   /* palette — neutral grays with a single blue accent */
-  --surface: #ffffff;
-  --subtle: #a1a1aa;
+  --surface: var(--color-white);
+  --subtle: var(--color-zinc-400);
   --dark: #0a1628;
   --dark-2: #060f1c;
   --border-dark: #1e3149;
@@ -71,26 +71,26 @@
   --accent-light: #dbe8ff;
   --accent-subtle: #eff4ff;
 
-  --background: #f6f6f7;
-  --foreground: #1c1c1f;
-  --card: #ffffff;
-  --card-foreground: #1c1c1f;
-  --popover: #ffffff;
-  --popover-foreground: #1c1c1f;
-  --primary: #1c1c1f;
-  --primary-foreground: #ffffff;
-  --secondary: #f1f1f3;
-  --secondary-foreground: #1c1c1f;
-  --muted: #f1f1f3;
-  --muted-foreground: #71717a;
-  --accent: #f1f1f3;
-  --accent-foreground: #1c1c1f;
+  --background: var(--color-zinc-50);
+  --foreground: var(--color-zinc-900);
+  --card: var(--color-white);
+  --card-foreground: var(--color-zinc-900);
+  --popover: var(--color-white);
+  --popover-foreground: var(--color-zinc-900);
+  --primary: var(--color-zinc-900);
+  --primary-foreground: var(--color-white);
+  --secondary: var(--color-zinc-100);
+  --secondary-foreground: var(--color-zinc-900);
+  --muted: var(--color-zinc-100);
+  --muted-foreground: var(--color-zinc-600);
+  --accent: var(--color-zinc-100);
+  --accent-foreground: var(--color-zinc-900);
   --destructive: oklch(0.577 0.245 27.325);
   --brand: #3a7d00;
   --brand-on-dark: #aaee44;
-  --brand-foreground: #ffffff;
-  --border: #e4e4e7;
-  --input: #e4e4e7;
+  --brand-foreground: var(--color-white);
+  --border: var(--color-zinc-200);
+  --input: var(--color-zinc-200);
   --ring: #b45309;
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
