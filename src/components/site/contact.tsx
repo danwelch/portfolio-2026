@@ -15,7 +15,7 @@ export function Contact() {
 
       <Button
         asChild
-        className="mt-8 bg-dark text-white hover:bg-dark/90 uppercase tracking-wide text-sm px-5 py-3 h-auto sm:text-base"
+        className="mt-8 bg-dark text-white hover:bg-brand uppercase tracking-wide text-sm px-5 py-3 h-auto sm:text-base"
       >
         <a href={`mailto:${site.email}`}>
           Let's Connect
