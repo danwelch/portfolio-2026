@@ -163,7 +163,7 @@ export const testimonials: Testimonial[] = [
   {
     quote:
       "Dan is looked to as a thought leader... and has gotten feedback like, 'Dan completely changed the way I think about the frontend.'",
-    fullHtml: `<p class="disclaimer">Excerpt from a letter of recommendation written in support of Dan's promotion to Engineering Manager.</p><p>Dan is looked to as a thought leader, owning large projects like successfully migrating all pages on Bankrate to the Treasury Design System with no major issues and simplifying our yearly Bankrate Awards templates so they now take a fraction of the time to update. He has taken on mentoring several engineers and has gotten feedback like, "Dan completely changed the way I think about the frontend."</p><p>Since Dan has taken on the functional role of EM, he has shown he can be trusted in this position and is ready to lead.</p>`,
+    fullHtml: `<p class="disclaimer">Justin sent this to senior leadership to advocate for Dan's promotion to Engineering Manager.</p><p>Dan is looked to as a thought leader, owning large projects like successfully migrating all pages on Bankrate to the Treasury Design System with no major issues and simplifying our yearly Bankrate Awards templates so they now take a fraction of the time to update. He has taken on mentoring several engineers and has gotten feedback like, "Dan completely changed the way I think about the frontend."</p><p>Since Dan has taken on the functional role of EM, he has shown he can be trusted in this position and is ready to lead.</p>`,
     name: "Justin Cook",
     title: "fmr. Director of Engineering @ Bankrate",
     initials: "JC",
