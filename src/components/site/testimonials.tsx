@@ -43,6 +43,7 @@ function ReferenceModal({
                 src={t.avatar}
                 alt={t.name}
                 className="size-10 shrink-0 rounded-full object-cover ring-1 ring-border"
+                loading="lazy"
               />
             ) : (
               <span
@@ -117,6 +118,7 @@ export function Testimonials() {
                 src={t.avatar}
                 alt={t.name}
                 className="size-10 shrink-0 rounded-full object-cover ring-1 ring-border"
+                loading="lazy"
               />
             ) : (
               <span
