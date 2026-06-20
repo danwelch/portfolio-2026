@@ -136,43 +136,55 @@ export const skills: SkillGroup[] = [
 export type Testimonial = {
   quote: string;
   full?: string;
+  fullHtml?: string;
   name: string;
   title: string;
   initials: string;
+  avatar?: string;
 };
 
 export const testimonials: Testimonial[] = [
   {
     quote: "Dan is the best front-end engineer I know... What makes Dan exceptional is how completely he bridges both sides of the design-engineering equation. He brings a designer's eye and genuine attention to detail, paired with the structural rigor and systems thinking of a strong engineer...",
-    full: "Dan is the best front-end engineer I know, and I've been lucky enough to work with him for over a decade across two companies. What makes Dan exceptional is how completely he bridges both sides of the design-engineering equation. He brings a designer's eye and genuine attention to detail, paired with the structural rigor and systems thinking of a strong engineer. The result: the most sustainable, approachable, and extensible design systems I've encountered in my career. My design teams have benefitted directly from his expertise — not just from what he builds, but from how he works. He shares technical context generously, brings people into decisions rather than making them in isolation, and treats design as a real partner, not a handoff. He's the kind of engineer design teams fight to keep close.",
+    fullHtml: `<p>Dan is the best front-end engineer I know, and I've been lucky enough to work with him for over a decade across two companies.</p><p>What makes Dan exceptional is how completely he bridges both sides of the design-engineering equation. He brings a designer's eye and genuine attention to detail, paired with the structural rigor and systems thinking of a strong engineer. The result: the most sustainable, approachable, and extensible design systems I've encountered in my career.</p><p>My design teams have benefitted directly from his expertise — not just from what he builds, but from how he works. He shares technical context generously, brings people into decisions rather than making them in isolation, and treats design as a real partner, not a handoff. He's the kind of engineer design teams fight to keep close.</p>`,
     name: "Ricky Carlton",
     title: "Senior Director of Creative @ Bankrate",
     initials: "RC",
+    avatar: "/avatars/ricky.jpg",
+  },
+  {
+    quote: "Technically, Dan brought a rare level of strength, especially on the front end. He had a real grasp of how user experience, reusable components, maintainability, and business goals all connect. His work on the Design System is a good example of that. It created a cleaner, more scalable foundation for how teams built experiences across Bankrate.",
+    fullHtml: `<p>I worked closely with Dan for several years, and I came to trust him deeply as both an engineer and a partner in the work. Dan was one of the people you wanted on the hard projects. When something was complex, visible, or important to the business, his involvement made the work feel more achievable. He played key roles in major efforts like Bankrate Awards, the Design System, Data Center, First-Hand Experience, the Expert Contributor Program, and several platform initiatives that shaped both customer-facing experiences and the way internal teams were able to build and maintain products.</p><p>Technically, Dan brought a rare level of strength, especially on the front end. He had a real grasp of how user experience, reusable components, maintainability, and business goals all connect. His work on the Design System is a good example of that. It was not just about making things look consistent. It created a cleaner, more scalable foundation for how teams built experiences across Bankrate. That kind of work requires taste, judgment, technical depth, and an ability to think beyond the immediate ticket.</p><p>But what I appreciated most about Dan was not only what he delivered. It was how seriously he took responsibility when his role expanded. During the period when Dan stepped into an acting management role, I saw a different side of him come forward. He was still delivering as an IC, but he was also thinking more deeply about the team, the business, and the people doing the work. He talked differently about problems. He connected technical decisions to the strategic "why." He thought about how to motivate the team, how to help people understand the purpose behind the work, and how to create the conditions for others to succeed.</p><p>That transition stood out to me because it felt genuine. Dan did not become performative or overly focused on authority. He became more intentional. He listened more closely. He thought more carefully about people. He seemed to understand that leadership is not just about unblocking work, but about creating clarity, trust, and safety for the people doing the work.</p><p>I always felt Dan cared about doing things well, but in that period I also saw how much he cared about doing right by people. He had high standards, but he did not use them to make people feel small. He brought technical credibility, but he did not make collaboration feel intimidating. He was thoughtful, steady, and considerate in a way that made him easy to trust.</p><p>What makes Dan rare is that he can be both the engineer you want on a difficult project and the leader you would feel safe working under. He has the technical judgment to deliver important work and the character to lead people well while doing it. I would work with Dan again without hesitation.</p>`,
+    name: "Uchenna Ebilah",
+    title: "Staff Technical Project Manager @ Red Ventures",
+    initials: "UE",
+    avatar: "/avatars/uchenna.jpg",
   },
   {
     quote:
       "Dan is looked to as a thought leader... and has gotten feedback like, 'Dan completely changed the way I think about the frontend.'",
-    full: "Dan is looked to as a thought leader, owning large projects like successfully migrating all pages on Bankrate to the Treasury Design System with no major issues... He has taken on mentoring several engineers... and has gotten feedback like, 'Dan completely changed the way I think about the frontend.'",
+    fullHtml: `<p class="disclaimer">Excerpt from a letter of recommendation written in support of Dan's promotion to Engineering Manager.</p><p>Dan is looked to as a thought leader, owning large projects like successfully migrating all pages on Bankrate to the Treasury Design System with no major issues and simplifying our yearly Bankrate Awards templates so they now take a fraction of the time to update. He has taken on mentoring several engineers and has gotten feedback like, "Dan completely changed the way I think about the frontend."</p><p>Since Dan has taken on the functional role of EM, he has shown he can be trusted in this position and is ready to lead.</p>`,
     name: "Justin Cook",
     title: "fmr. Director of Engineering @ Bankrate",
     initials: "JC",
+    avatar: "/avatars/justin.jpg",
   },
   {
     quote:
       "You've been the most influential coworker in my development from LT to RV. Observing your brilliance and high standards from a distance inspired me to replicate that in my own work.",
-    // full: "You've been the most influential coworker in my development from LT to RV. Observing your brilliance and high standards from a distance inspired me to replicate that in my own work. Back at LT, the first time you reviewed my work, you asked me if I knew what semantic HTML is… hell no! But now I see how often that foundational building block is overlooked. At RV, you mentioned container queries and by the end of the day I knew everything about them just to understand what you were talking about. Every piece of critical feedback and every single resource you sent in Slack sent me down a rabbit hole to learn more because I wanted to be as good as you. Also, you were the only one who could give me actual valuable design feedback in ways that other designers just couldn't. I am incredibly lucky and grateful to have had you as my engineer.",
-    full: "You've been the most influential coworker in my development from LT to RV. Observing your brilliance and high standards from a distance inspired me to replicate that in my own work... You were the only one who could give me actual valuable design feedback in ways that other designers just couldn't. I am incredibly lucky and grateful to have had you as my engineer.",
+    fullHtml: `<p>I wish to give my gratitude to Dan, and I will echo this to the world a thousand times over.</p><p>You've been the most influential coworker in my development from LT to RV. Observing your brilliance and high standards from a distance inspired me to replicate that in my own work.</p><p>Back at LT, the first time you reviewed my work, you asked me if I knew what semantic HTML is… hell no! But now I see how often a foundational building block is overlooked.</p><p>At RV, you mentioned container queries, and by the end of the day, I knew everything about them just to understand wtf you were talking about.</p><p>Every piece of critical feedback and every single resource you sent in Slack sent me down a rabbit hole to learn more because I wanted to be as good as you.</p><p>Also, you were the only one who could give me actual, valuable design feedback in ways that other designers just couldn't. I am incredibly lucky and grateful to have had you as my engineer.</p>`,
     name: "Saleena Beharry",
-    title: "Staff Product Designer | Design Systems",
+    title: "Staff Product Designer",
     initials: "SB",
+    avatar: "/avatars/saleena.jpg",
   },
   {
     quote:
-      "If anyone is looking for a senior front-end engineer, specifically with expertise around design systems, I would highly recommend Daniel Welch.",
-    full: "If anyone is looking for a senior front-end engineer, specifically with expertise around design systems, I would highly recommend Daniel Welch.I've worked with him at my last 2 companies, Red Ventures and Launch That, and he has been a crucial piece to success in multiple product orgs.",
+      "If anyone is looking for a senior front-end engineer, specifically with expertise around design systems, I would highly recommend Daniel Welch.I've worked with him at my last 2 companies, Red Ventures and Launch That, and he has been a crucial piece to success in multiple product orgs.",
     name: "Eric Rodgers",
     title: "Principal Product Designer @ CNET",
     initials: "ER",
+    avatar: "/avatars/eric.jpg",
   },
 ];
 
