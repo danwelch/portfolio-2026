@@ -5,7 +5,7 @@ export const site = {
   location: "Remote · Open to relocation",
   email: "contact@danwelch.net",
   phone: "(407) 741-3175",
-  resume: "/dan-welch-resume-06-2026.pdf",
+  resume: "/Dan_Welch_Resume_DesignSystemsArchitect.pdf",
   currentSite: "https://danwelch.net",
   socials: {
     github: "https://github.com/danwelch",
