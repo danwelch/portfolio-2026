@@ -46,14 +46,16 @@ export const metadata: Metadata = {
     url: siteUrl,
     title: "Dan Welch — Design Systems Architect",
     description:
-      "Design systems architect and front-end engineer specializing in component libraries, design tokens, and the tooling that bridges design and engineering at scale..",
+      "Design systems architect and front-end engineer specializing in component libraries, design tokens, and the tooling that bridges design and engineering at scale.",
     siteName: "Dan Welch",
+    images: [{ url: "/opengraph-image.png", width: 1200, height: 630, alt: "Dan Welch — Design Systems Architect" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Dan Welch — Design Systems Architect",
     description:
       "Design systems architect and front-end engineer specializing in component libraries, design tokens, and the tooling that bridges design and engineering at scale.",
+    images: ["/opengraph-image.png"],
   },
 };
 
