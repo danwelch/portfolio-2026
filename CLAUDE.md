@@ -50,3 +50,14 @@ Both are `"use client"` components:
 - No em dashes anywhere in visible copy — use commas, colons, or periods instead.
 - Experience descriptions: short, business-output focused. Avoid listing responsibilities; lead with the result.
 - Testimonials with a `full` field show a truncated `quote` with a "Full Quote" button; slides without `full` show the full quote directly.
+
+## Resume PDF
+
+The `/resume` page (`src/app/resume/page.tsx`) is the source of truth for the resume; its copy lives in `content.ts` (`resumeMeta`, `resumeExperience`, `resumeSkills`, `resumeEducation`).
+
+`public/Dan_Welch_Resume_DesignSystemsArchitect.pdf` is a **generated artifact — do not hand-edit it.** Regenerate it from the page:
+
+- Locally: `pnpm resume:pdf` — renders `/resume` with headless Chromium via `scripts/generate-resume-pdf.mjs`. Reuses a running dev server, otherwise boots `next start`.
+- In CI: the `Resume PDF` GitHub Action regenerates it on PRs that touch the resume page, `content.ts`, `globals.css`, or the script, then commits it back to the PR branch (rendered from the Vercel preview, so the preview's Deployment Protection bypass secret is required).
+
+The skills section uses two explicit flex columns, not CSS `column-count` — Chrome's print engine collapses multi-column into a single column in the PDF.

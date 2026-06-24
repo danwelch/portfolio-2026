@@ -8,8 +8,9 @@ name: Resume PDF
 # Rather than building the app a second time in CI (Vercel already builds the
 # same commit), this renders the PDF from the live Vercel *preview* deployment.
 # It waits for that preview to be ready via a poll-with-timeout to avoid racing
-# Vercel's build. Assumes previews are publicly reachable; if Deployment
-# Protection is later enabled, pass a bypass token to the generate step.
+# Vercel's build. Previews are protected by Vercel Authentication, so the
+# generate step passes a Protection Bypass for Automation token
+# (the VERCEL_AUTOMATION_BYPASS_SECRET secret) to reach the page.
 on:
   pull_request:
     types: [opened, synchronize, reopened]
@@ -55,8 +56,22 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - name: Install Chromium for Playwright
+      # Cache the downloaded browser (~150MB). On a cache hit we skip the
+      # download and only (re)install the OS libraries Chromium needs.
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('pnpm-lock.yaml') }}
+
+      - name: Install Chromium (full) on cache miss
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: pnpm exec playwright install --with-deps chromium
+
+      - name: Install Chromium OS deps on cache hit
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: pnpm exec playwright install-deps chromium
 
       # Wait for Vercel's preview deployment of this exact commit, then capture
       # its URL. Polls with a timeout so we don't race Vercel's build.
@@ -108,6 +123,10 @@ jobs:
           VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
         run: pnpm resume:pdf
 
+      # No trigger loop: this commit is pushed with GITHUB_TOKEN (whose pushes
+      # don't start new workflow runs) and carries [skip ci]. The path filter
+      # does NOT prevent it — for pull_request it matches the whole PR diff,
+      # which always includes resume files.
       - name: Commit regenerated PDF if it changed
         run: |
           PDF="public/Dan_Welch_Resume_DesignSystemsArchitect.pdf"
