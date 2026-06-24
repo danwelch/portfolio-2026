@@ -4,6 +4,12 @@ name: Resume PDF
 # source data, and commit it back to the PR branch. This makes the regenerated
 # PDF part of the PR so it can be verified in the Vercel preview before merge.
 # Only the resume-related paths trigger this — not every PR.
+#
+# Rather than building the app a second time in CI (Vercel already builds the
+# same commit), this renders the PDF from the live Vercel *preview* deployment.
+# It waits for that preview to be ready via a poll-with-timeout to avoid racing
+# Vercel's build. Assumes previews are publicly reachable; if Deployment
+# Protection is later enabled, pass a bypass token to the generate step.
 on:
   pull_request:
     types: [opened, synchronize, reopened]
@@ -13,9 +19,11 @@ on:
       - "src/app/globals.css"
       - "scripts/generate-resume-pdf.mjs"
 
-# Allow the workflow to commit the regenerated PDF back to the PR branch.
+# contents: write to commit the regenerated PDF back to the PR branch;
+# deployments: read to look up the Vercel preview URL for the head commit.
 permissions:
   contents: write
+  deployments: read
 
 # Avoid overlapping runs racing to commit the same file on a busy PR.
 concurrency:
@@ -50,11 +58,52 @@ jobs:
       - name: Install Chromium for Playwright
         run: pnpm exec playwright install --with-deps chromium
 
-      - name: Build
-        run: pnpm build
+      # Wait for Vercel's preview deployment of this exact commit, then capture
+      # its URL. Polls with a timeout so we don't race Vercel's build.
+      - name: Resolve Vercel preview URL
+        id: preview
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SHA: ${{ github.event.pull_request.head.sha }}
+          TIMEOUT_SECONDS: "600"
+        run: |
+          set -euo pipefail
+          echo "Waiting for a successful Vercel preview deployment for $SHA..."
+          deadline=$(( $(date +%s) + TIMEOUT_SECONDS ))
+          url=""
+          while [ "$(date +%s)" -lt "$deadline" ]; do
+            for id in $(gh api \
+              "repos/${GITHUB_REPOSITORY}/deployments?sha=${SHA}&environment=Preview" \
+              -q '.[].id' 2>/dev/null || true); do
+              # Statuses come back newest-first; act on the current state.
+              state=$(gh api "repos/${GITHUB_REPOSITORY}/deployments/${id}/statuses" \
+                -q '.[0].state' 2>/dev/null || echo "")
+              case "$state" in
+                success)
+                  url=$(gh api "repos/${GITHUB_REPOSITORY}/deployments/${id}/statuses" \
+                    -q '[.[] | select(.state=="success" and .environment_url != null)][0].environment_url' \
+                    2>/dev/null || echo "")
+                  if [ -n "$url" ] && [ "$url" != "null" ]; then break 2; fi
+                  ;;
+                failure|error)
+                  echo "::warning::Vercel deployment $id reported state=$state; will keep waiting for another."
+                  ;;
+              esac
+            done
+            sleep 10
+          done
+          if [ -z "$url" ] || [ "$url" = "null" ]; then
+            echo "::error::Timed out after ${TIMEOUT_SECONDS}s waiting for a Vercel preview for $SHA."
+            exit 1
+          fi
+          echo "Preview URL: $url"
+          echo "url=$url" >> "$GITHUB_OUTPUT"
 
-      # The script boots `next start` itself when no server is detected.
+      # Render the PDF from the live preview (script skips booting its own server
+      # because RESUME_BASE_URL is already serving).
       - name: Generate resume PDF
+        env:
+          RESUME_BASE_URL: ${{ steps.preview.outputs.url }}
         run: pnpm resume:pdf
 
       - name: Commit regenerated PDF if it changed
