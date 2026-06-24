@@ -29,17 +29,17 @@ jobs:
     # run for same-repo PRs (where the preview + auto-commit flow applies).
     if: github.event.pull_request.head.repo.full_name == github.repository
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           # Check out the PR's source branch (not the detached merge ref) so we
           # can commit and push the regenerated PDF back to it.
           ref: ${{ github.head_ref }}
 
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v5
         with:
           version: 11.6.0
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           # pnpm 11 requires Node >= 22.13 (uses the node:sqlite builtin).
           node-version: 22
