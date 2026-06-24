@@ -1,0 +1,70 @@
+name: Resume PDF
+
+# Regenerate the resume PDF on pull requests that touch the resume page or its
+# source data, and commit it back to the PR branch. This makes the regenerated
+# PDF part of the PR so it can be verified in the Vercel preview before merge.
+# Only the resume-related paths trigger this — not every PR.
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - "src/app/resume/**"
+      - "src/lib/content.ts"
+      - "src/app/globals.css"
+      - "scripts/generate-resume-pdf.mjs"
+
+# Allow the workflow to commit the regenerated PDF back to the PR branch.
+permissions:
+  contents: write
+
+# Avoid overlapping runs racing to commit the same file on a busy PR.
+concurrency:
+  group: resume-pdf-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    # Pushing back to a fork's branch isn't permitted with GITHUB_TOKEN, so only
+    # run for same-repo PRs (where the preview + auto-commit flow applies).
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Check out the PR's source branch (not the detached merge ref) so we
+          # can commit and push the regenerated PDF back to it.
+          ref: ${{ github.head_ref }}
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.6.0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Install Chromium for Playwright
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Build
+        run: pnpm build
+
+      # The script boots `next start` itself when no server is detected.
+      - name: Generate resume PDF
+        run: pnpm resume:pdf
+
+      - name: Commit regenerated PDF if it changed
+        run: |
+          PDF="public/Dan_Welch_Resume_DesignSystemsArchitect.pdf"
+          if [[ -n "$(git status --porcelain "$PDF")" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add "$PDF"
+            git commit -m "chore: regenerate resume PDF [skip ci]"
+            git push
+          else
+            echo "Resume PDF already up to date — nothing to commit."
+          fi
