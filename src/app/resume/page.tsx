@@ -109,16 +109,22 @@ export default function ResumePage() {
 
         {/* Skills */}
         <Section title="Skills">
-          <div style={{ columnCount: 2, columnGap: "0.25in" }}>
-            {resumeSkills.map((group) => (
-              <div
-                key={group.label}
-                style={{ breakInside: "avoid", marginBottom: "0.125in" }}
-              >
-                <SectionSubtitle>{group.label}:</SectionSubtitle>
-                <div className="text-muted-foreground" style={{ fontSize: "9pt" }}>
-                  {group.items.join(", ")}
-                </div>
+          {/* Two explicit flex columns instead of CSS multi-column, which
+              Chrome's print engine collapses into a single column in the PDF. */}
+          <div style={{ display: "flex", gap: "0.25in", alignItems: "flex-start" }}>
+            {[
+              resumeSkills.slice(0, Math.ceil(resumeSkills.length / 2)),
+              resumeSkills.slice(Math.ceil(resumeSkills.length / 2)),
+            ].map((column, i) => (
+              <div key={i} style={{ flex: 1 }}>
+                {column.map((group) => (
+                  <div key={group.label} style={{ marginBottom: "0.125in" }}>
+                    <SectionSubtitle>{group.label}:</SectionSubtitle>
+                    <div className="text-muted-foreground" style={{ fontSize: "9pt" }}>
+                      {group.items.join(", ")}
+                    </div>
+                  </div>
+                ))}
               </div>
             ))}
           </div>
