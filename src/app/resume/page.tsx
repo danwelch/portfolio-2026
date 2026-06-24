@@ -109,12 +109,12 @@ export default function ResumePage() {
 
         {/* Skills */}
         <Section title="Skills">
-          <div
-            className="grid"
-            style={{ gridTemplateColumns: "1fr 1fr", columnGap: "0.25in", rowGap: "0.125in" }}
-          >
+          <div style={{ columnCount: 2, columnGap: "0.25in" }}>
             {resumeSkills.map((group) => (
-              <div key={group.label}>
+              <div
+                key={group.label}
+                style={{ breakInside: "avoid", marginBottom: "0.125in" }}
+              >
                 <SectionSubtitle>{group.label}:</SectionSubtitle>
                 <div className="text-muted-foreground" style={{ fontSize: "9pt" }}>
                   {group.items.join(", ")}
@@ -127,7 +127,7 @@ export default function ResumePage() {
         {/* Education */}
         <Section title="Education">
           {resumeEducation.map((entry) => (
-            <SectionGrid>
+            <SectionGrid key={entry.school + entry.degree}>
               <div>
                 <SectionSubtitle>{entry.school}</SectionSubtitle>
                 <SectionEyebrow>{entry.degree}</SectionEyebrow> 

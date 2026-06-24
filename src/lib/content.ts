@@ -82,57 +82,6 @@ export const experience: TimelineEntry[] = [
 
 export type SkillGroup = { label: string; items: string[] };
 
-export const skills: SkillGroup[] = [
-  {
-    label: "Languages",
-    items: ["TypeScript", "JavaScript", "HTML", "CSS", "PHP"],
-  },
-  {
-    label: "Frameworks & Libraries",
-    items: ["React", "Next.js", "Vue.js", "Astro", "Node.js", "Tailwind CSS v4", "Laravel"],
-  },
-  {
-    label: "Design Systems",
-    items: [
-      "Component Architecture",
-      "Storybook",
-      "Design Tokens (DTCG)",
-      "shadcn Registry",
-      "Multi-Brand Theming",
-    ],
-  },
-  {
-    label: "Testing & CI/CD",
-    items: [
-      "Playwright",
-      "Vitest",
-      "Jest",
-      "axe-core",
-      "Biome",
-      "GitHub Actions",
-      "Semantic Release",
-    ],
-  },
-  {
-    label: "CMS & Platforms",
-    items: ["Storyblok", "WordPress (ACF, Gutenberg)", "Shopify"],
-  },
-  {
-    label: "AI & Modern Workflow",
-    items: ["Claude Code", "Cursor", "GitHub Copilot", "OpenAI Codex", "MCP tooling"],
-  },
-  {
-    label: "Practices",
-    items: [
-      "Accessibility (WCAG)",
-      "Core Web Vitals",
-      "Responsive Design",
-      "Figma Collaboration",
-      "Design-to-Code Handoff",
-    ],
-  },
-];
-
 export type Testimonial = {
   quote: string;
   full?: string;
@@ -348,6 +297,7 @@ export const resumeSkills: SkillGroup[] = [
       "Design Tokens (DTCG)",
       "ShadCN Registry",
       "Multi-Brand Theming / White-Labeling",
+      "Branding",
     ],
   },
   {
@@ -355,10 +305,14 @@ export const resumeSkills: SkillGroup[] = [
     items: [
       "Accessibility (WCAG / A11y)",
       "Core Web Vitals",
+      "Progressive Enhancement",
       "Responsive Design",
+      "Typography",
+      "Information Architecture",
       "Figma Collaboration",
       "Design-to-Code Handoff",
       "UI/UX Consulting",
+      "Technical Writing",
     ],
   },
   {
@@ -380,8 +334,12 @@ export const resumeSkills: SkillGroup[] = [
   {
     label: "AI & Modern Workflow",
     items: [
-      "Cursor, Claude Code, GitHub Copilot, OpenAI Codex, MCP tooling; daily use across code generation, refactoring, documentation, and design-system development; custom rules & prompt authoring",
+      "Cursor, Claude Code, GitHub Copilot, OpenAI Codex, MCP tooling; daily use across code generation, refactoring, documentation, rapid prototyping, and design-system development; custom rules & prompt authoring",
     ],
+  },
+  {
+    label: "Leadership",
+    items: ["Engineering Management", "Team Mentorship", "Stakeholder Alignment"],
   },
 ];
 
