@@ -51,6 +51,7 @@ export function Work() {
             </p>
 
             <button
+              type="button"
               onClick={() => setOpenCard(item.name)}
               className="mt-4 inline-flex cursor-pointer items-center gap-1.5 text-sm font-medium text-brand"
             >
@@ -59,7 +60,10 @@ export function Work() {
             </button>
 
             <button
-              onClick={() => setOpenCard(openCard === item.name ? null : item.name)}
+              type="button"
+              onClick={() =>
+                setOpenCard(openCard === item.name ? null : item.name)
+              }
               className={`absolute inset-0 flex w-full cursor-pointer items-center justify-center bg-dark/60 backdrop-blur-xs transition-opacity duration-300 group-hover:opacity-100 ${openCard === item.name ? "opacity-100" : "opacity-0"}`}
             >
               <span className="text-sm font-semibold uppercase tracking-[0.18em] text-white">

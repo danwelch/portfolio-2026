@@ -3,6 +3,7 @@
 export function ResumePrintButton() {
   return (
     <button
+      type="button"
       onClick={() => window.print()}
       className="bg-dark text-white font-body text-sm font-medium px-5 py-2 rounded cursor-pointer hover:opacity-80 transition-opacity"
     >

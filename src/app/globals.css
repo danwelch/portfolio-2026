@@ -126,11 +126,19 @@
 }
 
 @media print {
-  .resume-screen-only { display: none !important; }
-  body { background: white !important; }
+  .resume-screen-only {
+    /* biome-ignore lint/complexity/noImportantStyles: print override must beat screen styles */
+    display: none !important;
+  }
+  body {
+    /* biome-ignore lint/complexity/noImportantStyles: print override must beat screen styles */
+    background: white !important;
+  }
 }
 
-.print-page-break { break-after: page; }
+.print-page-break {
+  break-after: page;
+}
 
 .print-page {
   width: 8.5in;

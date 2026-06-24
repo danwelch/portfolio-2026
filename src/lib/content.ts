@@ -46,7 +46,7 @@ export const experience: TimelineEntry[] = [
     company: "Red Ventures / Bankrate",
     current: true,
     description:
-      "Shipped two successive design systems that became the foundation for product delivery across Bankrate, moving teams off a legacy CSS framework onto a consistent, maintainable platform with zero production incidents."
+      "Shipped two successive design systems that became the foundation for product delivery across Bankrate, moving teams off a legacy CSS framework onto a consistent, maintainable platform with zero production incidents.",
   },
   {
     period: "2025",
@@ -60,7 +60,7 @@ export const experience: TimelineEntry[] = [
     role: "Senior Front-End Developer",
     company: "Launch That",
     description:
-      "Built the design system that unified front-end development across every Launch That property. Trained directly with Brad Frost on Atomic Design methodology, the systems-thinking approach I've carried forward ever since."
+      "Built the design system that unified front-end development across every Launch That property. Trained directly with Brad Frost on Atomic Design methodology, the systems-thinking approach I've carried forward ever since.",
   },
   {
     period: "2014–2016",
@@ -94,7 +94,8 @@ export type Testimonial = {
 
 export const testimonials: Testimonial[] = [
   {
-    quote: "Dan is the best front-end engineer I know... What makes Dan exceptional is how completely he bridges both sides of the design-engineering equation. He brings a designer's eye and genuine attention to detail, paired with the structural rigor and systems thinking of a strong engineer...",
+    quote:
+      "Dan is the best front-end engineer I know... What makes Dan exceptional is how completely he bridges both sides of the design-engineering equation. He brings a designer's eye and genuine attention to detail, paired with the structural rigor and systems thinking of a strong engineer...",
     fullHtml: `<p>Dan is the best front-end engineer I know, and I've been lucky enough to work with him for over a decade across two companies.</p><p>What makes Dan exceptional is how completely he bridges both sides of the design-engineering equation. He brings a designer's eye and genuine attention to detail, paired with the structural rigor and systems thinking of a strong engineer. The result: the most sustainable, approachable, and extensible design systems I've encountered in my career.</p><p>My design teams have benefitted directly from his expertise — not just from what he builds, but from how he works. He shares technical context generously, brings people into decisions rather than making them in isolation, and treats design as a real partner, not a handoff. He's the kind of engineer design teams fight to keep close.</p>`,
     name: "Ricky Carlton",
     title: "Senior Director of Creative @ Bankrate",
@@ -102,7 +103,8 @@ export const testimonials: Testimonial[] = [
     avatar: "/avatars/ricky.jpg",
   },
   {
-    quote: "Technically, Dan brought a rare level of strength, especially on the front end. He had a real grasp of how user experience, reusable components, maintainability, and business goals all connect. His work on the Design System is a good example of that. It created a cleaner, more scalable foundation for how teams built experiences across Bankrate.",
+    quote:
+      "Technically, Dan brought a rare level of strength, especially on the front end. He had a real grasp of how user experience, reusable components, maintainability, and business goals all connect. His work on the Design System is a good example of that. It created a cleaner, more scalable foundation for how teams built experiences across Bankrate.",
     fullHtml: `<p>I worked closely with Dan for several years, and I came to trust him deeply as both an engineer and a partner in the work. Dan was one of the people you wanted on the hard projects. When something was complex, visible, or important to the business, his involvement made the work feel more achievable. He played key roles in major efforts like Bankrate Awards, the Design System, Data Center, First-Hand Experience, the Expert Contributor Program, and several platform initiatives that shaped both customer-facing experiences and the way internal teams were able to build and maintain products.</p><p>Technically, Dan brought a rare level of strength, especially on the front end. He had a real grasp of how user experience, reusable components, maintainability, and business goals all connect. His work on the Design System is a good example of that. It was not just about making things look consistent. It created a cleaner, more scalable foundation for how teams built experiences across Bankrate. That kind of work requires taste, judgment, technical depth, and an ability to think beyond the immediate ticket.</p><p>But what I appreciated most about Dan was not only what he delivered. It was how seriously he took responsibility when his role expanded. During the period when Dan stepped into an acting management role, I saw a different side of him come forward. He was still delivering as an IC, but he was also thinking more deeply about the team, the business, and the people doing the work. He talked differently about problems. He connected technical decisions to the strategic "why." He thought about how to motivate the team, how to help people understand the purpose behind the work, and how to create the conditions for others to succeed.</p><p>That transition stood out to me because it felt genuine. Dan did not become performative or overly focused on authority. He became more intentional. He listened more closely. He thought more carefully about people. He seemed to understand that leadership is not just about unblocking work, but about creating clarity, trust, and safety for the people doing the work.</p><p>I always felt Dan cared about doing things well, but in that period I also saw how much he cared about doing right by people. He had high standards, but he did not use them to make people feel small. He brought technical credibility, but he did not make collaboration feel intimidating. He was thoughtful, steady, and considerate in a way that made him easy to trust.</p><p>What makes Dan rare is that he can be both the engineer you want on a difficult project and the leader you would feel safe working under. He has the technical judgment to deliver important work and the character to lead people well while doing it. I would work with Dan again without hesitation.</p>`,
     name: "Uchenna Ebilah",
     title: "Staff Technical Project Manager @ Red Ventures",
@@ -284,10 +286,21 @@ export const resumeEducation: ResumeEducation[] = [
 ];
 
 export const resumeSkills: SkillGroup[] = [
-  { label: "Languages", items: ["TypeScript", "JavaScript", "HTML", "CSS", "PHP"] },
+  {
+    label: "Languages",
+    items: ["TypeScript", "JavaScript", "HTML", "CSS", "PHP"],
+  },
   {
     label: "Frameworks & Libraries",
-    items: ["React", "Next.js", "Vue.js", "Astro", "Node.js", "Tailwind CSS", "Laravel"],
+    items: [
+      "React",
+      "Next.js",
+      "Vue.js",
+      "Astro",
+      "Node.js",
+      "Tailwind CSS",
+      "Laravel",
+    ],
   },
   {
     label: "Design Systems",
@@ -317,7 +330,11 @@ export const resumeSkills: SkillGroup[] = [
   },
   {
     label: "CMS & Platforms",
-    items: ["Storyblok (Headless CMS)", "WordPress (Blade or Twig templating, ACF, Gutenberg)", "Shopify"],
+    items: [
+      "Storyblok (Headless CMS)",
+      "WordPress (Blade or Twig templating, ACF, Gutenberg)",
+      "Shopify",
+    ],
   },
   {
     label: "Testing & CI/CD",
@@ -339,7 +356,11 @@ export const resumeSkills: SkillGroup[] = [
   },
   {
     label: "Leadership",
-    items: ["Engineering Management", "Team Mentorship", "Stakeholder Alignment"],
+    items: [
+      "Engineering Management",
+      "Team Mentorship",
+      "Stakeholder Alignment",
+    ],
   },
 ];
 

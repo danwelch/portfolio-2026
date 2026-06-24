@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { Section, SectionHeading } from "@/components/site/section";
+import { Section } from "@/components/site/section";
 import { bio, personalBio } from "@/lib/content";
 
 export function About() {
-  const [mode, setMode] = useState<"professionally" | "personally">("professionally");
+  const [mode, setMode] = useState<"professionally" | "personally">(
+    "professionally",
+  );
   const isProfessional = mode === "professionally";
   const paragraphs = isProfessional ? bio : personalBio;
 
@@ -21,7 +23,9 @@ export function About() {
           A bit about me{" "}
           <button
             type="button"
-            onClick={() => setMode(isProfessional ? "personally" : "professionally")}
+            onClick={() =>
+              setMode(isProfessional ? "personally" : "professionally")
+            }
             className="italic text-foreground hover:text-brand focus-visible:text-brand transition-colors focus-visible:outline-none cursor-pointer"
           >
             {mode}
@@ -29,8 +33,8 @@ export function About() {
         </h2>
       </div>
       <div className="mt-8 space-y-5 text-base leading-relaxed text-muted-foreground">
-        {paragraphs.map((paragraph, i) => (
-          <p key={i} className="text-pretty">
+        {paragraphs.map((paragraph) => (
+          <p key={paragraph} className="text-pretty">
             {paragraph}
           </p>
         ))}

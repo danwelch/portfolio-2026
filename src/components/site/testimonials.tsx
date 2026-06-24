@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
-import { ArrowLeft, ArrowRight, Mail, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, X } from "lucide-react";
 import { Section, SectionHeading } from "@/components/site/section";
 import { testimonials } from "@/lib/content";
 
@@ -31,7 +31,9 @@ function ReferenceModal({
       role="dialog"
       aria-label={`Reference letter from ${t.name}`}
     >
-      <div
+      <button
+        type="button"
+        aria-label="Close reference letter"
         className="absolute inset-0 bg-black/50 backdrop-blur-sm"
         onClick={onClose}
       />
@@ -55,7 +57,9 @@ function ReferenceModal({
               </span>
             )}
             <span className="flex flex-col">
-              <span className="font-display font-medium text-foreground">{t.name}</span>
+              <span className="font-display font-medium text-foreground">
+                {t.name}
+              </span>
               <span className="text-sm text-muted-foreground">{t.title}</span>
             </span>
           </div>
@@ -70,11 +74,13 @@ function ReferenceModal({
         </div>
         <div
           className="overflow-y-auto px-7 py-6 text-sm leading-relaxed text-foreground font-body space-y-4 [&_p]:text-pretty [&_.disclaimer]:text-xs [&_.disclaimer]:italic [&_.disclaimer]:text-muted-foreground [&_.disclaimer]:border-b [&_.disclaimer]:border-border/60 [&_.disclaimer]:pb-4"
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: trusted, hand-authored reference-letter HTML from content.ts (not user input)
+          // biome-ignore lint/style/noNonNullAssertion: modal only mounts when fullHtml is present (guarded at the call site)
           dangerouslySetInnerHTML={{ __html: t.fullHtml! }}
         />
       </div>
     </div>,
-    document.body
+    document.body,
   );
 }
 
@@ -101,12 +107,14 @@ export function Testimonials() {
           {testimonials.map((t, i) => {
             const isActive = i === active;
             const expanded = expandedSet.has(i);
-            const shortQuote = t.full ? t.quote.replace(/\s*\.?\s*$/, "") + "…" : t.quote;
+            const shortQuote = t.full
+              ? `${t.quote.replace(/\s*\.?\s*$/, "")}…`
+              : t.quote;
             const displayedQuote = expanded && t.full ? t.full : shortQuote;
 
             return (
               <div
-                key={i}
+                key={t.name}
                 style={{ gridArea: "1 / 1" }}
                 className={`flex flex-col ${isActive ? "visible" : "invisible"}`}
                 aria-hidden={!isActive}
@@ -130,8 +138,12 @@ export function Testimonials() {
                       </span>
                     )}
                     <span className="flex flex-col">
-                      <span className="font-display font-medium text-foreground">{t.name}</span>
-                      <span className="text-sm text-muted-foreground text-balance">{t.title}</span>
+                      <span className="font-display font-medium text-foreground">
+                        {t.name}
+                      </span>
+                      <span className="text-sm text-muted-foreground text-balance">
+                        {t.title}
+                      </span>
                     </span>
                   </figcaption>
 
@@ -141,19 +153,22 @@ export function Testimonials() {
 
                   <div className="mt-6 pt-4 border-t border-border/60 flex items-center justify-between">
                     <div className="min-w-0">
-                      {(t.fullHtml || (t.full && !expanded)) ? (
+                      {t.fullHtml || (t.full && !expanded) ? (
                         <button
                           type="button"
                           onClick={
                             t.fullHtml
                               ? () => setModalIdx(i)
-                              : () => setExpandedSet((prev) => new Set(prev).add(i))
+                              : () =>
+                                  setExpandedSet((prev) => new Set(prev).add(i))
                           }
                           className="cursor-pointer whitespace-nowrap font-medium text-xs font-body text-muted-foreground uppercase tracking-wide underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none"
                         >
                           Read More
                         </button>
-                      ) : <span />}
+                      ) : (
+                        <span />
+                      )}
                     </div>
 
                     <div className="flex items-center gap-2">
@@ -187,7 +202,10 @@ export function Testimonials() {
       </figure>
 
       {modalIdx !== null && testimonials[modalIdx]?.fullHtml && (
-        <ReferenceModal t={testimonials[modalIdx]} onClose={() => setModalIdx(null)} />
+        <ReferenceModal
+          t={testimonials[modalIdx]}
+          onClose={() => setModalIdx(null)}
+        />
       )}
     </Section>
   );

@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Noto_Sans, Bitter } from "next/font/google";
 import "./globals.css";
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import { Analytics } from "@vercel/analytics/next"
-
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 
 const outfit = Noto_Sans({
   variable: "--font-body",
@@ -48,7 +47,14 @@ export const metadata: Metadata = {
     description:
       "Design systems architect and front-end engineer specializing in component libraries, design tokens, and the tooling that bridges design and engineering at scale.",
     siteName: "Dan Welch",
-    images: [{ url: "/opengraph-image.png", width: 1200, height: 630, alt: "Dan Welch — Design Systems Architect" }],
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Dan Welch — Design Systems Architect",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -70,8 +76,8 @@ export default function RootLayout({
       className={`${outfit.variable} ${bitter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
-      <SpeedInsights/>
-      <Analytics/>
+      <SpeedInsights />
+      <Analytics />
     </html>
   );
 }

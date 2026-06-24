@@ -55,17 +55,23 @@ export function SidePane() {
                 Design Systems Architect
               </h2>
               <p className="mt-4 text-balance leading-relaxed text-slate-300">
-                17+ years building scalable front-end platforms, design systems, and
-                developer experiences.
+                17+ years building scalable front-end platforms, design systems,
+                and developer experiences.
               </p>
             </div>
 
             {/* Wide full-width header only — right-aligned, lines on right, no active state */}
-            <nav className="hidden shrink-0 @[520px]:block lg:hidden" aria-label="In-page">
+            <nav
+              className="hidden shrink-0 @[520px]:block lg:hidden"
+              aria-label="In-page"
+            >
               <ul className="space-y-1">
                 {nav.map((item) => (
                   <li key={item.href}>
-                    <a href={item.href} className="group flex items-center justify-end py-2">
+                    <a
+                      href={item.href}
+                      className="group flex items-center justify-end py-2"
+                    >
                       <span className="text-xs font-semibold uppercase tracking-[0.16em] transition-colors text-slate-300 group-hover:text-slate-200">
                         {item.label}
                       </span>
@@ -85,7 +91,10 @@ export function SidePane() {
                 const isActive = active === id;
                 return (
                   <li key={item.href}>
-                    <a href={item.href} className="group flex items-center py-2">
+                    <a
+                      href={item.href}
+                      className="group flex items-center py-2"
+                    >
                       <span
                         className={cn(
                           "mr-4 h-px transition-all duration-200",

@@ -19,7 +19,6 @@ export const metadata: Metadata = {
 export default function ResumePage() {
   return (
     <div className="min-h-screen bg-slate-100 print:bg-white">
-
       {/* Screen-only print button */}
       <div className="resume-screen-only flex justify-center gap-4 py-6 print:hidden">
         <ResumePrintButton />
@@ -27,7 +26,6 @@ export default function ResumePage() {
 
       {/* Paper */}
       <div className="mx-auto bg-white font-body text-muted-foreground print-page print-page-break relative">
-
         {/* ── Header ── */}
         <header
           className="bg-dark text-white grid grid-cols-[1fr_auto] grid-rows-2 gap-y-3 justify-between items-start font-normal grid-rows-[auto_auto]"
@@ -40,39 +38,75 @@ export default function ResumePage() {
             >
               {site.name}
             </h1>
-            <p className="text-brand-on-dark uppercase tracking-wide" style={{ fontSize: "10pt" }}>
+            <p
+              className="text-brand-on-dark uppercase tracking-wide"
+              style={{ fontSize: "10pt" }}
+            >
               {site.role}
             </p>
-            </div>
+          </div>
 
           <div
             className="grid gap-2 row-span-2 col-2"
             style={{ fontSize: "9pt" }}
           >
             {[
-              { icon: <Link className="size-2.5" />, text: "danwelch.net", link: site.currentSite },
-              { icon: <Mail className="size-2.5" />, text: site.email, link: `mailto:${site.email}` },
-              { icon: <Phone className="size-2.5" />, text: site.phone, link: `tel:${site.phone}` },
-              { icon: <GitHubIcon className="size-2.5" />, text: "github.com/danwelch", link: site.socials.github },
-              { icon: <LinkedInMarkIcon className="size-2.5" />, text: "linkedin.com/in/danieldwelch", link: site.socials.linkedin },
-              { icon: <MapPin className="size-2.5" />, text: "Hampden, ME | Remote", link: "https://www.google.com/maps/place/Hampden,+ME" },
-            ].map((item, i) => (
-              <a key={i} 
-              href={item.link}
-              target="_blank"
-              rel="noopener noreferrer" className="group flex items-center justify-end gap-2 text-slate-300 hover:text-white transition-colors">
+              {
+                icon: <Link className="size-2.5" />,
+                text: "danwelch.net",
+                link: site.currentSite,
+              },
+              {
+                icon: <Mail className="size-2.5" />,
+                text: site.email,
+                link: `mailto:${site.email}`,
+              },
+              {
+                icon: <Phone className="size-2.5" />,
+                text: site.phone,
+                link: `tel:${site.phone}`,
+              },
+              {
+                icon: <GitHubIcon className="size-2.5" />,
+                text: "github.com/danwelch",
+                link: site.socials.github,
+              },
+              {
+                icon: <LinkedInMarkIcon className="size-2.5" />,
+                text: "linkedin.com/in/danieldwelch",
+                link: site.socials.linkedin,
+              },
+              {
+                icon: <MapPin className="size-2.5" />,
+                text: "Hampden, ME | Remote",
+                link: "https://www.google.com/maps/place/Hampden,+ME",
+              },
+            ].map((item) => (
+              <a
+                key={item.link}
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-end gap-2 text-slate-300 hover:text-white transition-colors"
+              >
                 {item.text}
-                <span
-                  className="flex items-center justify-center shrink-0 size-4 bg-slate-400 text-dark rounded-xs transition-colors group-hover:bg-white"
-                >
+                <span className="flex items-center justify-center shrink-0 size-4 bg-slate-400 text-dark rounded-xs transition-colors group-hover:bg-white">
                   {item.icon}
                 </span>
               </a>
             ))}
           </div>
-            <div>
-            <p className="font-body font-semibold uppercase tracking-wide text-white" style={{ fontSize: "9pt" }}>Summary</p>
-            <p className="text-slate-300 mt-1 font-weight-400 text-pretty" style={{ fontSize: "9.5pt" }}>
+          <div>
+            <p
+              className="font-body font-semibold uppercase tracking-wide text-white"
+              style={{ fontSize: "9pt" }}
+            >
+              Summary
+            </p>
+            <p
+              className="text-slate-300 mt-1 font-weight-400 text-pretty"
+              style={{ fontSize: "9.5pt" }}
+            >
               {resumeMeta.summary}
             </p>
           </div>
@@ -80,7 +114,10 @@ export default function ResumePage() {
 
         {/* Leadership Highlights */}
         <Section title="Highlights">
-          <ul className="list-disc text-foreground" style={{ paddingLeft: "0.25in", marginBottom: 0 }}>
+          <ul
+            className="list-disc text-foreground"
+            style={{ paddingLeft: "0.25in", marginBottom: 0 }}
+          >
             {resumeMeta.leadershipHighlights.map((item) => (
               <li key={item} style={{ fontSize: "10pt" }}>
                 {item}
@@ -99,8 +136,10 @@ export default function ResumePage() {
       </div>
 
       {/* Page 2 */}
-      <div className="mx-auto bg-white font-body text-muted-foreground print-page relative" style={{ paddingTop: "0.25in" }}>
-
+      <div
+        className="mx-auto bg-white font-body text-muted-foreground print-page relative"
+        style={{ paddingTop: "0.25in" }}
+      >
         <Section title="Experience (continued)">
           {resumeExperience.slice(2).map((entry) => (
             <ExperienceEntry key={entry.role + entry.company} entry={entry} />
@@ -116,7 +155,10 @@ export default function ResumePage() {
                 style={{ breakInside: "avoid", marginBottom: "0.125in" }}
               >
                 <SectionSubtitle>{group.label}:</SectionSubtitle>
-                <div className="text-muted-foreground" style={{ fontSize: "9pt" }}>
+                <div
+                  className="text-muted-foreground"
+                  style={{ fontSize: "9pt" }}
+                >
                   {group.items.join(", ")}
                 </div>
               </div>
@@ -130,8 +172,17 @@ export default function ResumePage() {
             <SectionGrid key={entry.school + entry.degree}>
               <div>
                 <SectionSubtitle>{entry.school}</SectionSubtitle>
-                <SectionEyebrow>{entry.degree}</SectionEyebrow> 
-                {entry.award ? (<span className="text-muted-foreground font-normal italic" style={{ fontSize: "9pt" }}>{entry.award}</span>) : ''}
+                <SectionEyebrow>{entry.degree}</SectionEyebrow>
+                {entry.award ? (
+                  <span
+                    className="text-muted-foreground font-normal italic"
+                    style={{ fontSize: "9pt" }}
+                  >
+                    {entry.award}
+                  </span>
+                ) : (
+                  ""
+                )}
               </div>
               <SectionRight date={entry.period} location={entry.location} />
             </SectionGrid>
@@ -145,20 +196,28 @@ export default function ResumePage() {
 }
 
 function ExperienceEntry({ entry }: { entry: ResumeEntry }) {
-  return (  
+  return (
     <SectionGrid marginBottom="0.125in">
       <div>
         <SectionSubtitle>{entry.company}</SectionSubtitle>
         <SectionEyebrow>{entry.role}</SectionEyebrow>
       </div>
       <SectionRight date={entry.period} location={entry.location} />
-      <ul className="list-disc col-span-2" style={{ paddingLeft: "0.25in", marginBottom: 0, fontSize: "9.5pt" }}>
+      <ul
+        className="list-disc col-span-2"
+        style={{ paddingLeft: "0.25in", marginBottom: 0, fontSize: "9.5pt" }}
+      >
         {entry.bullets.map((bullet) => (
-          <li key={bullet.bold} className="mb-1 text-pretty marker:text-foreground">
-            <strong className="text-foreground font-semibold">{bullet.bold}</strong>
+          <li
+            key={bullet.bold}
+            className="mb-1 text-pretty marker:text-foreground"
+          >
+            <strong className="text-foreground font-semibold">
+              {bullet.bold}
+            </strong>
             {bullet.rest}
           </li>
-        ))} 
+        ))}
       </ul>
     </SectionGrid>
   );
@@ -172,53 +231,61 @@ function SectionGrid({
   children?: React.ReactNode;
 }) {
   return (
-    <div className="grid" style={{ gridTemplateColumns: "1fr max-content", columnGap: "0.375in", marginBottom }}>
+    <div
+      className="grid"
+      style={{
+        gridTemplateColumns: "1fr max-content",
+        columnGap: "0.375in",
+        marginBottom,
+      }}
+    >
       {children}
     </div>
   );
 }
 
-function SectionTitle({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+function SectionTitle({ children }: { children: React.ReactNode }) {
   return (
-    <div className="font-medium text-muted-foreground border-b border-border tracking-wider uppercase pb-1 mb-3">{children}</div>
+    <div className="font-medium text-muted-foreground border-b border-border tracking-wider uppercase pb-1 mb-3">
+      {children}
+    </div>
   );
 }
 
-function SectionSubtitle({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+function SectionSubtitle({ children }: { children: React.ReactNode }) {
   return (
-    <div className="font-display text-foreground font-semibold tracking-tight" style={{ fontSize: "10.5pt" }}>{children}</div>
+    <div
+      className="font-display text-foreground font-semibold tracking-tight"
+      style={{ fontSize: "10.5pt" }}
+    >
+      {children}
+    </div>
   );
 }
 
-function SectionEyebrow({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+function SectionEyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <div className="font-body font-semibold uppercase tracking-wide text-brand  mb-2" style={{ fontSize: "9pt" }}>{children}</div>
+    <div
+      className="font-body font-semibold uppercase tracking-wide text-brand  mb-2"
+      style={{ fontSize: "9pt" }}
+    >
+      {children}
+    </div>
   );
 }
 
-function SectionRight({
-  date,
-  location,
-}: {
-  date: string;
-  location: string;
-}) {
+function SectionRight({ date, location }: { date: string; location: string }) {
   return (
     <div className="text-right">
-      <div className="text-foreground tabular-nums font-semibold" style={{ fontSize: "9pt" }}>{date}</div>
-      <div className="text-muted-foreground" style={{ fontSize: "9pt" }}>{location}</div>
+      <div
+        className="text-foreground tabular-nums font-semibold"
+        style={{ fontSize: "9pt" }}
+      >
+        {date}
+      </div>
+      <div className="text-muted-foreground" style={{ fontSize: "9pt" }}>
+        {location}
+      </div>
     </div>
   );
 }
@@ -246,9 +313,22 @@ function Footer({
   totalPages: number;
 }) {
   return (
-    <footer className="text-muted-foreground flex justify-between absolute bottom-0 left-0 right-0" style={{ fontSize: "7.5pt", padding: "0 0.375in 0.25in" }}>
-      <span className="inline-flex items-center gap-2"><span>© {new Date().getFullYear()}</span> · <span>{site.name}</span> · <a className="hover:text-foreground transition-colors" href={`mailto:${site.email}`}>{site.email}</a></span>
-      <span>Page {page} of {totalPages}</span>
+    <footer
+      className="text-muted-foreground flex justify-between absolute bottom-0 left-0 right-0"
+      style={{ fontSize: "7.5pt", padding: "0 0.375in 0.25in" }}
+    >
+      <span className="inline-flex items-center gap-2">
+        <span>© {new Date().getFullYear()}</span> · <span>{site.name}</span> ·{" "}
+        <a
+          className="hover:text-foreground transition-colors"
+          href={`mailto:${site.email}`}
+        >
+          {site.email}
+        </a>
+      </span>
+      <span>
+        Page {page} of {totalPages}
+      </span>
     </footer>
   );
-} 
+}
