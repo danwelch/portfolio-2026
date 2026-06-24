@@ -48,6 +48,7 @@ async function waitForServer(url, timeoutMs = 60_000) {
 }
 
 async function main() {
+  console.log(`Rendering resume from ${PAGE_URL}`);
   let server;
   const alreadyRunning = await isUp(PAGE_URL);
 
