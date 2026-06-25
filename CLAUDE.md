@@ -61,3 +61,5 @@ The `/resume` page (`src/app/resume/page.tsx`) is the source of truth for the re
 - In CI: the `Resume PDF` GitHub Action regenerates it on PRs that touch the resume page, `content.ts`, `globals.css`, or the script, then commits it back to the PR branch (rendered from the Vercel preview, so the preview's Deployment Protection bypass secret is required).
 
 The skills section uses two explicit flex columns, not CSS `column-count` — Chrome's print engine collapses multi-column into a single column in the PDF.
+
+**Troubleshooting — a PR push shows no `Resume PDF` run** (Vercel deploys but the Action never fires): GitHub occasionally drops the Actions trigger for a specific commit even when the workflow is valid, active, and the paths match. Push another (any) commit to re-trigger — don't go YAML-hunting. Confirmed once on commit `283aec0`: valid YAML, public repo (no quota), Actions operational, yet zero runs created for that SHA.
