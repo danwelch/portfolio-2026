@@ -6,7 +6,7 @@ Dan Welch's personal portfolio site. One page, two-column layout. The site itsel
 
 ## Key files
 
-- `src/lib/content.ts` — all copy: bio, personalBio, experience, testimonials, nav, site metadata, and resume content (`resumeMeta`, `resumeExperience`, `resumeSkills`, `resumeEducation`). Edit content here, not in components. (Note: there is no homepage skills section; skills live only in the resume.)
+- `src/lib/content.ts` — all copy: bio, personalBio, experience, testimonials, nav, site metadata, and resume content (`resumeMeta`, `resumeExperience`, `resumeSkills`, `resumeEducation`). Edit content here, not in components.
 - `src/app/page.tsx` — root layout, composes section components.
 - `src/app/resume/page.tsx` — standalone `/resume` page (source for the generated PDF; see Resume PDF below).
 - `src/app/globals.css` — CSS custom properties (colors, fonts), base styles, `::selection` rules.
