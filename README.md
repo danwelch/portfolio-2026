@@ -4,7 +4,7 @@ A one-page portfolio site for a Design Systems Architect with 17+ years of front
 
 ## Stack
 
-- [Next.js 15](https://nextjs.org) (App Router, Turbopack)
+- [Next.js 16](https://nextjs.org) (App Router, Turbopack)
 - [Tailwind CSS v4](https://tailwindcss.com)
 - [shadcn/ui](https://ui.shadcn.com) (Radix primitives)
 - [Bitter](https://fonts.google.com/specimen/Bitter) (display) + [Noto Sans](https://fonts.google.com/specimen/Noto+Sans) (body)
@@ -20,9 +20,9 @@ pnpm lint
 
 ## Editing content
 
-All copy lives in [`src/lib/content.ts`](src/lib/content.ts): bio, personal bio, experience, skills, testimonials, and nav. Sections are composed in [`src/app/page.tsx`](src/app/page.tsx) from components in `src/components/site/`.
+All copy lives in [`src/lib/content.ts`](src/lib/content.ts): bio, personal bio, experience, testimonials, nav, site metadata, and the resume content (`resumeMeta`, `resumeExperience`, `resumeSkills`, `resumeEducation`). Sections are composed in [`src/app/page.tsx`](src/app/page.tsx) from components in `src/components/site/`.
 
-The resume PDF is served from `public/Dan-Welch-Resume.pdf`.
+The resume is a standalone page at `/resume` ([`src/app/resume/page.tsx`](src/app/resume/page.tsx)) and is exported to `public/Dan_Welch_Resume_DesignSystemsArchitect.pdf`. That PDF is a **generated artifact** — run `pnpm resume:pdf` to regenerate it, don't hand-edit. A GitHub Action also regenerates it on PRs that touch the resume.
 
 ## Layout
 
@@ -40,4 +40,3 @@ The resume PDF is served from `public/Dan-Welch-Resume.pdf`.
 
 - [ ] Write up case studies (The Ledger, The Treasury)
 - [ ] Wire up a real contact form (Resend / Formspree)
-- [ ] Add OG image / meta tags
