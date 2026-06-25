@@ -9,6 +9,8 @@
 //     is reused for a fast turnaround.
 //   - Otherwise the script boots `next start` on its own and tears it down after.
 
+// TEMP: triggers CI to verify the Preview-environment secret wiring (reverted next commit).
+
 import { spawn } from "node:child_process";
 import { writeFileSync } from "node:fs";
 import { setTimeout as sleep } from "node:timers/promises";
