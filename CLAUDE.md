@@ -6,10 +6,11 @@ Dan Welch's personal portfolio site. One page, two-column layout. The site itsel
 
 ## Key files
 
-- `src/lib/content.ts` — all copy: bio, personalBio, experience, skills, testimonials, nav, site metadata. Edit content here, not in components.
+- `src/lib/content.ts` — all copy: bio, personalBio, experience, testimonials, nav, site metadata, and resume content (`resumeMeta`, `resumeExperience`, `resumeSkills`, `resumeEducation`). Edit content here, not in components. (Note: there is no homepage skills section; skills live only in the resume.)
 - `src/app/page.tsx` — root layout, composes section components.
+- `src/app/resume/page.tsx` — standalone `/resume` page (source for the generated PDF; see Resume PDF below).
 - `src/app/globals.css` — CSS custom properties (colors, fonts), base styles, `::selection` rules.
-- `src/components/site/` — one file per section: `about.tsx`, `experience.tsx`, `work.tsx`, `testimonials.tsx`, `contact.tsx`, `footer.tsx`, `side-pane.tsx`, `section.tsx`.
+- `src/components/site/` — one file per section: `about.tsx`, `experience.tsx`, `work.tsx`, `testimonials.tsx`, `contact.tsx`, `footer.tsx`, `side-pane.tsx`, `section.tsx`, plus `resume-print-button.tsx`.
 
 ## Colors
 
@@ -58,7 +59,7 @@ The `/resume` page (`src/app/resume/page.tsx`) is the source of truth for the re
 `public/Dan_Welch_Resume_DesignSystemsArchitect.pdf` is a **generated artifact — do not hand-edit it.** Regenerate it from the page:
 
 - Locally: `pnpm resume:pdf` — renders `/resume` with headless Chromium via `scripts/generate-resume-pdf.mjs`. Reuses a running dev server, otherwise boots `next start`.
-- In CI: the `Resume PDF` GitHub Action regenerates it on PRs that touch the resume page, `content.ts`, `globals.css`, or the script, then commits it back to the PR branch (rendered from the Vercel preview, so the preview's Deployment Protection bypass secret is required).
+- In CI: the `Resume PDF` GitHub Action regenerates it on PRs that touch the resume page, `content.ts`, `globals.css`, or the script, then commits it back to the PR branch. It renders from the Vercel preview, which is auth-protected — so the job declares `environment: Preview` to read `VERCEL_AUTOMATION_BYPASS_SECRET` (stored in the **Preview** GitHub Environment) and sends it as the `x-vercel-protection-bypass` header. The PDF's timestamp is pinned so output is byte-deterministic (no commit churn).
 
 The skills section uses two explicit flex columns, not CSS `column-count` — Chrome's print engine collapses multi-column into a single column in the PDF.
 
