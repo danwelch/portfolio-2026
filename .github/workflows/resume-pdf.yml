@@ -34,6 +34,9 @@ concurrency:
 jobs:
   generate:
     runs-on: ubuntu-latest
+    # The Vercel preview auth-bypass secret lives in this GitHub Environment;
+    # declaring it here is what makes that environment-scoped secret available.
+    environment: Preview
     # Pushing back to a fork's branch isn't permitted with GITHUB_TOKEN, so only
     # run for same-repo PRs (where the preview + auto-commit flow applies).
     if: github.event.pull_request.head.repo.full_name == github.repository
