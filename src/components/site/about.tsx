@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Section, SectionHeading } from "@/components/site/section";
+import { ArrowLeftRight } from "lucide-react";
+import { Section } from "@/components/site/section";
 import { bio, personalBio } from "@/lib/content";
 
 export function About() {
@@ -22,9 +23,12 @@ export function About() {
           <button
             type="button"
             onClick={() => setMode(isProfessional ? "personally" : "professionally")}
-            className="italic text-foreground hover:text-brand focus-visible:text-brand transition-colors focus-visible:outline-none cursor-pointer"
+            aria-pressed={!isProfessional}
+            aria-label="Switch between professional and personal bio"
+            className="inline-flex items-baseline gap-2 italic text-foreground hover:text-brand focus-visible:text-brand transition-colors focus-visible:outline-none cursor-pointer"
           >
             {mode}
+            <ArrowLeftRight aria-hidden="true" className="size-4 self-center text-brand" />
           </button>
         </h2>
       </div>
