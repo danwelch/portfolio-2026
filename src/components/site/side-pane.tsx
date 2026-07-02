@@ -119,7 +119,7 @@ export function SidePane() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
-              className="text-slate-400 transition-colors hover:text-white"
+              className="p-2 -m-2 text-slate-400 transition-colors hover:text-white"
             >
               <GitHubIcon className="size-5" />
             </a>
@@ -128,7 +128,7 @@ export function SidePane() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="text-slate-400 transition-colors hover:text-white"
+              className="p-2 -m-2 text-slate-400 transition-colors hover:text-white"
             >
               <LinkedInIcon className="size-5" />
             </a>
@@ -137,7 +137,7 @@ export function SidePane() {
               href={site.resume}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-xs bg-slate-400 px-2 py-1 text-xs font-semibold text-dark transition-colors hover:bg-white h-6 uppercase tracking-wide"
+              className="inline-flex items-center gap-1.5 rounded-xs bg-slate-400 px-2 py-1.5 text-xs font-semibold text-dark transition-colors hover:bg-white uppercase tracking-wide"
             >
               Résumé
               <Download className="size-3" />

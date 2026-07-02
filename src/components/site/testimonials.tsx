@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
-import { ArrowLeft, ArrowRight, Mail, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, X } from "lucide-react";
 import { Section, SectionHeading } from "@/components/site/section";
 import { testimonials } from "@/lib/content";
 
@@ -14,18 +14,45 @@ function ReferenceModal({
   t: (typeof testimonials)[0];
   onClose: () => void;
 }) {
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
+
   useEffect(() => {
+    const previouslyFocused = document.activeElement as HTMLElement | null;
     document.body.style.overflow = "hidden";
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    closeRef.current?.focus();
+
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        onClose();
+        return;
+      }
+      if (e.key !== "Tab" || !dialogRef.current) return;
+      const focusables = dialogRef.current.querySelectorAll<HTMLElement>(
+        'button, a[href], [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusables.length === 0) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
     window.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = "";
       window.removeEventListener("keydown", onKey);
+      previouslyFocused?.focus();
     };
   }, [onClose]);
 
   return createPortal(
     <div
+      ref={dialogRef}
       className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8"
       aria-modal="true"
       role="dialog"
@@ -60,10 +87,11 @@ function ReferenceModal({
             </span>
           </div>
           <button
+            ref={closeRef}
             type="button"
             onClick={onClose}
             aria-label="Close"
-            className="cursor-pointer text-muted-foreground hover:text-foreground transition-colors mt-0.5"
+            className="cursor-pointer p-2 -m-2 -mt-1.5 text-muted-foreground hover:text-foreground transition-colors"
           >
             <X className="size-5" />
           </button>
@@ -89,7 +117,7 @@ export function Testimonials() {
   return (
     <Section id="testimonials" className="border-t border-border/60">
       <SectionHeading
-        index="05"
+        index="04"
         eyebrow="Testimonials"
         title="Kind words from people I've worked with"
         description="From the talented engineers, designers, and managers I've had the pleasure of working alongside."
@@ -149,7 +177,7 @@ export function Testimonials() {
                               ? () => setModalIdx(i)
                               : () => setExpandedSet((prev) => new Set(prev).add(i))
                           }
-                          className="cursor-pointer whitespace-nowrap font-medium text-xs font-body text-muted-foreground uppercase tracking-wide underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none"
+                          className="cursor-pointer whitespace-nowrap py-2 -my-2 font-medium text-xs font-body text-muted-foreground uppercase tracking-wide underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none"
                         >
                           Read More
                         </button>

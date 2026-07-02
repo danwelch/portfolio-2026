@@ -7,7 +7,7 @@ export function Contact() {
   return (
     <Section id="contact" className="border-t border-border/60">
       <SectionHeading
-        index="06"
+        index="05"
         eyebrow="Contact"
         title="Let's build something"
         description="I'm currently exploring full-time design systems architect and senior front-end roles, remote preferred but open to relocation for the right opportunity. Also available for freelance and contract work."
@@ -18,7 +18,7 @@ export function Contact() {
         className="mt-8 bg-dark text-white hover:bg-brand uppercase tracking-wide text-sm px-5 py-3 h-auto sm:text-base"
       >
         <a href={`mailto:${site.email}`}>
-          Let's Connect
+          Let&apos;s Connect
           <ArrowRight />
         </a>
       </Button>
