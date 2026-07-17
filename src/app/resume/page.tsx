@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import { Mail, Phone, Link, MapPin } from "lucide-react";
 import {
   site,
@@ -16,9 +17,15 @@ export const metadata: Metadata = {
   robots: { index: false },
 };
 
+// Single sans-serif for the whole resume. ATS parsers re-tokenize the PDF from
+// glyph positions, so the resume avoids letter-spacing entirely and uses Inter,
+// whose kerning survives Chromium's print pipeline without inserting phantom
+// word breaks (Noto Sans split "T?" pairs: "T ypeScript", "T he").
+const resumeFont = Inter({ subsets: ["latin"] });
+
 export default function ResumePage() {
   return (
-    <div className="min-h-screen bg-slate-100 print:bg-white">
+    <div className={`${resumeFont.className} min-h-screen bg-slate-100 print:bg-white`}>
 
       {/* Screen-only print button */}
       <div className="resume-screen-only flex justify-center gap-4 py-6 print:hidden">
@@ -26,7 +33,7 @@ export default function ResumePage() {
       </div>
 
       {/* Paper */}
-      <div className="mx-auto bg-white font-body text-muted-foreground print-page print-page-break relative">
+      <div className="mx-auto bg-white text-muted-foreground print-page print-page-break relative">
 
         {/* ── Header ── */}
         <header
@@ -35,12 +42,12 @@ export default function ResumePage() {
         >
           <div>
             <h1
-              className="font-display font-medium text-white leading-none"
+              className={`${resumeFont.className} font-bold text-white leading-none`}
               style={{ fontSize: "24pt" }}
             >
               {site.name}
             </h1>
-            <p className="text-brand-on-dark uppercase tracking-wide" style={{ fontSize: "10pt" }}>
+            <p className="text-brand-on-dark font-semibold" style={{ fontSize: "10.5pt" }}>
               {site.role}
             </p>
             </div>
@@ -71,7 +78,7 @@ export default function ResumePage() {
             ))}
           </div>
             <div>
-            <p className="font-body font-semibold uppercase tracking-wide text-white" style={{ fontSize: "9pt" }}>Summary</p>
+            <p className="font-semibold uppercase text-white" style={{ fontSize: "9pt" }}>Summary</p>
             <p className="text-slate-300 mt-1 font-weight-400 text-pretty" style={{ fontSize: "9.5pt" }}>
               {resumeMeta.summary}
             </p>
@@ -99,7 +106,7 @@ export default function ResumePage() {
       </div>
 
       {/* Page 2 */}
-      <div className="mx-auto bg-white font-body text-muted-foreground print-page relative" style={{ paddingTop: "0.25in" }}>
+      <div className="mx-auto bg-white text-muted-foreground print-page relative" style={{ paddingTop: "0.25in" }}>
 
         <Section title="Experience (continued)">
           {resumeExperience.slice(2).map((entry) => (
@@ -190,7 +197,7 @@ function SectionTitle({
   children: React.ReactNode;
 }) {
   return (
-    <div className="font-medium text-muted-foreground border-b border-border tracking-wider uppercase pb-1 mb-3">{children}</div>
+    <div className="font-semibold text-muted-foreground border-b border-border uppercase pb-1 mb-3">{children}</div>
   );
 }
 
@@ -200,7 +207,7 @@ function SectionSubtitle({
   children: React.ReactNode;
 }) {
   return (
-    <div className="font-display text-foreground font-semibold tracking-tight" style={{ fontSize: "10.5pt" }}>{children}</div>
+    <div className="text-foreground font-bold" style={{ fontSize: "10.5pt" }}>{children}</div>
   );
 }
 
@@ -210,7 +217,7 @@ function SectionEyebrow({
   children: React.ReactNode;
 }) {
   return (
-    <div className="font-body font-semibold uppercase tracking-wide text-brand  mb-2" style={{ fontSize: "9pt" }}>{children}</div>
+    <div className="font-semibold text-brand mb-2" style={{ fontSize: "9.5pt" }}>{children}</div>
   );
 }
 
