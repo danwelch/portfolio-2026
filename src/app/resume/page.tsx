@@ -48,7 +48,7 @@ export default function ResumePage() {
               {site.name}
             </h1>
             <p className="text-brand-on-dark font-semibold" style={{ fontSize: "10.5pt" }}>
-              {site.role}
+              {resumeMeta.title}
             </p>
             </div>
 
@@ -88,7 +88,7 @@ export default function ResumePage() {
         {/* Leadership Highlights */}
         <Section title="Highlights">
           <ul className="list-disc text-foreground" style={{ paddingLeft: "0.25in", marginBottom: 0 }}>
-            {resumeMeta.leadershipHighlights.map((item) => (
+            {resumeMeta.highlights.map((item) => (
               <li key={item} style={{ fontSize: "10pt" }}>
                 {item}
               </li>

@@ -141,13 +141,14 @@ export const testimonials: Testimonial[] = [
 ];
 
 export const resumeMeta = {
+  title: "Senior Software Engineer · Design Systems",
   summary:
     "Senior Software Engineer with 17+ years building design systems and the tooling that drives their adoption. Primary architect of enterprise design systems at Bankrate and Launch That: React/Next.js component platforms, design token pipelines, and internal tools adopted across product and design teams. Strong in TypeScript, React, Node.js, advanced CSS, Storybook, and AI-assisted engineering workflows.",
-  leadershipHighlights: [
-    "Led enterprise design systems from ideation through implementation, rollout, and adoption across product teams.",
-    "Partnered with design leadership to define system direction and scalable UI patterns.",
-    "Established automated testing and release workflows, improving developer confidence and adoption.",
-    "Served as Engineering Manager, partnering with stakeholders and PMs to align roadmap priorities with company goals.",
+  highlights: [
+    "Builds internal tools that accelerate design and engineering workflows: Bankrate's design systems and Vue.js apps (ReportaRoo, DisavOwl).",
+    "Builds with AI rather than just using it: co-led an internal hackathon using AI coding agents to prototype migrating legacy JavaScript calculators to React.",
+    "Makes engineering decisions from data: audited Storyblok component usage, built a tracking dashboard, and used it to decide what to eliminate or migrate (289 components, ~30%).",
+    "Owns adoption end to end: launched Treasury across a dozen-plus projects with zero production incidents and drove company-wide education and mentoring.",
   ],
 };
 
@@ -181,8 +182,8 @@ export const resumeExperience: ResumeEntry[] = [
         rest: ", Bankrate's first formal design system. Launched Jan 2025 and adopted across a dozen-plus projects with zero production incidents, replacing a legacy CSS framework. Later succeeded by The Ledger following a leadership-directed shift to React/Next.js-native delivery.",
       },
       {
-        bold: "Led a Storyblok component audit",
-        rest: " that eliminated 289 components (~30%), improving maintainability and simplifying content workflows for product teams. Built a custom internal dashboard to track and report progress for stakeholders.",
+        bold: "Led a data-driven Storyblok component audit",
+        rest: ": built a dashboard to track usage, then used that data to decide what to eliminate or migrate, cutting 289 components (~30%) and simplifying content workflows.",
       },
       {
         bold: "Authored Playwright E2E suites",
@@ -190,11 +191,11 @@ export const resumeExperience: ResumeEntry[] = [
       },
       {
         bold: "Served on Bankrate's A11y and Performance task forces",
-        rest: ", resolving WCAG compliance issues and conducting performance audits across product teams, and acting as an internal consultant on Core Web Vitals best practices and front-end performance optimization.",
+        rest: ", resolving WCAG compliance issues and running performance audits with Lighthouse CI and Chrome UX Report (CrUX) across product teams, and acting as an internal consultant on Core Web Vitals best practices and front-end performance optimization.",
       },
       {
-        bold: "Championed AI-assisted development across the team",
-        rest: ", integrating Claude Code, Cursor, GitHub Copilot, and Codex into daily workflows for component generation, documentation, and code review, and sharing practices in bi-weekly team meetings.",
+        bold: "Authored and championed AI-assisted development practices across the team",
+        rest: ": custom prompt rules and configurations for Claude Code, Cursor, GitHub Copilot, and Codex, covering component generation, documentation, and code review, shared in bi-weekly team sessions.",
       },
       {
         bold: "Drove design system education and adoption company-wide",
@@ -214,8 +215,8 @@ export const resumeExperience: ResumeEntry[] = [
         rest: ", driving a ~10% increase in sprint velocity through process improvements and conducting mid-cycle performance reviews.",
       },
       {
-        bold: "Co-led an internal team hackathon using AI",
-        rest: " to accelerate the migration of legacy JavaScript calculators to React and the new design system; the results directly shaped the team's future migration approach.",
+        bold: "Co-led an internal AI hackathon",
+        rest: " to prototype migrating legacy JavaScript calculators to React, an approach the team adopted for the full migration.",
       },
     ],
   },
@@ -293,7 +294,7 @@ export const resumeSkills: SkillGroup[] = [
   { label: "Languages", items: ["TypeScript", "JavaScript", "Semantic HTML", "Modern CSS", "PHP"] },
   {
     label: "Frameworks & Libraries",
-    items: ["React", "Next.js", "Vue.js", "Astro", "Node.js", "Tailwind CSS", "Laravel"],
+    items: ["React", "Next.js", "Vue.js (Vuex, Pinia)", "Astro", "Node.js", "Tailwind CSS", "Laravel"],
   },
   {
     label: "Design Systems",
@@ -310,7 +311,7 @@ export const resumeSkills: SkillGroup[] = [
     label: "Practices",
     items: [
       "Accessibility (WCAG / A11y)",
-      "Core Web Vitals",
+      "Core Web Vitals (Lighthouse CI, CrUX)",
       "Progressive Enhancement",
       "Responsive Design",
       "Typography",
