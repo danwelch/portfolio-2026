@@ -66,4 +66,16 @@ The skills section uses two explicit flex columns, not CSS `column-count` — Ch
 
 **ATS constraint:** the resume renders in a single sans-serif (Inter) with **no letter-spacing anywhere**. Tracking classes and Noto Sans's kerning both made PDF text extractors split words ("T ypeScript", "SYST EMS", "Ven tures"), which garbled ATS autofill. Do not add `tracking-*` classes or swap fonts on the resume page without re-verifying extraction (`pdftotext <pdf> -` after `pnpm resume:pdf`).
 
+**Font must be static, not variable — `next/font/local`, not `next/font/google`.** The resume self-hosts static per-weight Inter files from `src/app/resume/fonts/` (`Inter-Regular.woff2`, `Inter-Italic.woff2`, `Inter-SemiBold.woff2`, `Inter-Bold.woff2`, sourced from the official [rsms/inter](https://github.com/rsms/inter) release's `extras/woff-hinted/`, SIL OFL licensed) instead of `next/font/google`'s Inter. `next/font/google` only offers Inter as a variable font (`font-weight: 100 900` in one file); Chromium's `page.pdf()` print path corrupts glyph runs when instancing a variable font's `wght` axis at render time, splitting and duplicating letters on copy/paste (e.g. "software" -> "sof-t-tware", digits vanishing from tabular numbers) even though on-screen rendering and `pdftotext` extraction both look completely clean. Passing an explicit `weight` array to `next/font/google`'s `Inter()` does **not** fix this: for variable-only families it just narrows the CSS `font-weight` declaration while still serving the same variable file underneath, so the corruption survives. Only genuinely separate static font files avoid the instancing step.
+
+**`pdftotext` is not sufficient to verify ATS-safety — it's too forgiving.** Poppler's text-reconstruction heuristics silently repair the exact glyph-run corruption described above; so does `pdfminer.six`. Neither will show a regression. Apple's PDFKit (the engine behind Preview.app, Safari's PDF viewer, and Quick Look on macOS) is much stricter about malformed glyph runs and is what actually caught this bug via a user's copy/paste. On macOS, verify with a real PDFKit extraction, not just `pdftotext`:
+```swift
+// save as extract.swift, then: swift extract.swift path/to/resume.pdf
+import PDFKit
+import Foundation
+let doc = PDFDocument(url: URL(fileURLWithPath: CommandLine.arguments[1]))!
+for i in 0..<doc.pageCount { print(doc.page(at: i)!.string ?? "") }
+```
+Run this (or paste real copy/pasted text from Preview.app) after any change to resume fonts, weights, or `next/font` config — `pdftotext` passing is necessary but not sufficient.
+
 **Troubleshooting — a PR push shows no `Resume PDF` run** (Vercel deploys but the Action never fires): GitHub occasionally drops the Actions trigger for a specific commit even when the workflow is valid, active, and the paths match. Push another (any) commit to re-trigger — don't go YAML-hunting. Confirmed once on commit `283aec0`: valid YAML, public repo (no quota), Actions operational, yet zero runs created for that SHA.

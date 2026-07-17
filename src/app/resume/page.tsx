@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import { Mail, Phone, Link, MapPin } from "lucide-react";
 import {
   site,
@@ -17,11 +17,24 @@ export const metadata: Metadata = {
   robots: { index: false },
 };
 
-// Single sans-serif for the whole resume. ATS parsers re-tokenize the PDF from
-// glyph positions, so the resume avoids letter-spacing entirely and uses Inter,
-// whose kerning survives Chromium's print pipeline without inserting phantom
-// word breaks (Noto Sans split "T?" pairs: "T ypeScript", "T he").
-const resumeFont = Inter({ subsets: ["latin"], style: ["normal", "italic"] });
+// Single sans-serif for the whole resume, self-hosted as genuinely static
+// per-weight files (not next/font/google's variable Inter). Chromium's
+// print-to-PDF path corrupts glyph runs when instancing a variable font's
+// wght axis, splitting and duplicating letters on copy/paste (e.g. "software"
+// -> "sof-t-tware") even though on-screen and canvas rendering look fine.
+// next/font/google's `weight` option doesn't help: for variable-only families
+// it just narrows the CSS font-weight declaration while still serving the
+// same variable file, so the corruption survives. Static files sidestep
+// instancing entirely. Verified with Apple's PDFKit (Preview/Safari's text
+// layer), which is far stricter about malformed glyph runs than poppler.
+const resumeFont = localFont({
+  src: [
+    { path: "./fonts/Inter-Regular.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/Inter-Italic.woff2", weight: "400", style: "italic" },
+    { path: "./fonts/Inter-SemiBold.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/Inter-Bold.woff2", weight: "700", style: "normal" },
+  ],
+});
 
 export default function ResumePage() {
   return (
