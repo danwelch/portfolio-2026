@@ -284,7 +284,7 @@ export const resumeEducation: ResumeEducation[] = [
 ];
 
 export const resumeSkills: SkillGroup[] = [
-  { label: "Languages", items: ["TypeScript", "JavaScript", "HTML", "CSS", "PHP"] },
+  { label: "Languages", items: ["TypeScript", "JavaScript", "Semantic HTML", "Modern CSS", "PHP"] },
   {
     label: "Frameworks & Libraries",
     items: ["React", "Next.js", "Vue.js", "Astro", "Node.js", "Tailwind CSS", "Laravel"],
