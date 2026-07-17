@@ -219,7 +219,7 @@ export const resumeExperience: ResumeEntry[] = [
     role: "Engineering Manager | Interim",
     company: "Bankrate",
     companyNote: "a Red Ventures company",
-    period: "03/2025 – 09/2025",
+    period: "03/2025—09/2025",
     location: "Remote",
     bullets: [
       {
