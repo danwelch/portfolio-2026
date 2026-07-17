@@ -195,15 +195,15 @@ export const resumeExperience: ResumeEntry[] = [
       },
       {
         bold: "Led a data-driven Storyblok component audit",
-        rest: ": built a dashboard to track usage, then used that data to decide what to eliminate or migrate, cutting 289 components (~30%) and simplifying content workflows.",
+        rest: ": built a usage dashboard, then eliminated or migrated 289 components (~30%), simplifying content workflows.",
       },
       {
         bold: "Authored Playwright E2E suites",
-        rest: " integrated into GitHub Actions. Cut CI execution time by ~76% and caught pre-release regressions before they entered production.",
+        rest: " integrated into GitHub Actions, cutting CI execution time by ~76% and catching pre-release regressions before production.",
       },
       {
         bold: "Served on Bankrate's A11y and Performance task forces",
-        rest: ", resolving WCAG compliance issues and running performance audits with Lighthouse CI and Chrome UX Report (CrUX) across product teams, and acting as an internal consultant on Core Web Vitals best practices and front-end performance optimization.",
+        rest: ", resolving WCAG compliance issues and running Lighthouse CI and CrUX audits across product teams. Consulted internally on Core Web Vitals and front-end performance optimization.",
       },
       {
         bold: "Authored and championed AI-assisted development practices across the team",
@@ -224,7 +224,7 @@ export const resumeExperience: ResumeEntry[] = [
     bullets: [
       {
         bold: "Managed a team of 7 (4 FTEs + 3 contractors) over 6 months",
-        rest: ", driving a ~10% increase in sprint velocity through process improvements and conducting mid-cycle performance reviews.",
+        rest: ", driving a ~10% increase in sprint velocity through agile process improvements and conducting mid-cycle performance reviews.",
       },
       {
         bold: "Co-led an internal AI hackathon",
@@ -240,15 +240,15 @@ export const resumeExperience: ResumeEntry[] = [
     bullets: [
       {
         bold: "Architected the Ares Framework",
-        rest: ", a custom component library and WordPress parent theme powering all Launch That properties, establishing the shared design system foundation that now defines my career. Leveraged it to ship 6 multi-page WordPress sites in a single month.",
+        rest: ", a custom component library and WordPress parent theme powering all Launch That properties. Leveraged it to ship 6 multi-page WordPress sites in a single month.",
       },
       {
         bold: "Trained directly with Brad Frost",
-        rest: " (creator of the Atomic Design methodology, which focuses on modular interface design) in a hands-on two-day design system workshop, laying the groundwork for the approaches used in Ares and later at Bankrate.",
+        rest: " (creator of Atomic Design) in a hands-on two-day design system workshop, laying the groundwork for the approaches used in Ares and later at Bankrate.",
       },
       {
         bold: "Built ReportaRoo and DisavOwl",
-        rest: ", two internal productivity tools built in Vue.js that automated marketing reporting and streamlined the SEO link-disavow process, replacing workflows previously done manually by analysts.",
+        rest: ", two internal productivity tools in Vue.js that automated marketing reporting and streamlined the SEO link-disavow process, replacing manual analyst workflows.",
       },
     ],
   },
@@ -260,7 +260,7 @@ export const resumeExperience: ResumeEntry[] = [
     bullets: [
       {
         bold: "Led front-end development across 10+ client projects",
-        rest: ", including Magento and Shopify e-commerce builds and custom WordPress sites, delivering production-ready websites on schedule.",
+        rest: ", including Magento and Shopify e-commerce builds and custom WordPress sites.",
       },
     ],
   },
@@ -272,7 +272,7 @@ export const resumeExperience: ResumeEntry[] = [
     bullets: [
       {
         bold: "Led front-end development for Full Sail University",
-        rest: ", including the main marketing sites, blog, hundreds of landing pages & email campaigns, and the interfaces for the university's first online store and online school. Advanced from Web Developer to Senior within three years.",
+        rest: "'s main marketing sites, blog, hundreds of landing pages and email campaigns, and the university's first online store and online school interfaces. Advanced from Web Developer to Senior within three years.",
       },
     ],
   },
