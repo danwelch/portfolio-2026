@@ -145,10 +145,22 @@ export const resumeMeta = {
   summary:
     "Senior Software Engineer with 17+ years building design systems and the tooling that drives their adoption. Primary architect of enterprise design systems at Bankrate and Launch That: React/Next.js component platforms, design token pipelines, and internal tools adopted across product and design teams. Strong in TypeScript, React, Node.js, advanced CSS, Storybook, and AI-assisted engineering workflows.",
   highlights: [
-    "Builds internal tools that accelerate design and engineering workflows: Bankrate's design systems and Vue.js apps (ReportaRoo, DisavOwl).",
-    "Builds with AI rather than just using it: co-led an internal hackathon using AI coding agents to prototype migrating legacy JavaScript calculators to React.",
-    "Makes engineering decisions from data: audited Storyblok component usage, built a tracking dashboard, and used it to decide what to eliminate or migrate (289 components, ~30%).",
-    "Owns adoption end to end: launched Treasury across a dozen-plus projects with zero production incidents and drove company-wide education and mentoring.",
+    {
+      bold: "Built internal tools that accelerate design and engineering workflows",
+      rest: ": Bankrate's design systems and Vue.js apps (ReportaRoo, DisavOwl).",
+    },
+    {
+      bold: "Used AI to build, not just consume it",
+      rest: ": co-led an internal hackathon prototyping the migration of legacy JavaScript calculators to React with AI coding agents.",
+    },
+    {
+      bold: "Made engineering decisions from data",
+      rest: ": audited Storyblok component usage, built a tracking dashboard, and used it to decide what to eliminate or migrate (289 components, ~30%).",
+    },
+    {
+      bold: "Owned adoption end to end",
+      rest: ": launched Treasury across a dozen-plus projects with zero production incidents and drove company-wide education and mentoring.",
+    },
   ],
 };
 

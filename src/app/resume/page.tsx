@@ -89,8 +89,9 @@ export default function ResumePage() {
         <Section title="Highlights">
           <ul className="list-disc text-foreground" style={{ paddingLeft: "0.25in", marginBottom: 0 }}>
             {resumeMeta.highlights.map((item) => (
-              <li key={item} style={{ fontSize: "10pt" }}>
-                {item}
+              <li key={item.bold} style={{ fontSize: "10pt" }}>
+                <strong className="text-foreground font-semibold">{item.bold}</strong>
+                {item.rest}
               </li>
             ))}
           </ul>
