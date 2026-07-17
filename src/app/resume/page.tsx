@@ -164,7 +164,9 @@ function ExperienceEntry({ entry }: { entry: ResumeEntry }) {
         <SectionSubtitle>
           {entry.company}
           {entry.companyNote ? (
-            <em className="font-normal text-muted-foreground"> ({entry.companyNote})</em>
+            <em className="font-normal text-muted-foreground" style={{ fontSize: "9.5pt" }}>
+              {" "}({entry.companyNote})
+            </em>
           ) : null}
         </SectionSubtitle>
         <SectionEyebrow>{entry.role}</SectionEyebrow>
