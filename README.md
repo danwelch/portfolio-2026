@@ -7,7 +7,7 @@ A one-page portfolio site for a Design Systems Architect with 17+ years of front
 - [Next.js 16](https://nextjs.org) (App Router, Turbopack)
 - [Tailwind CSS v4](https://tailwindcss.com)
 - [shadcn/ui](https://ui.shadcn.com) (Radix primitives)
-- [Bitter](https://fonts.google.com/specimen/Bitter) (display) + [Noto Sans](https://fonts.google.com/specimen/Noto+Sans) (body)
+- [Bitter](https://fonts.google.com/specimen/Bitter) (display) + [Inter](https://fonts.google.com/specimen/Inter) (body)
 
 ## Develop
 

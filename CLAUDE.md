@@ -44,7 +44,8 @@ Both are `"use client"` components:
 ## Fonts
 
 - Display / headings: Bitter (`font-display`)
-- Body: Noto Sans (`font-body` / `font-sans`)
+- Body: Inter (`font-body` / `font-sans`)
+- The `/resume` page uses Inter only (loaded in `resume/page.tsx`), no Bitter. See Resume PDF below for why.
 
 ## Content guidelines
 
@@ -62,5 +63,7 @@ The `/resume` page (`src/app/resume/page.tsx`) is the source of truth for the re
 - In CI: the `Resume PDF` GitHub Action regenerates it on PRs that touch the resume page, `content.ts`, `globals.css`, or the script, then commits it back to the PR branch. It renders from the Vercel preview, which is auth-protected — so the job declares `environment: Preview` to read `VERCEL_AUTOMATION_BYPASS_SECRET` (stored in the **Preview** GitHub Environment) and sends it as the `x-vercel-protection-bypass` header. The PDF's timestamp is pinned so output is byte-deterministic (no commit churn).
 
 The skills section uses two explicit flex columns, not CSS `column-count` — Chrome's print engine collapses multi-column into a single column in the PDF.
+
+**ATS constraint:** the resume renders in a single sans-serif (Inter) with **no letter-spacing anywhere**. Tracking classes and Noto Sans's kerning both made PDF text extractors split words ("T ypeScript", "SYST EMS", "Ven tures"), which garbled ATS autofill. Do not add `tracking-*` classes or swap fonts on the resume page without re-verifying extraction (`pdftotext <pdf> -` after `pnpm resume:pdf`).
 
 **Troubleshooting — a PR push shows no `Resume PDF` run** (Vercel deploys but the Action never fires): GitHub occasionally drops the Actions trigger for a specific commit even when the workflow is valid, active, and the paths match. Push another (any) commit to re-trigger — don't go YAML-hunting. Confirmed once on commit `283aec0`: valid YAML, public repo (no quota), Actions operational, yet zero runs created for that SHA.

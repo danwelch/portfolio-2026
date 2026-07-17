@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Noto_Sans, Bitter } from "next/font/google";
+import { Inter, Bitter } from "next/font/google";
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/next"
 
 
-const outfit = Noto_Sans({
+const inter = Inter({
   variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
@@ -67,7 +67,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${outfit.variable} ${bitter.variable} h-full antialiased`}
+      className={`${inter.variable} ${bitter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
       <SpeedInsights/>
