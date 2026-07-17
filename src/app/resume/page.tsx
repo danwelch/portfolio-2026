@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 // glyph positions, so the resume avoids letter-spacing entirely and uses Inter,
 // whose kerning survives Chromium's print pipeline without inserting phantom
 // word breaks (Noto Sans split "T?" pairs: "T ypeScript", "T he").
-const resumeFont = Inter({ subsets: ["latin"] });
+const resumeFont = Inter({ subsets: ["latin"], style: ["normal", "italic"] });
 
 export default function ResumePage() {
   return (
@@ -79,7 +79,7 @@ export default function ResumePage() {
           </div>
             <div>
             <p className="font-semibold uppercase text-white" style={{ fontSize: "9pt" }}>Summary</p>
-            <p className="text-slate-300 mt-1 font-weight-400 text-pretty" style={{ fontSize: "9.5pt" }}>
+            <p className="text-slate-300 mt-1 font-normal text-pretty" style={{ fontSize: "9.5pt" }}>
               {resumeMeta.summary}
             </p>
           </div>
@@ -161,7 +161,12 @@ function ExperienceEntry({ entry }: { entry: ResumeEntry }) {
   return (  
     <SectionGrid marginBottom="0.125in">
       <div>
-        <SectionSubtitle>{entry.company}</SectionSubtitle>
+        <SectionSubtitle>
+          {entry.company}
+          {entry.companyNote ? (
+            <em className="font-normal text-muted-foreground"> ({entry.companyNote})</em>
+          ) : null}
+        </SectionSubtitle>
         <SectionEyebrow>{entry.role}</SectionEyebrow>
       </div>
       <SectionRight date={entry.period} location={entry.location} />
