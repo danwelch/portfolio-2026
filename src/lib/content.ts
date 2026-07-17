@@ -139,7 +139,7 @@ export const testimonials: Testimonial[] = [
 
 export const resumeMeta = {
   summary:
-    "Senior Software Engineer with 17+ years building design systems and the tooling that drives their adoption. Primary architect of enterprise design systems at Bankrate and Launch That: React/Next.js component platforms, design token pipelines, and internal tools adopted across product and design teams. Strong in HTML, CSS, TypeScript, React, Node.js, Storybook, and AI-assisted engineering workflows.",
+    "Senior Software Engineer with 17+ years building design systems and the tooling that drives their adoption. Primary architect of enterprise design systems at Bankrate and Launch That: React/Next.js component platforms, design token pipelines, and internal tools adopted across product and design teams. Strong in TypeScript, React, Node.js, advanced CSS, Storybook, and AI-assisted engineering workflows.",
   leadershipHighlights: [
     "Led enterprise design systems from ideation through implementation, rollout, and adoption across product teams.",
     "Partnered with design leadership to define system direction and scalable UI patterns.",
