@@ -32,6 +32,7 @@ export type TimelineEntry = {
   period: string;
   role: string;
   company: string;
+  companyNote?: string;
   description: string;
   bottomLine?: string;
   subRoles?: TimelineSubRole[];
@@ -43,7 +44,8 @@ export const experience: TimelineEntry[] = [
   {
     period: "2021–2026",
     role: "Senior Software Engineer | Design Systems Architect",
-    company: "Red Ventures / Bankrate",
+    company: "Bankrate",
+    companyNote: "a Red Ventures company",
     current: true,
     description:
       "Shipped two successive design systems that became the foundation for product delivery across Bankrate, moving teams off a legacy CSS framework onto a consistent, maintainable platform with zero production incidents."
@@ -51,7 +53,8 @@ export const experience: TimelineEntry[] = [
   {
     period: "2025",
     role: "Engineering Manager | Interim",
-    company: "Red Ventures / Bankrate",
+    company: "Bankrate",
+    companyNote: "a Red Ventures company",
     description:
       "Stepped into a management role for 6 months, improving team velocity and co-leading an AI hackathon whose results directly shaped the team's migration strategy.",
   },
@@ -151,6 +154,7 @@ export const resumeMeta = {
 export type ResumeEntry = {
   role: string;
   company: string;
+  companyNote?: string;
   period: string;
   location: string;
   bullets: { bold: string; rest: string }[];
@@ -159,7 +163,8 @@ export type ResumeEntry = {
 export const resumeExperience: ResumeEntry[] = [
   {
     role: "Senior Software Engineer | Design Systems Architect",
-    company: "Red Ventures / Bankrate",
+    company: "Bankrate",
+    companyNote: "a Red Ventures company",
     period: "09/2021—06/2026",
     location: "Remote",
     bullets: [
@@ -199,7 +204,8 @@ export const resumeExperience: ResumeEntry[] = [
   },
   {
     role: "Engineering Manager | Interim",
-    company: "Red Ventures / Bankrate",
+    company: "Bankrate",
+    companyNote: "a Red Ventures company",
     period: "03/2025 – 09/2025",
     location: "Remote",
     bullets: [

@@ -8,6 +8,7 @@ import { Analytics } from "@vercel/analytics/next"
 const inter = Inter({
   variable: "--font-body",
   subsets: ["latin"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 

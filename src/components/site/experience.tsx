@@ -63,6 +63,9 @@ function TimelineRow({ job }: { job: TimelineEntry }) {
       >
         <p className="font-body text-sm font-semibold uppercase tracking-wide text-brand">
           {job.company}
+          {job.companyNote ? (
+            <em className="font-normal"> ({job.companyNote})</em>
+          ) : null}
         </p>
         <p className="mt-2 text-pretty text-sm leading-relaxed text-muted-foreground">
           {job.description}
