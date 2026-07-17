@@ -139,9 +139,9 @@ export const testimonials: Testimonial[] = [
 
 export const resumeMeta = {
   summary:
-    "Senior Software Engineer with 17+ years of experience building scalable front-end platforms and design systems. Primary architect of enterprise design systems at Bankrate and Launch That, including React/Next.js component platforms and design token pipelines adopted across product teams. Strong in TypeScript, React, Tailwind, Storybook, and AI-assisted engineering workflows.",
+    "Senior Software Engineer with 17+ years building design systems and the tooling that drives their adoption. Primary architect of enterprise design systems at Bankrate and Launch That: React/Next.js component platforms, design token pipelines, and internal tools adopted across product and design teams. Strong in HTML, CSS, TypeScript, React, Node.js, Storybook, and AI-assisted engineering workflows.",
   leadershipHighlights: [
-    "Architected and launched enterprise design systems supporting multiple product teams.",
+    "Led enterprise design systems from ideation through implementation, rollout, and adoption across product teams.",
     "Partnered with design leadership to define system direction and scalable UI patterns.",
     "Established automated testing and release workflows, improving developer confidence and adoption.",
     "Served as Engineering Manager, partnering with stakeholders and PMs to align roadmap priorities with company goals.",
@@ -169,7 +169,7 @@ export const resumeExperience: ResumeEntry[] = [
       },
       {
         bold: "Built the operational foundation for Ledger",
-        rest: ", including automated testing, accessibility validation, CI workflows, token compilation, and versioned releases to support reliable adoption across engineering teams.",
+        rest: ", including automated testing, accessibility validation, CI workflows, token compilation, Storybook documentation, and versioned releases to support reliable adoption across engineering teams.",
       },
       {
         bold: "Architected and led the implementation of The Treasury",
@@ -188,8 +188,8 @@ export const resumeExperience: ResumeEntry[] = [
         rest: ", resolving WCAG compliance issues and conducting performance audits across product teams, and acting as an internal consultant on Core Web Vitals best practices and front-end performance optimization.",
       },
       {
-        bold: "Integrated AI tools",
-        rest: " (Claude Code, Cursor, GitHub Copilot, Codex) into daily workflow for component generation, documentation, and code review. Shared practices in bi-weekly team meetings and co-led a hackathon focused on AI-assisted development.",
+        bold: "Championed AI-assisted development across the team",
+        rest: ", integrating Claude Code, Cursor, GitHub Copilot, and Codex into daily workflows for component generation, documentation, and code review, and sharing practices in bi-weekly team meetings.",
       },
       {
         bold: "Drove design system education and adoption company-wide",
@@ -229,7 +229,7 @@ export const resumeExperience: ResumeEntry[] = [
       },
       {
         bold: "Built ReportaRoo and DisavOwl",
-        rest: ", two in-house Vue.js tools automating marketing reporting and streamlining the SEO link-disavow process, a task previously done manually by analysts.",
+        rest: ", two internal productivity tools built in Vue.js that automated marketing reporting and streamlined the SEO link-disavow process, replacing workflows previously done manually by analysts.",
       },
     ],
   },
@@ -311,6 +311,7 @@ export const resumeSkills: SkillGroup[] = [
       "Information Architecture",
       "Figma Collaboration",
       "Design-to-Code Handoff",
+      "REST API Integration",
       "UI/UX Consulting",
       "Technical Writing",
     ],
@@ -339,7 +340,7 @@ export const resumeSkills: SkillGroup[] = [
   },
   {
     label: "Leadership",
-    items: ["Engineering Management", "Team Mentorship", "Stakeholder Alignment"],
+    items: ["Engineering Management", "Team Mentorship", "Stakeholder Alignment", "Project Scoping & Roadmapping"],
   },
 ];
 
