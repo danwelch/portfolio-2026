@@ -53,7 +53,7 @@ export default function ResumePage() {
             </div>
 
           <div
-            className="grid gap-2 row-span-2 col-2"
+            className="grid gap-2 row-span-2 col-2 tabular-nums"
             style={{ fontSize: "9pt" }}
           >
             {[
@@ -230,7 +230,9 @@ function SectionRight({
 }) {
   return (
     <div className="text-right">
-      <div className="text-foreground tabular-nums font-semibold" style={{ fontSize: "9pt" }}>{date}</div>
+      {/* Tabular figures on dates and contact only: Inter's tnum also widens
+          hyphens to digit width, which gaps hyphenated words in body prose. */}
+      <div className="text-foreground font-semibold tabular-nums" style={{ fontSize: "9pt" }}>{date}</div>
       <div className="text-muted-foreground" style={{ fontSize: "9pt" }}>{location}</div>
     </div>
   );
