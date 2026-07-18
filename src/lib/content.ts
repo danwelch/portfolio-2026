@@ -363,6 +363,105 @@ export const resumeSkills: SkillGroup[] = [
   },
 ];
 
+export type ProjectLink = {
+  title: string;
+  url: string;
+  year: string;
+  role: string;
+  company: string;
+  companyNote?: string;
+  description?: string;
+  logo?: string;
+  color?: string;
+  logoScale?: number;
+};
+
+export const projects: ProjectLink[] = [
+  {
+    title: "Bankrate",
+    url: "https://www.bankrate.com/",
+    year: "2021–2026",
+    role: "Senior Software Engineer | Design Systems Architect",
+    company: "Bankrate",
+    companyNote: "a Red Ventures company",
+    description: "Design systems architecture and platform engineering for Bankrate.com: The Ledger and Treasury design systems, custom campaign pages, and the Awards program.",
+    logo: "/logos/bankrate.svg",
+    color: "#0061FE",
+    logoScale: 1.2,
+  },
+  {
+    title: "Vision Title",
+    url: "https://www.visiontitlefl.com",
+    year: "2020",
+    role: "Developer / Designer",
+    company: "Freelance",
+    description: "Freelance WordPress site, designed and built end to end.",
+    logo: "/logos/vision-title.svg",
+    color: "#06255b",
+    logoScale: 1.2,
+  },
+  {
+    title: "Launch That",
+    url: "https://www.launchthat.com/",
+    year: "2019",
+    role: "Lead Front-End / Full Stack Developer",
+    company: "Launch That",
+    description: "Full-stack rebuild of the agency's own marketing site.",
+    logo: "/logos/launch-that.svg",
+    color: "#add454",
+    logoScale: 1.2,
+  },
+  {
+    title: "Drugwatch",
+    url: "https://www.drugwatch.com/",
+    year: "2018",
+    role: "Lead Front-End / Full Stack Developer",
+    company: "Launch That",
+    logo: "/logos/drugwatch.svg",
+    color: "#3048b8",
+    logoScale: 1.2,
+  },
+  {
+    title: "KBZW Law",
+    url: "https://www.kbzwlaw.com/",
+    year: "2016",
+    role: "Lead Front-End / Full Stack Developer",
+    company: "Studio Birdsall",
+    logo: "/logos/kbzw-law.svg",
+    color: "#a34f4f",
+    logoScale: 0.67,
+  },
+  {
+    title: "Studio Birdsall",
+    url: "https://www.studiobirdsall.com",
+    year: "2016",
+    role: "Sole Developer",
+    company: "Studio Birdsall",
+    logo: "/logos/studio-birdsall.svg",
+    color: "#303030",
+    logoScale: 1.5,
+  },
+  {
+    title: "Josh Letchworth",
+    url: "https://joshletchworth.com/",
+    year: "2015",
+    role: "Sole Developer",
+    company: "Studio Birdsall",
+    logo: "/logos/josh-letchworth.svg",
+    color: "#27757d",
+  },
+  {
+    title: "Makr",
+    url: "https://www.makr.com/",
+    year: "2015",
+    role: "Lead Front-End / Full Stack Developer",
+    company: "Studio Birdsall",
+    logo: "/logos/makr.svg",
+    color: "#3c2b2b",
+    logoScale: 0.67,
+  },
+];
+
 export const nav = [
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
