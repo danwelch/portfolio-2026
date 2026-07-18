@@ -85,18 +85,17 @@ export function Work() {
                     "--card-accent": project.color ?? "var(--color-dark)",
                   } as CSSProperties
                 }
-                className="group grid h-full grid-rows-[1fr_auto] items-center justify-center gap-4 p-6 text-center transition-colors hover:bg-[var(--card-accent)]"
+                className="group @container grid h-full grid-rows-[1fr_auto] items-center justify-center gap-4 p-6 text-center transition-colors hover:bg-[var(--card-accent)]"
               >
                 {Logo ? (
                   <Logo
                     aria-hidden="true"
-                    style={project.logoScale ? { transform: `scale(${project.logoScale})` } : undefined}
-                    className="size-32 shrink-0 text-foreground transition-colors group-hover:text-white"
+                    className="shrink-0 text-foreground transition-colors group-hover:text-white max-w-full max-h-full w-full h-full"
                   />
                 ) : (
                   <span
                     aria-hidden="true"
-                    className="flex size-32 items-center justify-center text-2xl font-semibold text-muted-foreground transition-colors group-hover:text-white"
+                    className="flex items-center justify-center text-2xl font-semibold text-muted-foreground transition-colors group-hover:text-white"
                   >
                     {initials(project.title)}
                   </span>

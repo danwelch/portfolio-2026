@@ -373,7 +373,6 @@ export type ProjectLink = {
   description?: string;
   logo?: string;
   color?: string;
-  logoScale?: number;
 };
 
 export const projects: ProjectLink[] = [
@@ -387,7 +386,6 @@ export const projects: ProjectLink[] = [
     description: "Design systems architecture and platform engineering for Bankrate.com: The Ledger and Treasury design systems, custom campaign pages, and the Awards program.",
     logo: "/logos/bankrate.svg",
     color: "#0061FE",
-    logoScale: 1.2,
   },
   {
     title: "Vision Title",
@@ -398,7 +396,6 @@ export const projects: ProjectLink[] = [
     description: "Freelance WordPress site, designed and built end to end.",
     logo: "/logos/vision-title.svg",
     color: "#06255b",
-    logoScale: 1.2,
   },
   {
     title: "Launch That",
@@ -409,7 +406,6 @@ export const projects: ProjectLink[] = [
     description: "Full-stack rebuild of the agency's own marketing site.",
     logo: "/logos/launch-that.svg",
     color: "#add454",
-    logoScale: 1.2,
   },
   {
     title: "Drugwatch",
@@ -419,7 +415,6 @@ export const projects: ProjectLink[] = [
     company: "Launch That",
     logo: "/logos/drugwatch.svg",
     color: "#3048b8",
-    logoScale: 1.2,
   },
   {
     title: "KBZW Law",
@@ -429,7 +424,6 @@ export const projects: ProjectLink[] = [
     company: "Studio Birdsall",
     logo: "/logos/kbzw-law.svg",
     color: "#a34f4f",
-    logoScale: 0.67,
   },
   {
     title: "Studio Birdsall",
@@ -439,7 +433,6 @@ export const projects: ProjectLink[] = [
     company: "Studio Birdsall",
     logo: "/logos/studio-birdsall.svg",
     color: "#303030",
-    logoScale: 1.5,
   },
   {
     title: "Josh Letchworth",
@@ -458,7 +451,6 @@ export const projects: ProjectLink[] = [
     company: "Studio Birdsall",
     logo: "/logos/makr.svg",
     color: "#3c2b2b",
-    logoScale: 0.67,
   },
 ];
 
