@@ -12,7 +12,7 @@ export function SiteFooter() {
         </span>
         <span className="sm:before:content-['·'] sm:before:mx-2">Typeset in{" "}
           <a href="https://fonts.google.com/specimen/Bitter" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Bitter</a> &amp;{" "}
-          <a href="https://fonts.google.com/specimen/Noto+Sans" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Noto Sans</a>
+          <a href="https://fonts.google.com/specimen/Inter" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Inter</a>
         </span>
         <span className="sm:before:content-['·'] sm:before:mx-2">Deployed on{" "}
           <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Vercel</a>.
