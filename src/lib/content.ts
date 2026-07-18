@@ -183,15 +183,15 @@ export const resumeExperience: ResumeEntry[] = [
     bullets: [
       {
         bold: "Architected and led the implementation of The Ledger",
-        rest: ", Bankrate's React/Next.js design system, creating a scalable component platform adopted across product teams. Built 65+ reusable components with TypeScript and Tailwind, supporting white-label theming through a token-based architecture.",
+        rest: ": Bankrate's React/Next.js design system, creating a scalable component platform adopted across product teams. Built 65+ reusable components with TypeScript and Tailwind, supporting white-label theming through a token-based architecture.",
       },
       {
         bold: "Built the operational foundation for Ledger",
-        rest: ", including automated testing, accessibility validation, CI workflows, token compilation, Storybook documentation, and versioned releases to support reliable adoption across engineering teams.",
+        rest: ": including automated testing, accessibility validation, CI workflows, token compilation, Storybook documentation, and versioned releases to support reliable adoption across engineering teams.",
       },
       {
         bold: "Architected and led the implementation of The Treasury",
-        rest: ", Bankrate's first formal design system. Launched Jan 2025 and adopted across a dozen-plus projects with zero production incidents, replacing a legacy CSS framework. Later succeeded by The Ledger following a leadership-directed shift to React/Next.js-native delivery.",
+        rest: ": Bankrate's first formal design system. Launched Jan 2025 and adopted across a dozen-plus projects with zero production incidents, replacing a legacy CSS framework. Later succeeded by The Ledger following a leadership-directed shift to React/Next.js-native delivery.",
       },
       {
         bold: "Led a data-driven Storyblok component audit",
@@ -203,7 +203,7 @@ export const resumeExperience: ResumeEntry[] = [
       },
       {
         bold: "Served on Bankrate's A11y and Performance task forces",
-        rest: ", resolving WCAG compliance issues and running Lighthouse CI and CrUX audits across product teams. Consulted internally on Core Web Vitals and front-end performance optimization.",
+        rest: ": resolving WCAG compliance issues and running Lighthouse CI and CrUX audits across product teams. Consulted internally on Core Web Vitals and front-end performance optimization.",
       },
       {
         bold: "Authored and championed AI-assisted development practices across the team",
@@ -211,7 +211,7 @@ export const resumeExperience: ResumeEntry[] = [
       },
       {
         bold: "Drove design system education and adoption company-wide",
-        rest: ", facilitating lunch-and-learns for cross-functional groups of engineers, designers, and product managers. One-on-one mentoring with developers on component architecture, advanced CSS, Tailwind optimization, and design system standards.",
+        rest: ": facilitating lunch-and-learns for cross-functional groups of engineers, designers, and product managers. One-on-one mentoring with developers on component architecture, advanced CSS, Tailwind optimization, and design system standards.",
       },
     ],
   },
@@ -224,7 +224,7 @@ export const resumeExperience: ResumeEntry[] = [
     bullets: [
       {
         bold: "Managed a team of 7 (4 FTEs + 3 contractors) over 6 months",
-        rest: ", driving a ~10% increase in sprint velocity through agile process improvements and conducting mid-cycle performance reviews.",
+        rest: ": driving a ~10% increase in sprint velocity through agile process improvements and conducting mid-cycle performance reviews.",
       },
       {
         bold: "Co-led an internal AI hackathon",
@@ -240,7 +240,7 @@ export const resumeExperience: ResumeEntry[] = [
     bullets: [
       {
         bold: "Architected the Ares Framework",
-        rest: ", a custom component library and WordPress parent theme powering all Launch That properties. Leveraged it to ship 6 multi-page WordPress sites in a single month.",
+        rest: ": a custom component library and WordPress parent theme powering all Launch That properties. Leveraged it to ship 6 multi-page WordPress sites in a single month.",
       },
       {
         bold: "Trained directly with Brad Frost",
@@ -248,7 +248,7 @@ export const resumeExperience: ResumeEntry[] = [
       },
       {
         bold: "Built ReportaRoo and DisavOwl",
-        rest: ", two internal productivity tools in Vue.js that automated marketing reporting and streamlined the SEO link-disavow process, replacing manual analyst workflows.",
+        rest: ": two internal productivity tools in Vue.js that automated marketing reporting and streamlined the SEO link-disavow process, replacing manual analyst workflows.",
       },
     ],
   },
@@ -260,7 +260,7 @@ export const resumeExperience: ResumeEntry[] = [
     bullets: [
       {
         bold: "Led front-end development across 10+ client projects",
-        rest: ", including Magento and Shopify e-commerce builds and custom WordPress sites.",
+        rest: ": including Magento and Shopify e-commerce builds and custom WordPress sites.",
       },
     ],
   },

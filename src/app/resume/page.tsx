@@ -100,9 +100,9 @@ export default function ResumePage() {
 
         {/* Leadership Highlights */}
         <Section title="Highlights">
-          <ul className="list-disc text-foreground" style={{ paddingLeft: "0.25in", marginBottom: 0 }}>
+          <ul className="list-disc" style={{ paddingLeft: "0.25in", marginBottom: 0, fontSize: "9.5pt" }}>
             {resumeMeta.highlights.map((item) => (
-              <li key={item.bold} style={{ fontSize: "10pt" }}>
+              <li key={item.bold} className="mb-1 text-pretty marker:text-foreground">
                 <strong className="text-foreground font-semibold">{item.bold}</strong>
                 {item.rest}
               </li>
