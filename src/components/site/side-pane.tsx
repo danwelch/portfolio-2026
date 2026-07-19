@@ -3,8 +3,9 @@
 import { useEffect, useState } from "react";
 import { Download } from "lucide-react";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
+import { NavLink } from "@/components/site/nav-link";
+import { ExternalLink } from "@/components/ui/external-link";
 import { nav, site } from "@/lib/content";
-import { cn } from "@/lib/utils";
 
 export function SidePane() {
   const [active, setActive] = useState(nav[0].href.slice(1));
@@ -40,7 +41,7 @@ export function SidePane() {
   }, []);
 
   return (
-    <header className="@container/header bg-dark text-slate-300 lg:w-2/5 lg:max-w-[27rem] lg:shrink-0">
+    <header className="@container/header bg-dark text-slate-300 lg:w-2/5 lg:max-w-108 lg:shrink-0">
       <div className="flex flex-col justify-between gap-12 px-6 py-8 sm:px-10 lg:sticky lg:top-0 lg:h-screen lg:max-h-screen lg:gap-0 lg:px-8 lg:py-14">
         <div>
           {/* Name / role / bio + right-side tablet nav */}
@@ -61,16 +62,11 @@ export function SidePane() {
             </div>
 
             {/* Wide full-width header only — right-aligned, lines on right, no active state */}
-            <nav className="hidden shrink-0 @[520px]:block lg:hidden" aria-label="In-page">
+            <nav className="hidden shrink-0 @lg:block lg:hidden" aria-label="In-page">
               <ul className="space-y-1">
                 {nav.map((item) => (
                   <li key={item.href}>
-                    <a href={item.href} className="group flex items-center justify-end py-2">
-                      <span className="text-xs font-semibold uppercase tracking-[0.16em] transition-colors text-slate-300 group-hover:text-slate-200">
-                        {item.label}
-                      </span>
-                      <span className="ml-4 h-px w-7 bg-slate-600 transition-all duration-200 group-hover:w-14 group-hover:bg-slate-300" />
-                    </a>
+                    <NavLink href={item.href} label={item.label} lineSide="right" />
                   </li>
                 ))}
               </ul>
@@ -80,68 +76,43 @@ export function SidePane() {
           {/* Sidebar nav — below bio, lines on left, active state */}
           <nav className="mt-16 hidden lg:block" aria-label="In-page">
             <ul className="space-y-1">
-              {nav.map((item) => {
-                const id = item.href.slice(1);
-                const isActive = active === id;
-                return (
-                  <li key={item.href}>
-                    <a href={item.href} className="group flex items-center py-2">
-                      <span
-                        className={cn(
-                          "mr-4 h-px transition-all duration-200",
-                          isActive
-                            ? "w-14 bg-brand-on-dark"
-                            : "w-7 bg-slate-600 group-hover:w-14 group-hover:bg-slate-300",
-                        )}
-                      />
-                      <span
-                        className={cn(
-                          "text-xs font-semibold uppercase tracking-[0.16em] transition-colors",
-                          isActive
-                            ? "text-white"
-                            : "text-slate-300 group-hover:text-slate-200",
-                        )}
-                      >
-                        {item.label}
-                      </span>
-                    </a>
-                  </li>
-                );
-              })}
+              {nav.map((item) => (
+                <li key={item.href}>
+                  <NavLink
+                    href={item.href}
+                    label={item.label}
+                    active={active === item.href.slice(1)}
+                  />
+                </li>
+              ))}
             </ul>
           </nav>
         </div>
 
         <div>
           <div className="flex items-center gap-5">
-            <a
+            <ExternalLink
               href={site.socials.github}
-              target="_blank"
-              rel="noopener noreferrer"
               aria-label="GitHub"
               className="p-2 -m-2 text-slate-400 transition-colors hover:text-white"
             >
               <GitHubIcon className="size-5" />
-            </a>
-            <a
+            </ExternalLink>
+            <ExternalLink
               href={site.socials.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
               aria-label="LinkedIn"
               className="p-2 -m-2 text-slate-400 transition-colors hover:text-white"
             >
               <LinkedInIcon className="size-5" />
-            </a>
+            </ExternalLink>
             <span className="h-4 w-px bg-white/15" />
-            <a
+            <ExternalLink
               href={site.resume}
-              target="_blank"
-              rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 rounded-xs bg-slate-400 px-2 py-1.5 text-xs font-semibold text-dark transition-colors hover:bg-white uppercase tracking-wide"
             >
               Résumé
               <Download className="size-3" />
-            </a>
+            </ExternalLink>
           </div>
         </div>
       </div>

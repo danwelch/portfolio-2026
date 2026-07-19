@@ -8,7 +8,7 @@ const contentCol = "sm:col-start-3";
 const railCenter = "calc(6.5rem + 1.5rem + 0.625rem)";
 const titleRowCenter = "0.875rem";
 
-function TimelineMarker() {
+export function TimelineMarker() {
   return (
     <span
       aria-hidden="true"
@@ -17,7 +17,7 @@ function TimelineMarker() {
   );
 }
 
-function TimelineRow({ job }: { job: TimelineEntry }) {
+export function TimelineRow({ job }: { job: TimelineEntry }) {
   return (
     <li className="relative border-l border-border pb-12 pl-6 last:pb-0 sm:grid sm:gap-x-6 sm:border-l-0 sm:pl-0 sm:grid-cols-[6.5rem_1.25rem_1fr]">
       <div
@@ -30,7 +30,7 @@ function TimelineRow({ job }: { job: TimelineEntry }) {
         <TimelineMarker />
       </div>
 
-      <div className="absolute top-[calc(0.875rem-0.3125rem)] -left-[5px] sm:hidden">
+      <div className="absolute top-2.25 -left-1.25 sm:hidden">
         <TimelineMarker />
       </div>
 
@@ -79,9 +79,10 @@ export function Experience() {
       <SectionHeading
         index="02"
         eyebrow="Experience"
-        title="From sites to systems"
         description="From hand-coding university landing pages to architecting the design systems that ship across dozens of products. The throughline is always the same: make the next thing easier to build right."
-      />
+      >
+        From sites to systems
+      </SectionHeading>
 
       <ol className="relative mt-14">
         <div

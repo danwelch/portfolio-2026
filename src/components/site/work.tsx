@@ -1,17 +1,8 @@
-import type { CSSProperties } from "react";
 import { cn } from "@/lib/utils";
 import { Section, SectionHeading } from "@/components/site/section";
+import { ProjectCard } from "@/components/site/project-card";
 import { projects } from "@/lib/content";
 import { projectLogos } from "@/components/site/work-logos";
-
-function initials(title: string) {
-  return title
-    .split(/\s+/)
-    .map((word) => word[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
-}
 
 // project.logo is a path to the source SVG (e.g. "/logos/bankrate.svg"),
 // kept as the identifier for which inline logo component to render.
@@ -39,17 +30,17 @@ function edgeBorderClasses(index: number, narrowTotal: number, wideTotal: number
   const right = narrow.hideRight && wide.hideRight
     ? ""
     : narrow.hideRight
-      ? "border-r-0 @[40rem]:border-r"
+      ? "border-r-0 @2xl:border-r"
       : wide.hideRight
-        ? "border-r @[40rem]:border-r-0"
+        ? "border-r @2xl:border-r-0"
         : "border-r";
 
   const bottom = narrow.hideBottom && wide.hideBottom
     ? ""
     : narrow.hideBottom
-      ? "border-b-0 @[40rem]:border-b"
+      ? "border-b-0 @2xl:border-b"
       : wide.hideBottom
-        ? "border-b @[40rem]:border-b-0"
+        ? "border-b @2xl:border-b-0"
         : "border-b";
 
   return cn(right, bottom, "border-border");
@@ -67,54 +58,24 @@ export function Work() {
       <SectionHeading
         index="03"
         eyebrow="Work"
-        title="Selected work"
         description="A cross-section of sites I've built, either solo or as part of larger team, from freelance work to enterprise platforms. Click through, they still work."
-      />
+      >
+        Selected work
+      </SectionHeading>
 
-      <ul className="mt-8 grid grid-cols-2 auto-rows-[calc(100cqw/2)] @[40rem]:grid-cols-3 @[40rem]:auto-rows-[calc(100cqw/3)]">
-        {projects.map((project, index) => {
-          const Logo = projectLogos[logoKey(project.logo) ?? ""];
-          return (
-            <li key={project.title} className={cn("", edgeBorderClasses(index, narrowTotal, wideTotal))}>
-              <a
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={
-                  {
-                    "--card-accent": project.color ?? "var(--color-dark)",
-                  } as CSSProperties
-                }
-                className="group @container grid h-full grid-rows-[1fr_auto] items-center justify-center gap-4 p-6 text-center transition-colors hover:bg-[var(--card-accent)]"
-              >
-                {Logo ? (
-                  <Logo
-                    aria-hidden="true"
-                    className="shrink-0 text-foreground transition-colors group-hover:text-white max-w-full max-h-full w-full h-full"
-                  />
-                ) : (
-                  <span
-                    aria-hidden="true"
-                    className="flex items-center justify-center text-2xl font-semibold text-muted-foreground transition-colors group-hover:text-white"
-                  >
-                    {initials(project.title)}
-                  </span>
-                )}
-
-                <p className="text-xs text-muted-foreground transition-colors group-hover:text-white/80">
-                  {project.year}
-                </p>
-              </a>
-            </li>
-          );
-        })}
+      <ul className="mt-8 grid grid-cols-2 auto-rows-[calc(100cqw/2)] @2xl:grid-cols-3 @2xl:auto-rows-[calc(100cqw/3)]">
+        {projects.map((project, index) => (
+          <li key={project.title} className={edgeBorderClasses(index, narrowTotal, wideTotal)}>
+            <ProjectCard project={project} logo={projectLogos[logoKey(project.logo) ?? ""]} />
+          </li>
+        ))}
         {Array.from({ length: placeholderCount }, (_, p) => (
           <li
             key={`placeholder-${p}`}
             aria-hidden="true"
             className={cn(
               p < narrowPlaceholders ? "block" : "hidden",
-              p < widePlaceholders ? "@[40rem]:block" : "@[40rem]:hidden",
+              p < widePlaceholders ? "@2xl:block" : "@2xl:hidden",
               edgeBorderClasses(projects.length + p, narrowTotal, wideTotal),
             )}
           />

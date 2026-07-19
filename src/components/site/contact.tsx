@@ -9,9 +9,10 @@ export function Contact() {
       <SectionHeading
         index="05"
         eyebrow="Contact"
-        title="Let's build something"
         description="I'm currently exploring full-time design systems architect and senior front-end roles, remote preferred but open to relocation for the right opportunity. Also available for freelance and contract work."
-      />
+      >
+        Let&apos;s build something
+      </SectionHeading>
 
       <Button
         asChild

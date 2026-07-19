@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import { Eyebrow } from "@/components/ui/eyebrow";
 
 export function Container({
   className,
@@ -34,23 +35,19 @@ export function Section({
 export function SectionHeading({
   index,
   eyebrow,
-  title,
   description,
+  children,
 }: {
   index: string;
   eyebrow: string;
-  title: string;
   description?: string;
+  children: ReactNode;
 }) {
   return (
     <div className="max-w-2xl">
-      <div className="flex items-center gap-2.5 text-xs font-medium uppercase tracking-[0.18em] text-brand">
-        <span className="tabular-nums">{index}</span>
-        <span className="h-1 w-1 rounded-full bg-brand/50" />
-        <span className="text-muted-foreground">{eyebrow}</span>
-      </div>
+      <Eyebrow index={index} label={eyebrow} />
       <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
-        {title}
+        {children}
       </h2>
       {description ? (
         <p className="mt-4 text-pretty text-base leading-relaxed text-muted-foreground">
