@@ -10,7 +10,8 @@ Dan Welch's personal portfolio site. One page, two-column layout. The site itsel
 - `src/app/page.tsx` — root layout, composes section components.
 - `src/app/resume/page.tsx` — standalone `/resume` page (source for the generated PDF; see Resume PDF below).
 - `src/app/globals.css` — CSS custom properties (colors, fonts), base styles, `::selection` rules.
-- `src/components/site/` — one file per section: `about.tsx`, `experience.tsx`, `work.tsx`, `testimonials.tsx`, `contact.tsx`, `footer.tsx`, `side-pane.tsx`, `section.tsx`, plus `resume-print-button.tsx`.
+- `src/components/site/` — one file per section: `about.tsx`, `experience.tsx`, `work.tsx`, `testimonials.tsx`, `contact.tsx`, `footer.tsx`, `side-pane.tsx`, `section.tsx`, plus smaller site pieces: `nav-link.tsx`, `project-card.tsx`, `work-logos.tsx`, `resume-print-button.tsx`.
+- `src/components/ui/` — reusable primitives, all in active use: `button.tsx` (shadcn), `avatar.tsx` (`Avatar` + `Identity`), `eyebrow.tsx`, `icon-button.tsx`, `external-link.tsx`. Every component here must be used by the site; don't add speculative primitives.
 
 ## Colors
 
@@ -23,7 +24,7 @@ Do not use `brand-on-dark` on light backgrounds — it fails contrast.
 ## Layout conventions
 
 - Sidebar (`SidePane`): `lg:px-8 lg:py-14`, dark navy (`bg-dark`).
-- Main content wrapper: `lg:px-8 lg:pt-[7.375rem] lg:pb-14`. The `pt` value was pixel-measured to baseline-align `01 · ABOUT` with the sidebar `DESIGN SYSTEMS ARCHITECT` h2.
+- Main content wrapper: `lg:px-8 lg:pt-29.5 lg:pb-14`. The `pt` value (29.5 = 7.375rem) was pixel-measured to baseline-align `01 · ABOUT` with the sidebar `DESIGN SYSTEMS ARCHITECT` h2.
 - Section top padding is suppressed on About (`pt-0 sm:pt-0`) since the page wrapper already provides top spacing.
 
 ## Interactive components
@@ -37,8 +38,8 @@ Both are `"use client"` components:
 ## Responsive nav
 
 `SidePane` has three nav states via container queries on `@container/header`:
-1. Mobile (`< @520px`): no nav visible in header.
-2. Tablet (`@[520px]` to `lg`): compact right-aligned nav in the header row, no active state.
+1. Mobile (below `@lg`, 32rem): no nav visible in header.
+2. Tablet (`@lg` to viewport `lg`): compact right-aligned nav in the header row, no active state.
 3. Desktop (`lg+`): full sidebar nav below tagline, with scroll-spy active state.
 
 ## Fonts

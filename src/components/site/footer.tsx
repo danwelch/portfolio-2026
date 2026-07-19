@@ -1,4 +1,16 @@
+import type { ComponentProps } from "react";
+import { ExternalLink } from "@/components/ui/external-link";
+import { cn } from "@/lib/utils";
 import { site } from "@/lib/content";
+
+function FooterLink({ className, ...props }: ComponentProps<"a">) {
+  return (
+    <ExternalLink
+      {...props}
+      className={cn("hover:text-foreground transition-colors", className)}
+    />
+  );
+}
 
 export function SiteFooter() {
   return (
@@ -6,16 +18,16 @@ export function SiteFooter() {
       <p>© {new Date().getFullYear()} · {site.name}</p>
       <p className="mt-1 leading-relaxed flex flex-col sm:flex-row sm:flex-wrap gap-y-1">
         <span>Built with{" "}
-          <a href="https://nextjs.org" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Next.js</a>,{" "}
-          <a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Tailwind</a>, &amp;{" "}
-          <a href="https://ui.shadcn.com" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">shadcn/ui</a>
+          <FooterLink href="https://nextjs.org">Next.js</FooterLink>,{" "}
+          <FooterLink href="https://tailwindcss.com">Tailwind</FooterLink>, &amp;{" "}
+          <FooterLink href="https://ui.shadcn.com">shadcn/ui</FooterLink>
         </span>
         <span className="sm:before:content-['·'] sm:before:mx-2">Typeset in{" "}
-          <a href="https://fonts.google.com/specimen/Bitter" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Bitter</a> &amp;{" "}
-          <a href="https://fonts.google.com/specimen/Inter" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Inter</a>
+          <FooterLink href="https://fonts.google.com/specimen/Bitter">Bitter</FooterLink> &amp;{" "}
+          <FooterLink href="https://fonts.google.com/specimen/Inter">Inter</FooterLink>
         </span>
         <span className="sm:before:content-['·'] sm:before:mx-2">Deployed on{" "}
-          <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Vercel</a>.
+          <FooterLink href="https://vercel.com">Vercel</FooterLink>.
         </span>
       </p>
     </footer>

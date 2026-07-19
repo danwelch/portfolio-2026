@@ -2,9 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import Image from "next/image";
 import { ArrowLeft, ArrowRight, X } from "lucide-react";
 import { Section, SectionHeading } from "@/components/site/section";
+import { Identity } from "@/components/ui/avatar";
+import { IconButton } from "@/components/ui/icon-button";
 import { testimonials } from "@/lib/content";
 
 function ReferenceModal({
@@ -64,28 +65,12 @@ function ReferenceModal({
       />
       <div className="relative z-10 flex flex-col w-full max-w-2xl max-h-[85vh] rounded-xl border border-border bg-background shadow-2xl">
         <div className="flex items-start justify-between gap-4 px-7 pt-7 pb-5 border-b border-border/60">
-          <div className="flex items-center gap-3.5">
-            {t.avatar ? (
-              <Image
-                src={t.avatar}
-                alt={t.name}
-                width={80}
-                height={80}
-                className="size-10 shrink-0 rounded-full object-cover ring-1 ring-border"
-              />
-            ) : (
-              <span
-                aria-hidden="true"
-                className="flex size-10 shrink-0 items-center justify-center rounded-full bg-secondary text-sm font-semibold text-foreground ring-1 ring-border"
-              >
-                {t.initials}
-              </span>
-            )}
-            <span className="flex flex-col">
-              <span className="font-display font-medium text-foreground">{t.name}</span>
-              <span className="text-sm text-muted-foreground">{t.title}</span>
-            </span>
-          </div>
+          <Identity
+            name={t.name}
+            title={t.title}
+            avatar={t.avatar}
+            initials={t.initials}
+          />
           <button
             ref={closeRef}
             type="button"
@@ -119,9 +104,10 @@ export function Testimonials() {
       <SectionHeading
         index="04"
         eyebrow="Testimonials"
-        title="Kind words from people I've worked with"
         description="From the talented engineers, designers, and managers I've had the pleasure of working alongside."
-      />
+      >
+        Kind words from people I&apos;ve worked with
+      </SectionHeading>
 
       <figure className="@container/card mt-12 rounded-xl border border-border bg-surface">
         {/* Grid stacks all slides in the same cell; height = tallest slide */}
@@ -139,31 +125,18 @@ export function Testimonials() {
                 className={`flex flex-col ${isActive ? "visible" : "invisible"}`}
                 aria-hidden={!isActive}
               >
-                <div className="flex flex-col flex-1 p-5 @[30rem]/card:p-7">
-                  <figcaption className="flex items-center gap-3.5 mb-4">
-                    {t.avatar ? (
-                      <Image
-                        src={t.avatar}
-                        alt={t.name}
-                        width={80}
-                        height={80}
-                        className="size-10 shrink-0 rounded-full object-cover ring-1 ring-border"
-                      />
-                    ) : (
-                      <span
-                        aria-hidden="true"
-                        className="flex size-10 shrink-0 items-center justify-center rounded-full bg-secondary text-sm font-semibold text-foreground ring-1 ring-border"
-                      >
-                        {t.initials}
-                      </span>
-                    )}
-                    <span className="flex flex-col">
-                      <span className="font-display font-medium text-foreground">{t.name}</span>
-                      <span className="text-sm text-muted-foreground text-balance">{t.title}</span>
-                    </span>
-                  </figcaption>
+                <div className="flex flex-col flex-1 p-5 @lg/card:p-7">
+                  <Identity
+                    as="figcaption"
+                    className="mb-4"
+                    name={t.name}
+                    title={t.title}
+                    titleClassName="text-balance"
+                    avatar={t.avatar}
+                    initials={t.initials}
+                  />
 
-                  <blockquote className="flex-1 justify-start font-body font-normal text-foreground text-pretty leading-relaxed italic text-sm @[30rem]/card:text-base">
+                  <blockquote className="flex-1 justify-start font-body font-normal text-foreground text-pretty leading-relaxed italic text-sm @lg/card:text-base">
                     &ldquo;{displayedQuote}&rdquo;
                   </blockquote>
 
@@ -185,26 +158,22 @@ export function Testimonials() {
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <button
-                        type="button"
+                      <IconButton
                         onClick={() => go(-1)}
                         aria-label="Previous testimonial"
-                        className="flex size-9 items-center justify-center rounded-md border border-border bg-surface text-muted-foreground transition-colors hover:border-foreground/40 hover:text-foreground"
                       >
                         <ArrowLeft className="size-4" />
-                      </button>
-                      <span className="text-xs font-medium uppercase tracking-[0.16em] tabular-nums text-muted-foreground">
+                      </IconButton>
+                      <span className="text-xs font-medium uppercase tracking-widest tabular-nums text-muted-foreground">
                         {String(i + 1).padStart(2, "0")} /{" "}
                         {String(count).padStart(2, "0")}
                       </span>
-                      <button
-                        type="button"
+                      <IconButton
                         onClick={() => go(1)}
                         aria-label="Next testimonial"
-                        className="flex size-9 items-center justify-center rounded-md border border-border bg-surface text-muted-foreground transition-colors hover:border-foreground/40 hover:text-foreground"
                       >
                         <ArrowRight className="size-4" />
-                      </button>
+                      </IconButton>
                     </div>
                   </div>
                 </div>
