@@ -52,9 +52,9 @@ export function SidePane() {
                   Dan Welch
                 </a>
               </h1>
-              <h2 className="mt-3 text-lg font-sans uppercase font-semibold tracking-wide leading-none text-brand-on-dark">
+              <p className="mt-3 text-lg font-sans uppercase font-semibold tracking-wide leading-none text-brand-on-dark">
                 Design Systems Architect
-              </h2>
+              </p>
               <p className="mt-4 text-balance leading-relaxed text-slate-300">
                 17+ years building scalable front-end platforms, design systems, and
                 developer experiences.
