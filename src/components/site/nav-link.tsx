@@ -32,7 +32,11 @@ export function NavLink({
   }
 
   return (
-    <a href={href} className="group flex items-center py-2">
+    <a
+      href={href}
+      aria-current={active ? "true" : undefined}
+      className="group flex items-center py-2"
+    >
       <span
         className={cn(
           "mr-4 h-px transition-all duration-200",
