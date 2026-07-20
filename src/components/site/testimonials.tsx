@@ -121,8 +121,7 @@ export function Testimonials() {
             return (
               <div
                 key={i}
-                style={{ gridArea: "1 / 1" }}
-                className={`flex flex-col ${isActive ? "visible" : "invisible"}`}
+                className={`col-start-1 row-start-1 flex flex-col ${isActive ? "visible" : "invisible"}`}
                 aria-hidden={!isActive}
               >
                 <div className="flex flex-col flex-1 p-5 @lg/card:p-7">
