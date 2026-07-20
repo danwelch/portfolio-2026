@@ -373,6 +373,8 @@ export type ProjectLink = {
   description?: string;
   logo?: string;
   color?: string;
+  /** Hover foreground on the accent: light accents need dark text to meet contrast. */
+  onAccent?: "dark";
 };
 
 export const projects: ProjectLink[] = [
@@ -406,6 +408,7 @@ export const projects: ProjectLink[] = [
     description: "Full-stack rebuild of the agency's own marketing site.",
     logo: "/logos/launch-that.svg",
     color: "#add454",
+    onAccent: "dark",
   },
   {
     title: "Drugwatch",

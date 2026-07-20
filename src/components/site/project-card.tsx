@@ -1,5 +1,6 @@
 import type { ComponentType, CSSProperties, SVGProps } from "react";
 import { ExternalLink } from "@/components/ui/external-link";
+import { cn } from "@/lib/utils";
 import type { ProjectLink } from "@/lib/content";
 
 function initials(title: string) {
@@ -18,6 +19,8 @@ export function ProjectCard({
   project: ProjectLink;
   logo?: ComponentType<SVGProps<SVGSVGElement>>;
 }) {
+  const darkOnAccent = project.onAccent === "dark";
+
   return (
     <ExternalLink
       href={project.url}
@@ -31,18 +34,29 @@ export function ProjectCard({
       {Logo ? (
         <Logo
           aria-hidden="true"
-          className="shrink-0 text-foreground transition-colors group-hover:text-white max-w-full max-h-full w-full h-full"
+          className={cn(
+            "shrink-0 text-foreground transition-colors max-w-full max-h-full w-full h-full",
+            darkOnAccent ? "group-hover:text-dark" : "group-hover:text-white",
+          )}
         />
       ) : (
         <span
           aria-hidden="true"
-          className="flex items-center justify-center text-2xl font-semibold text-muted-foreground transition-colors group-hover:text-white"
+          className={cn(
+            "flex items-center justify-center text-2xl font-semibold text-muted-foreground transition-colors",
+            darkOnAccent ? "group-hover:text-dark" : "group-hover:text-white",
+          )}
         >
           {initials(project.title)}
         </span>
       )}
 
-      <p className="text-xs text-muted-foreground transition-colors group-hover:text-white/80">
+      <p
+        className={cn(
+          "text-xs text-muted-foreground transition-colors",
+          darkOnAccent ? "group-hover:text-dark/80" : "group-hover:text-white/80",
+        )}
+      >
         {project.year}
       </p>
     </ExternalLink>
