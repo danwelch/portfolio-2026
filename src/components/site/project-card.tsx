@@ -24,6 +24,7 @@ export function ProjectCard({
   return (
     <ExternalLink
       href={project.url}
+      aria-label={`${project.title}, ${project.year}`}
       style={
         {
           "--card-accent": project.color ?? "var(--color-dark)",
