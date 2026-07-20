@@ -10,16 +10,18 @@ export default function Home() {
   return (
     <div id="top" className="lg:flex">
       <SidePane />
-      <main className="min-w-0 lg:flex-1">
+      <div className="min-w-0 lg:flex-1">
         <div className="@container max-w-4xl px-6 py-16 sm:px-10 lg:px-8 lg:pt-29.5 lg:pb-14">
-          <About />
-          <Experience />
-          <Work />
-          <Testimonials />
-          <Contact />
+          <main id="main" tabIndex={-1} className="outline-none">
+            <About />
+            <Experience />
+            <Work />
+            <Testimonials />
+            <Contact />
+          </main>
           <SiteFooter />
         </div>
-      </main>
+      </div>
     </div>
   );
 }
