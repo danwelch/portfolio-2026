@@ -37,7 +37,7 @@ Both are `"use client"` components:
 
 ## Responsive nav
 
-`SidePane` has three nav states via viewport breakpoints (media queries, not container queries: these are site-wide layout decisions; container queries are reserved for components sized by their slot, like the work grid and testimonial card in the main column):
+`SidePane` has three nav states via viewport breakpoints (media queries, not container queries: these are site-wide layout decisions; container queries are reserved for components sized by their slot, like the work grid, experience timeline, and testimonial card in the main column):
 1. Mobile (below `sm`): no nav visible in header.
 2. Tablet (`sm` to `lg`): compact right-aligned nav in the header row, no active state.
 3. Desktop (`lg+`): full sidebar nav below tagline, with scroll-spy active state.
