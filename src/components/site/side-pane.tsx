@@ -41,7 +41,7 @@ export function SidePane() {
   }, []);
 
   return (
-    <header className="@container/header bg-dark text-slate-300 lg:w-2/5 lg:max-w-108 lg:shrink-0">
+    <header className="bg-dark text-slate-300 lg:w-2/5 lg:max-w-108 lg:shrink-0">
       <div className="flex flex-col justify-between gap-12 px-6 py-8 sm:px-10 lg:sticky lg:top-0 lg:h-screen lg:max-h-screen lg:gap-0 lg:px-8 lg:py-14">
         <div>
           {/* Name / role / bio + right-side tablet nav */}
@@ -62,7 +62,7 @@ export function SidePane() {
             </div>
 
             {/* Wide full-width header only — right-aligned, lines on right, no active state */}
-            <nav className="hidden shrink-0 @lg:block lg:hidden" aria-label="In-page">
+            <nav className="hidden shrink-0 sm:block lg:hidden" aria-label="In-page">
               <ul className="space-y-1">
                 {nav.map((item) => (
                   <li key={item.href}>
