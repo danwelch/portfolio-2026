@@ -17,14 +17,14 @@ Dan Welch's personal portfolio site. One page, two-column layout. The site itsel
 
 Two brand greens defined in `globals.css`:
 - `--brand` (`#3a7d00`) — darker green, used on light backgrounds (right column eyebrows, dots, links).
-- `--brand-on-dark` (`#aaee44`) — lighter lime green, used on the dark sidebar (h2, active nav line, `::selection` background).
+- `--brand-on-dark` (`#aaee44`) — lighter lime green, used on the dark sidebar (tagline, active nav line, `::selection` background).
 
 Do not use `brand-on-dark` on light backgrounds — it fails contrast.
 
 ## Layout conventions
 
 - Sidebar (`SidePane`): `lg:px-8 lg:py-14`, dark navy (`bg-dark`).
-- Main content wrapper: `@container lg:px-8 lg:pt-29.5 lg:pb-14`. The `pt` value (29.5 = 7.375rem) was pixel-measured to baseline-align `01 · ABOUT` with the sidebar `DESIGN SYSTEMS ARCHITECT` h2. The `@container` is the shared query root for main-column components (SectionHeading's type ramp, Contact CTA text, footer credit stacking, all at `@xl`).
+- Main content wrapper: `@container lg:px-8 lg:pt-29.5 lg:pb-14`. The `pt` value (29.5 = 7.375rem) was pixel-measured to baseline-align `01 · ABOUT` with the sidebar `DESIGN SYSTEMS ARCHITECT` tagline (a `p`, deliberately not a heading). The `@container` is the shared query root for main-column components (SectionHeading's type ramp, Contact CTA text, footer credit stacking, all at `@xl`).
 - Section top padding is suppressed on About (`pt-0 sm:pt-0`) since the page wrapper already provides top spacing.
 
 ## Interactive components
