@@ -5,8 +5,6 @@ import { experience, type TimelineEntry } from "@/lib/content";
 const dateCol = "sm:col-start-1";
 const railCol = "sm:col-start-2";
 const contentCol = "sm:col-start-3";
-const railCenter = "calc(6.5rem + 1.5rem + 0.625rem)";
-const titleRowCenter = "0.875rem";
 
 export function TimelineMarker() {
   return (
@@ -85,10 +83,10 @@ export function Experience() {
       </SectionHeading>
 
       <ol className="relative mt-14">
+        {/* left-34.5 = date col (6.5rem) + gap (1.5rem) + half rail col (0.625rem); top-3.5 = half the title row's 1.75rem line-height */}
         <div
           aria-hidden="true"
-          className="absolute bottom-0 hidden w-px -translate-x-1/2 bg-border sm:block"
-          style={{ left: railCenter, top: titleRowCenter }}
+          className="absolute top-3.5 bottom-0 left-34.5 hidden w-px -translate-x-1/2 bg-border sm:block"
         />
         {experience.map((job) => (
           <TimelineRow key={`${job.company}-${job.period}`} job={job} />
