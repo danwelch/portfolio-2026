@@ -24,7 +24,7 @@ Do not use `brand-on-dark` on light backgrounds — it fails contrast.
 ## Layout conventions
 
 - Sidebar (`SidePane`): `lg:px-8 lg:py-14`, dark navy (`bg-dark`).
-- Main content wrapper: `lg:px-8 lg:pt-29.5 lg:pb-14`. The `pt` value (29.5 = 7.375rem) was pixel-measured to baseline-align `01 · ABOUT` with the sidebar `DESIGN SYSTEMS ARCHITECT` h2.
+- Main content wrapper: `@container lg:px-8 lg:pt-29.5 lg:pb-14`. The `pt` value (29.5 = 7.375rem) was pixel-measured to baseline-align `01 · ABOUT` with the sidebar `DESIGN SYSTEMS ARCHITECT` h2. The `@container` is the shared query root for main-column components (SectionHeading's type ramp, Contact CTA text, footer credit stacking, all at `@xl`).
 - Section top padding is suppressed on About (`pt-0 sm:pt-0`) since the page wrapper already provides top spacing.
 
 ## Interactive components
