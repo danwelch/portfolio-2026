@@ -182,6 +182,10 @@ export function Testimonials() {
         </div>
       </figure>
 
+      <div aria-live="polite" aria-atomic="true" className="sr-only">
+        {`Testimonial ${active + 1} of ${count}: ${testimonials[active].name}`}
+      </div>
+
       {modalIdx !== null && testimonials[modalIdx]?.fullHtml && (
         <ReferenceModal t={testimonials[modalIdx]} onClose={() => setModalIdx(null)} />
       )}
