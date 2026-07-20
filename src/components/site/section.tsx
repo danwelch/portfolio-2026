@@ -46,7 +46,7 @@ export function SectionHeading({
   return (
     <div className="max-w-2xl">
       <Eyebrow index={index} label={eyebrow} />
-      <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
+      <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight @xl:text-4xl">
         {children}
       </h2>
       {description ? (
