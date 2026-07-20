@@ -19,7 +19,7 @@ export function About() {
           onClick={() => setMode(isProfessional ? "personally" : "professionally")}
           aria-pressed={!isProfessional}
           aria-label="Switch between professional and personal bio"
-          className="inline-flex items-baseline gap-2 italic text-foreground hover:text-brand focus-visible:text-brand transition-colors focus-visible:outline-none cursor-pointer"
+          className="inline-flex items-baseline gap-2 italic text-foreground hover:text-brand focus-visible:text-brand transition-colors cursor-pointer"
         >
           {mode}
           <ArrowLeftRight aria-hidden="true" className="size-4 self-center text-brand" />
