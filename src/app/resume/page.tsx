@@ -38,7 +38,10 @@ const resumeFont = localFont({
 
 export default function ResumePage() {
   return (
-    <div className={`${resumeFont.className} min-h-screen bg-slate-100 print:bg-white`}>
+    <div
+      className={`${resumeFont.className} min-h-screen bg-slate-100 print:bg-white`}
+      data-resume-file={site.resume}
+    >
 
       {/* Screen-only print button */}
       <div className="resume-screen-only flex justify-center gap-4 py-6 print:hidden">
