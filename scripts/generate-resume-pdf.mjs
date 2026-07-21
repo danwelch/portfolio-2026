@@ -10,12 +10,12 @@
 //   - Otherwise the script boots `next start` on its own and tears it down after.
 
 import { spawn } from "node:child_process";
-import { writeFileSync } from "node:fs";
+import { readdirSync, rmSync, writeFileSync } from "node:fs";
 import { setTimeout as sleep } from "node:timers/promises";
 import { chromium } from "playwright";
 
 const BASE_URL = process.env.RESUME_BASE_URL ?? "http://localhost:3000";
-const OUTPUT = "public/Dan_Welch_Resume_DesignSystemsArchitect.pdf";
+const PUBLIC_DIR = "public";
 const PAGE_URL = `${BASE_URL}/resume`;
 
 // Fixed PDF timestamp (YYYYMMDDHHmmSS) so renders are byte-deterministic.
@@ -88,6 +88,17 @@ async function main() {
       );
     }
 
+    // Read the output filename from the page itself (derived from
+    // resumeMeta.title in content.ts) instead of hardcoding it here, so
+    // renaming the resume subtitle can't leave this script out of sync.
+    const resumeFile = await page.evaluate(
+      () => document.querySelector("[data-resume-file]")?.getAttribute("data-resume-file"),
+    );
+    if (!resumeFile) {
+      throw new Error(`Could not find [data-resume-file] on ${PAGE_URL}`);
+    }
+    const OUTPUT = `${PUBLIC_DIR}${resumeFile}`;
+
     const pdf = await page.pdf({
       printBackground: true,
       preferCSSPageSize: true, // honor the @page { size: letter } rule
@@ -105,6 +116,16 @@ async function main() {
         .replace(/(\/(?:CreationDate|ModDate) \(D:)\d{14}/g, `$1${FIXED_PDF_DATE}`),
       "latin1",
     );
+    // Drop any resume PDF left behind by a previous title/filename, so a
+    // subtitle change doesn't accumulate orphaned files in public/.
+    for (const file of readdirSync(PUBLIC_DIR)) {
+      const filePath = `${PUBLIC_DIR}/${file}`;
+      if (/^Dan_Welch_Resume_.*\.pdf$/.test(file) && filePath !== OUTPUT) {
+        rmSync(filePath);
+        console.log(`Removed stale resume PDF: ${filePath}`);
+      }
+    }
+
     writeFileSync(OUTPUT, normalized);
     console.log(`Wrote ${OUTPUT}`);
   } finally {

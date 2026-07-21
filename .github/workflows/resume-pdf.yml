@@ -132,11 +132,14 @@ jobs:
       # which always includes resume files.
       - name: Commit regenerated PDF if it changed
         run: |
-          PDF="public/Dan_Welch_Resume_DesignSystemsArchitect.pdf"
-          if [[ -n "$(git status --porcelain "$PDF")" ]]; then
+          # Glob, not a fixed name: the filename tracks the resume subtitle
+          # (see content.ts), so a subtitle change renames the file and this
+          # must pick up both the new file and the deletion of the old one.
+          PDF_GLOB="public/Dan_Welch_Resume_*.pdf"
+          if [[ -n "$(git status --porcelain -- "$PDF_GLOB")" ]]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add "$PDF"
+            git add -A -- "$PDF_GLOB"
             git commit -m "chore: regenerate resume PDF [skip ci]"
             git push
           else

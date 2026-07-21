@@ -1,3 +1,14 @@
+// Filename for the downloadable resume PDF, derived from resumeMeta.title
+// below so renaming the resume subtitle can't leave the two out of sync.
+const slugifyResumeTitle = (title: string) =>
+  title
+    .replace(/[^a-zA-Z0-9\s]/g, "")
+    .split(/\s+/)
+    .filter(Boolean)
+    .join("");
+
+const resumeTitle = "Senior Software Engineer · Design Systems";
+
 export const site = {
   name: "Dan Welch",
   role: "Design Systems Architect",
@@ -5,7 +16,7 @@ export const site = {
   location: "Remote · Open to relocation",
   email: "contact@danwelch.net",
   phone: "(407) 741-3175",
-  resume: "/Dan_Welch_Resume_DesignSystemsArchitect.pdf",
+  resume: `/Dan_Welch_Resume_${slugifyResumeTitle(resumeTitle)}.pdf`,
   currentSite: "https://danwelch.net",
   socials: {
     github: "https://github.com/danwelch",
@@ -141,7 +152,7 @@ export const testimonials: Testimonial[] = [
 ];
 
 export const resumeMeta = {
-  title: "Senior Software Engineer · Design Systems",
+  title: resumeTitle,
   summary:
     "Senior Software Engineer with 17+ years building design systems and the tooling that drives their adoption. Primary architect of enterprise design systems at Bankrate and Launch That: React/Next.js component platforms, design token pipelines, and internal tools adopted across product and design teams. Strong in TypeScript, React, Node.js, advanced CSS, Storybook, and AI-assisted engineering workflows.",
   highlights: [
