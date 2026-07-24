@@ -9,6 +9,7 @@ Dan Welch's personal portfolio site. One page, two-column layout. The site itsel
 - `src/lib/content.ts` — all copy: bio, personalBio, experience, testimonials, nav, site metadata, and resume content (`resumeMeta`, `resumeExperience`, `resumeSkills`, `resumeEducation`). Edit content here, not in components.
 - `src/app/page.tsx` — root layout, composes section components.
 - `src/app/resume/page.tsx` — standalone `/resume` page (source for the generated PDF; see Resume PDF below).
+- `src/app/cover-letter/` — local-only cover letter builder; `src/app/testimonials/page.tsx` — local-only printable testimonials doc. See Local-only print tools below.
 - `src/app/globals.css` — CSS custom properties (colors, fonts), base styles, `::selection` rules.
 - `src/components/site/` — one file per section: `about.tsx`, `experience.tsx`, `work.tsx`, `testimonials.tsx`, `contact.tsx`, `footer.tsx`, `side-pane.tsx`, `section.tsx`, plus smaller site pieces: `nav-link.tsx`, `project-card.tsx`, `work-logos.tsx`, `resume-print-button.tsx`.
 - `src/components/ui/` — reusable primitives, all in active use: `button.tsx` (shadcn), `avatar.tsx` (`Avatar` + `Identity`), `eyebrow.tsx`, `icon-button.tsx`, `external-link.tsx`. Every component here must be used by the site; don't add speculative primitives.
@@ -47,6 +48,7 @@ Both are `"use client"` components:
 - Display / headings: Bitter (`font-display`)
 - Body: Inter (`font-body` / `font-sans`)
 - The `/resume` page uses Inter only (loaded in `resume/page.tsx`), no Bitter. See Resume PDF below for why.
+- `/cover-letter` and `/testimonials` reuse the resume's static Inter files (`next/font/local`, relative import into `resume/fonts/`) for the same reason. See Local-only print tools below.
 
 ## Content guidelines
 
@@ -80,3 +82,15 @@ for i in 0..<doc.pageCount { print(doc.page(at: i)!.string ?? "") }
 Run this (or paste real copy/pasted text from Preview.app) after any change to resume fonts, weights, or `next/font` config — `pdftotext` passing is necessary but not sufficient.
 
 **Troubleshooting — a PR push shows no `Resume PDF` run** (Vercel deploys but the Action never fires): GitHub occasionally drops the Actions trigger for a specific commit even when the workflow is valid, active, and the paths match. Push another (any) commit to re-trigger — don't go YAML-hunting. Confirmed once on commit `283aec0`: valid YAML, public repo (no quota), Actions operational, yet zero runs created for that SHA.
+
+## Local-only print tools (`/cover-letter`, `/testimonials`)
+
+Both are personal-use tools, not part of the public site. Each is gated with `if (process.env.VERCEL) notFound();` at the top of the page component: Vercel sets `VERCEL=1` at build time, so the route prerenders to a 404 on any Vercel deploy, while local `next dev` / `next start` are unaffected. This is stricter than `/resume`, which stays public (`robots: { index: false }` only, no `VERCEL` gate) since its content is meant to be shared.
+
+Both reuse the resume's static Inter files and the shared print CSS (`ResumePrintButton`, `.print-page`, `.resume-screen-only`, `@page` in `globals.css`) — exported via `window.print()`, not a headless script. Unlike the resume, there's no CI-regenerated artifact here; these are one-off, manually-triggered exports.
+
+**`/cover-letter`** is a WYSIWYG editor. Drafts persist to `localStorage`, read via `useSyncExternalStore` rather than `useEffect` + `setState` (see `drafts.ts`): this repo's `eslint-plugin-react-hooks` (v7) flags synchronous `setState` calls inside effects and explicitly recommends `useSyncExternalStore` for syncing from a mutable external source. The editable fields (`editable.tsx`) capture their initial value via `useState(value)`'s lazy initializer, not `useRef(value).current` — the same lint rule flags reading a ref's `.current` during render. Both patterns generalize: reach for them over effect+setState / ref-read-during-render anywhere else in this codebase too, or the build will fail lint.
+
+**`/testimonials`** renders every full testimonial from `content.ts` (reusing `fullHtml`, the same trusted HTML already shown by the site's "Full Quote" modal — no new content is exposed by this route existing). Content flows as one continuous block rather than the resume's manually-sliced per-page divs, since testimonial count/length isn't fixed. Two print-pagination gotchas found the hard way, relevant to any future flowing (non-hand-sliced) print document:
+- Chrome's print engine doesn't reliably honor `break-before` / `break-inside` on children of a `display: flex` container. Keep anything that needs to force or avoid a page break inside a plain block-stacking parent, not `flex`.
+- A `margin-top` added to force space at the top of a page break can silently disappear: it collapses with the previous sibling's bottom margin, and browsers then truncate a block's leading margin at the very top of a new page. Use `padding-top` instead — it isn't subject to either.
