@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { notFound } from "next/navigation";
 import { Mail, Link } from "lucide-react";
 import { site, resumeMeta, testimonials, type Testimonial } from "@/lib/content";
 import { ResumePrintButton } from "@/components/site/resume-print-button";
@@ -28,6 +29,11 @@ const CONTACT_ITEMS = [
 ];
 
 export default function TestimonialsPage() {
+  // Local-only tool: Vercel sets VERCEL=1 at build time, so this route
+  // prerenders to a 404 on any Vercel deploy; local next dev / next start
+  // are unaffected. Matches the /cover-letter gate.
+  if (process.env.VERCEL) notFound();
+
   return (
     <div className={`${docFont.className} min-h-screen bg-slate-100 print:bg-white`}>
       <div className="resume-screen-only flex justify-center gap-4 py-6 print:hidden">
